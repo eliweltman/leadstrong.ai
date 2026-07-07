@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Us — LeadStrong.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:90px}
+  body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;color:#0d3038;-webkit-font-smoothing:antialiased;background:#fff}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;width:100%}
+  .navlinks{display:flex;gap:34px;align-items:center}
+  /* hamburger / mobile nav */
+  .hamburger-btn{display:none;flex-direction:column;width:40px;height:40px;flex:0 0 40px;background:none;border:none;padding:0;margin:0;cursor:pointer;align-items:center;justify-content:center;border-radius:8px}
+  .hamburger-btn:hover{background:rgba(13,48,56,0.06)}
+  .hamburger-btn .ham-line{display:block;width:22px;height:2.4px;background:#0d3038;border-radius:2px;transition:transform .28s cubic-bezier(.16,.84,.44,1),opacity .2s ease,margin .28s ease}
+  .hamburger-btn .ham-line+.ham-line{margin-top:5px}
+  .hamburger-btn.is-open .ham-line:nth-child(1){transform:translateY(7.4px) rotate(45deg)}
+  .hamburger-btn.is-open .ham-line:nth-child(2){opacity:0}
+  .hamburger-btn.is-open .ham-line:nth-child(3){transform:translateY(-7.4px) rotate(-45deg)}
+  .mobile-nav-panel{display:none;flex-direction:column;overflow:hidden;position:absolute;top:100%;left:0;right:0;max-height:0;background:#fff;border-bottom:1px solid #e0e8ed;box-shadow:0 16px 32px rgba(13,48,56,0.12);transition:max-height .3s ease;z-index:49}
+  .mobile-nav-panel.is-open{max-height:520px}
+  .mobile-nav-panel a{text-decoration:none;font-weight:600;font-size:16px;color:#0d3038;padding:14px clamp(20px,5vw,40px);border-top:1px solid #eef2f4}
+  .mobile-nav-panel a:first-child{border-top:none}
+  .mobile-nav-panel .mnp-cta{margin:6px clamp(20px,5vw,40px) 16px;padding:13px 20px;background:#EC5A2C;color:#fff;border-radius:10px;text-align:center;border-top:none}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;letter-spacing:1.6px;text-transform:uppercase;color:#0089C6}
+  /* About intro */
+  .about-grid{display:grid;grid-template-columns:0.92fr 1.08fr;gap:clamp(36px,5vw,72px);align-items:center}
+  .media-stack{position:relative}
+  .media-main{width:100%;aspect-ratio:4/5;border:2px dashed #cdd9e0;border-radius:22px;background:#f5f8fa;display:flex;align-items:center;justify-content:center;text-align:center;color:#8a9daa;font-weight:600;font-size:13.5px;line-height:1.5;padding:24px;overflow:hidden}
+  .media-main img{width:100%;height:100%;object-fit:cover}
+  .media-float{position:absolute;right:-20px;bottom:-24px;width:46%;aspect-ratio:1/1;border-radius:18px;background:#eef5f9;border:2px dashed #b9d3e0;box-shadow:0 18px 40px rgba(26,58,74,0.16);display:flex;align-items:center;justify-content:center;text-align:center;color:#7c95a3;font-weight:600;font-size:11.5px;line-height:1.4;padding:14px;overflow:hidden;outline:6px solid #fff}
+  .media-float img{width:100%;height:100%;object-fit:cover}
+  .media-badge{position:absolute;left:-16px;top:26px;background:#0d3038;color:#fff;border-radius:14px;padding:14px 18px;box-shadow:0 16px 36px rgba(10,24,31,0.28);z-index:2}
+  .media-badge .bn{font-weight:800;font-size:26px;line-height:1;letter-spacing:-0.5px}
+  .media-badge .bl{font-weight:600;font-size:11px;letter-spacing:0.6px;text-transform:uppercase;color:#7fc8e6;margin-top:5px}
+  /* case study cards */
+  .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .case-card{display:flex;flex-direction:column;background:#fff;border:1px solid #e0e8ed;border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .25s ease,box-shadow .3s ease,transform .3s cubic-bezier(.16,.84,.44,1)}
+  .case-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(26,58,74,0.14);border-color:#c7e4f4}
+  .thumb-slot{width:100%;aspect-ratio:16/10;background:#f5f8fa;display:flex;align-items:center;justify-content:center;text-align:center;color:#9fb1bb;font-weight:600;font-size:12.5px;line-height:1.5;padding:16px;border-bottom:1px solid #eef2f4}
+  .thumb-slot.dashed{border:2px dashed #cdd9e0;border-radius:14px;margin:14px;width:calc(100% - 28px);aspect-ratio:16/9}
+  .thumb-slot img{width:100%;height:100%;object-fit:cover;display:block}
+  .case-tag{display:inline-block;font-weight:700;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+  /* testimonials */
+  .tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .tst-card{display:flex;flex-direction:column;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.14);border-radius:18px;padding:30px 28px}
+  .tst-quote{flex:1;font-weight:500;font-size:15.5px;line-height:1.6;color:#d9e6ec;margin:0 0 22px}
+  .tst-person{display:flex;align-items:center;gap:13px}
+  .tst-avatar{width:48px;height:48px;border-radius:50%;flex:0 0 auto;background:rgba(255,255,255,0.08);border:1.5px dashed rgba(255,255,255,0.32);display:flex;align-items:center;justify-content:center;color:#7fa6b6;font-size:9px;font-weight:600;text-align:center;line-height:1.2;overflow:hidden}
+  .tst-avatar img{width:100%;height:100%;object-fit:cover}
+  /* Ecosystem */
+  .eco{display:flex;align-items:stretch;gap:0}
+  .eco-bg{position:absolute;inset:0;z-index:0;background-position:center;background-size:cover;background-repeat:no-repeat}
+  .eco-bg-dt{background-image:url('ecosystem-dt.jpg')}
+  .eco-bg-mob{background-image:url('ecosystem-mobile.jpg');display:none}
+  .eco-overlay{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg, rgba(20,52,60,0.80) 0%, rgba(22,58,68,0.66) 52%, rgba(28,71,81,0.72) 100%)}
+  @media(max-width:760px){.eco-bg-dt{display:none}.eco-bg-mob{display:block}}
+  @media(max-width:960px){.case-grid{grid-template-columns:1fr}.tst-grid{grid-template-columns:1fr}}
+  @media(max-width:880px){.about-grid{grid-template-columns:1fr}.eco{flex-direction:column}.media-stack{max-width:440px;margin:0 auto clamp(28px,6vw,44px)}.media-float{width:40%;right:0;bottom:-18px}.media-badge{left:0}}
+  @media(max-width:760px){
+    .navlinks{display:none}
+    .hamburger-btn{display:flex}
+    .mobile-nav-panel{display:flex}
+  }
+  a,button{transition:background .25s ease,color .25s ease,border-color .25s ease,box-shadow .25s ease,transform .2s ease}
+  @keyframes revealIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+  @supports (animation-timeline:view()){
+    @media (prefers-reduced-motion:no-preference){
+      .reveal{animation:revealIn linear both;animation-timeline:view();animation-range:entry 2% cover 24%}
+    }
+  }
+</style>
+</head>
+<body>
+
+<div style="font-family:'Plus Jakarta Sans',sans-serif;position:relative">
+
+<!-- ================= NAV ================= -->
+<nav data-screen-label="Nav" style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border-bottom:1px solid #e0e8ed;overflow:visible">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,5vw,40px)">
+    <a href="index.html#top" style="text-decoration:none;display:block">
+      <img src="LS_Logo_only.png" alt="" style="width:220px;height:auto;">
+    </a>
+    <div class="navlinks">
+      <a href="index.html#what" style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" data-base-style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#0089C6'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">What We Do</a>
+      <a href="index.html#pricing" style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" data-base-style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#0089C6'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Pricing</a>
+      <a href="become-a-partner.html" style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" data-base-style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#0089C6'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Partner</a>
+      <a href="case-studies.html" style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" data-base-style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#0089C6'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Case Studies</a>
+      <a href="#about" style="text-decoration:none;font-weight:700;font-size:15px;color:#0089C6">About Us</a>
+    </div>
+    <div class="navctas" style="display:flex;align-items:center;gap:10px">
+      <a href="index.html#get-started" class="booksession" style="background:#EC5A2C;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 20px;border-radius:10px;white-space:nowrap;cursor:pointer">Book a strategy session</a>
+      <button type="button" class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-panel" onclick="toggleMobileNav()">
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav-panel" id="mobile-nav-panel">
+    <a href="index.html#what" onclick="closeMobileNav()">What We Do</a>
+    <a href="index.html#pricing" onclick="closeMobileNav()">Pricing</a>
+    <a href="become-a-partner.html" onclick="closeMobileNav()">Partner</a>
+    <a href="case-studies.html" onclick="closeMobileNav()">Case Studies</a>
+    <a href="#about" onclick="closeMobileNav()">About Us</a>
+    <a href="index.html#get-started" onclick="closeMobileNav()" class="mnp-cta">Book a strategy session</a>
+  </div>
+</nav>
+
+<!-- ================= ABOUT INTRO ================= -->
+<section id="about" data-screen-label="About Us" style="background:#fff">
+  <div class="wrap" style="padding:clamp(56px,8vw,104px) clamp(20px,5vw,40px)">
+    <div class="reveal" style="max-width:760px;margin:0 auto clamp(44px,5.5vw,72px);text-align:center">
+      <div class="eyebrow" style="margin-bottom:16px;justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"></path></svg>About Us</div>
+      <h1 style="font-weight:800;font-size:clamp(32px,5vw,58px);line-height:1.05;letter-spacing:-1.2px;margin:0 0 18px;color:#0d3038">We've been there,<br>so you don't have to.</h1>
+      <p style="font-weight:500;font-size:clamp(17px,2.1vw,21px);line-height:1.5;color:#4a6070;margin:0 auto;max-width:600px">Our purpose is to ensure no capable business stays hidden from the buyers meant to find it.</p>
+    </div>
+
+    <div class="about-grid reveal">
+      <div class="media-stack">
+        <div class="media-main">Add a founder / team photo here<br>(replace with an &lt;img&gt;)</div>
+        <div class="media-badge"><div class="bn">30+ yrs</div><div class="bl">Operating experience</div></div>
+        <div class="media-float">Add a second image<br>(product, office, or team)</div>
+      </div>
+      <div>
+        <p style="font-weight:400;font-size:clamp(16px,1.8vw,18px);line-height:1.65;color:#243b47;margin:0 0 20px">Our founders have spent over three decades building and running businesses — logistics, 3PL, retail, software, vacation rentals, and a global business-process outsourcing company, <strong style="color:#0d3038;font-weight:700">HireAway.com</strong>.</p>
+        <p style="font-weight:400;font-size:clamp(16px,1.8vw,18px);line-height:1.65;color:#243b47;margin:0 0 26px">We kept hitting the same wall: capable companies with great products stalling — not because they couldn't deliver, but because they couldn't get in front of the right buyers. So we solved it inside our own companies first, then built LeadStrong to do it for everyone else.</p>
+        <p style="font-weight:800;font-size:clamp(20px,2.6vw,29px);line-height:1.22;letter-spacing:-0.6px;margin:0;color:#0d3038">We're not agency people selling theory. <span style="color:#EC5A2C">We're business owners sharing what works.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section data-screen-label="Testimonials" style="position:relative;overflow:hidden;background:radial-gradient(120% 110% at 18% -10%, #235f72 0%, #1C4751 58%), #1C4751;color:#fff">
+  <div style="position:absolute;bottom:-40px;right:8%;width:460px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(236,90,44,0.16),rgba(236,90,44,0) 70%);pointer-events:none;z-index:0"></div>
+  <div class="wrap" style="position:relative;z-index:1;padding:clamp(56px,8vw,104px) clamp(20px,5vw,40px)">
+    <div class="reveal" style="max-width:640px;margin-bottom:clamp(34px,4vw,50px)">
+      <div class="eyebrow" style="color:#37CCEF;margin-bottom:14px"><span style="width:22px;height:2px;background:#37CCEF;display:inline-block"></span>What clients say</div>
+      <h2 style="font-weight:800;font-size:clamp(27px,3.8vw,44px);line-height:1.1;letter-spacing:-0.7px;margin:0;color:#fff">Owners talking to owners.</h2>
+    </div>
+    <div class="tst-grid">
+      <div class="tst-card reveal">
+        <svg width="30" height="23" viewBox="0 0 34 26" fill="#37CCEF" style="opacity:.9;margin-bottom:16px"><path d="M0 26V14.5C0 6.4 4.9 1 13 0l1.5 3.4C10 5 8 7.9 8 11.5h5V26H0zm19 0V14.5C19 6.4 23.9 1 32 0l1.5 3.4C29 5 27 7.9 27 11.5h5V26H19z"></path></svg>
+        <p class="tst-quote">[ Client testimonial quote goes here — a few sentences on the results they saw and what it was like working with LeadStrong. ]</p>
+        <div class="tst-person">
+          <div class="tst-avatar">Add<br>photo</div>
+          <div><div style="font-weight:700;font-size:14.5px;color:#fff">[ Client Name ]</div><div style="font-weight:400;font-size:12.5px;color:#9fb3bd">[ Title, Company ]</div></div>
+        </div>
+      </div>
+      <div class="tst-card reveal">
+        <svg width="30" height="23" viewBox="0 0 34 26" fill="#37CCEF" style="opacity:.9;margin-bottom:16px"><path d="M0 26V14.5C0 6.4 4.9 1 13 0l1.5 3.4C10 5 8 7.9 8 11.5h5V26H0zm19 0V14.5C19 6.4 23.9 1 32 0l1.5 3.4C29 5 27 7.9 27 11.5h5V26H19z"></path></svg>
+        <p class="tst-quote">[ Client testimonial quote goes here — highlight a specific metric or moment that made the partnership worth it. ]</p>
+        <div class="tst-person">
+          <div class="tst-avatar">Add<br>photo</div>
+          <div><div style="font-weight:700;font-size:14.5px;color:#fff">[ Client Name ]</div><div style="font-weight:400;font-size:12.5px;color:#9fb3bd">[ Title, Company ]</div></div>
+        </div>
+      </div>
+      <div class="tst-card reveal">
+        <svg width="30" height="23" viewBox="0 0 34 26" fill="#37CCEF" style="opacity:.9;margin-bottom:16px"><path d="M0 26V14.5C0 6.4 4.9 1 13 0l1.5 3.4C10 5 8 7.9 8 11.5h5V26H0zm19 0V14.5C19 6.4 23.9 1 32 0l1.5 3.4C29 5 27 7.9 27 11.5h5V26H19z"></path></svg>
+        <p class="tst-quote">[ Client testimonial quote goes here — speak to the "operators, not agency people" difference. ]</p>
+        <div class="tst-person">
+          <div class="tst-avatar">Add<br>photo</div>
+          <div><div style="font-weight:700;font-size:14.5px;color:#fff">[ Client Name ]</div><div style="font-weight:400;font-size:12.5px;color:#9fb3bd">[ Title, Company ]</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CASE STUDIES ================= -->
+<section data-screen-label="Case Studies" style="background:#fff">
+  <div class="wrap" style="padding:clamp(56px,8vw,104px) clamp(20px,5vw,40px)">
+    <div class="reveal" style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:clamp(32px,4vw,48px)">
+      <div style="max-width:600px">
+        <div class="eyebrow" style="margin-bottom:14px"><span style="width:22px;height:2px;background:#0089C6;display:inline-block"></span>Case Studies</div>
+        <h2 style="font-weight:800;font-size:clamp(27px,3.8vw,44px);line-height:1.1;letter-spacing:-0.7px;margin:0 0 12px;color:#0d3038">Proof, not promises.</h2>
+        <p style="font-weight:400;font-size:clamp(15.5px,1.7vw,17px);line-height:1.6;color:#4a6070;margin:0">Real growth engines we've built and run. Explore the stories behind the results.</p>
+      </div>
+      <a href="case-studies.html" style="display:inline-flex;align-items:center;gap:8px;color:#0089C6;text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap" onmouseover="this.style.color='#066a99'" onmouseout="this.style.color='#0089C6'">View all case studies <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+
+    <div class="case-grid">
+      <!-- Featured: Lumii (live) -->
+      <a href="case-studies.html" class="case-card reveal">
+        <div class="thumb-slot" style="padding:0"><img src="lumii-case-thumb.jpg" alt="Lumii case study"></div>
+        <div style="padding:24px 24px 26px;display:flex;flex-direction:column;flex:1">
+          <span class="case-tag" style="color:#0F6E56;background:#E1F5EE;margin-bottom:12px;align-self:flex-start">Live · Consumer Product</span>
+          <h3 style="font-weight:700;font-size:19px;letter-spacing:-0.3px;color:#0d3038;margin:0 0 8px">Lumii</h3>
+          <p style="font-weight:400;font-size:14px;line-height:1.55;color:#4a6070;margin:0 0 16px;flex:1">From a founder's idea to an 800+ person waitlist — a full growth engine built brand-to-launch.</p>
+          <span style="display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:14px;color:#0089C6">Read the story <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+        </div>
+      </a>
+
+      <!-- Placeholder case study 2 -->
+      <div class="case-card reveal" style="cursor:default">
+        <div class="thumb-slot dashed">Drop a case-study thumbnail here<br>(16:9 image)</div>
+        <div style="padding:8px 24px 26px;display:flex;flex-direction:column;flex:1">
+          <span class="case-tag" style="color:#6b8392;background:#eef3f6;margin-bottom:12px;align-self:flex-start">Coming soon</span>
+          <h3 style="font-weight:700;font-size:19px;letter-spacing:-0.3px;color:#0d3038;margin:0 0 8px">[ Client name ]</h3>
+          <p style="font-weight:400;font-size:14px;line-height:1.55;color:#4a6070;margin:0;flex:1">[ One-line summary of the result — e.g. "3× qualified pipeline in 90 days." ]</p>
+        </div>
+      </div>
+
+      <!-- Placeholder case study 3 -->
+      <div class="case-card reveal" style="cursor:default">
+        <div class="thumb-slot dashed">Drop a case-study thumbnail here<br>(16:9 image)</div>
+        <div style="padding:8px 24px 26px;display:flex;flex-direction:column;flex:1">
+          <span class="case-tag" style="color:#6b8392;background:#eef3f6;margin-bottom:12px;align-self:flex-start">Coming soon</span>
+          <h3 style="font-weight:700;font-size:19px;letter-spacing:-0.3px;color:#0d3038;margin:0 0 8px">[ Client name ]</h3>
+          <p style="font-weight:400;font-size:14px;line-height:1.55;color:#4a6070;margin:0;flex:1">[ One-line summary of the result — e.g. "From cold start to booked calendar." ]</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ECOSYSTEM ================= -->
+<section id="ecosystem" data-screen-label="Ecosystem" style="position:relative;overflow:hidden;background:radial-gradient(120% 110% at 18% -10%, #235f72 0%, #1C4751 58%), #1C4751;color:#fff">
+  <div class="eco-bg eco-bg-dt"></div>
+  <div class="eco-bg eco-bg-mob"></div>
+  <div class="eco-overlay"></div>
+  <div class="wrap" style="position:relative;z-index:1;padding:clamp(56px,8vw,104px) clamp(20px,5vw,40px)">
+    <div class="reveal" style="max-width:760px;margin-bottom:48px">
+      <div style="display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;letter-spacing:1.6px;text-transform:uppercase;color:#1ECB8E;margin-bottom:14px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1ECB8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6"></path><path d="M8.5 8.5h-1A3.5 3.5 0 0 0 4 12a3.5 3.5 0 0 0 3.5 3.5h1"></path><path d="M15.5 8.5h1A3.5 3.5 0 0 1 20 12a3.5 3.5 0 0 1-3.5 3.5h-1"></path></svg>The Ecosystem</div>
+      <h2 style="font-weight:700;font-size:clamp(28px,4vw,44px);line-height:1.12;letter-spacing:-0.5px;margin:0 0 16px;color:#fff">One growth system. Two engines.</h2>
+      <p style="font-weight:400;font-size:clamp(16px,2vw,19px);line-height:1.55;color:#9fb3bd;margin:0">LeadStrong fills your pipeline. When you're ready to scale the team behind it, HireAway is there.</p>
+    </div>
+    <div class="eco reveal">
+      <div style="flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:34px 30px">
+        <div style="font-weight:800;font-size:22px;margin-bottom:12px"><span style="color:#fff">Lead</span><span style="color:#fff">Strong.ai</span></div>
+        <p style="font-weight:400;font-size:15.5px;line-height:1.55;color:#c4d3db;margin:0">AI-powered outreach that generates qualified pipeline at scale.</p>
+      </div>
+      <div style="flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;gap:8px">
+        <svg width="40" height="20" viewBox="0 0 40 20" fill="none" stroke="#1ECB8E" stroke-width="2"><path d="M8 6l-6 4 6 4M32 6l6 4-6 4M2 10h36"></path></svg>
+      </div>
+      <div style="flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:34px 30px">
+        <div style="font-weight:800;font-size:22px;margin-bottom:12px;color:#fff">HireAway</div>
+        <p style="font-weight:400;font-size:15.5px;line-height:1.55;color:#c4d3db;margin:0">Execution talent to help you close and deliver on the growth you generate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer data-screen-label="Footer" style="background:#1C4751;color:#fff">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding:32px clamp(20px,5vw,40px)">
+    <div style="font-weight:800;font-size:19px">
+     <img src="LS_Logo_vertical_white.png" alt="" style="width:180px;height:auto;"></div>
+    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
+      <a href="index.html" style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" data-base-style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#fff'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Home</a>
+      <a href="#" style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" data-base-style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#fff'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Privacy</a>
+      <a href="mailto:info@leadstrong.ai" style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" data-base-style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#fff'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">info@leadstrong.ai</a>
+    </div>
+    <div style="font-weight:300;font-size:13px;color:#8aa3af">Copyright 2026 LeadStrong</div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+  function toggleMobileNav() {
+    var btn = document.getElementById('hamburger-btn');
+    var panel = document.getElementById('mobile-nav-panel');
+    if (panel.classList.contains('is-open')) { closeMobileNav(); }
+    else {
+      panel.classList.add('is-open');
+      btn.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.setAttribute('aria-label', 'Close menu');
+    }
+  }
+  function closeMobileNav() {
+    var btn = document.getElementById('hamburger-btn');
+    var panel = document.getElementById('mobile-nav-panel');
+    panel.classList.remove('is-open');
+    btn.classList.remove('is-open');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Open menu');
+  }
+  window.addEventListener('resize', function () { if (window.innerWidth > 760) closeMobileNav(); });
+</script>
+
+</body></html>

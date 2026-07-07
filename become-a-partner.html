@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Become a Partner — LeadStrong.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:90px}
+  body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;color:#0d3038;-webkit-font-smoothing:antialiased;background:#fff}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;width:100%}
+  .navlinks{display:flex;gap:34px;align-items:center}
+  /* hamburger / mobile nav */
+  .hamburger-btn{display:none;flex-direction:column;width:40px;height:40px;flex:0 0 40px;background:none;border:none;padding:0;margin:0;cursor:pointer;align-items:center;justify-content:center;border-radius:8px}
+  .hamburger-btn:hover{background:rgba(13,48,56,0.06)}
+  .hamburger-btn .ham-line{display:block;width:22px;height:2.4px;background:#0d3038;border-radius:2px;transition:transform .28s cubic-bezier(.16,.84,.44,1),opacity .2s ease,margin .28s ease}
+  .hamburger-btn .ham-line+.ham-line{margin-top:5px}
+  .hamburger-btn.is-open .ham-line:nth-child(1){transform:translateY(7.4px) rotate(45deg)}
+  .hamburger-btn.is-open .ham-line:nth-child(2){opacity:0}
+  .hamburger-btn.is-open .ham-line:nth-child(3){transform:translateY(-7.4px) rotate(-45deg)}
+  .mobile-nav-panel{display:none;flex-direction:column;overflow:hidden;position:absolute;top:100%;left:0;right:0;max-height:0;background:#fff;border-bottom:1px solid #e0e8ed;box-shadow:0 16px 32px rgba(13,48,56,0.12);transition:max-height .3s ease;z-index:49}
+  .mobile-nav-panel.is-open{max-height:520px}
+  .mobile-nav-panel a{text-decoration:none;font-weight:600;font-size:16px;color:#0d3038;padding:14px clamp(20px,5vw,40px);border-top:1px solid #eef2f4}
+  .mobile-nav-panel a:first-child{border-top:none}
+  .mobile-nav-panel .mnp-cta{margin:6px clamp(20px,5vw,40px) 16px;padding:13px 20px;background:#EC5A2C;color:#fff;border-radius:10px;text-align:center;border-top:none}
+  /* steps */
+  .bp-steps{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;align-items:start;gap:0;max-width:820px;margin:0 auto}
+  .bp-connector{display:flex;align-items:center;justify-content:center;padding-top:38px;color:#b6c6cf}
+  .bp-step{display:flex;flex-direction:column;align-items:center;text-align:center}
+  .icon-ring{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+  .icon-ring svg{width:28px;height:28px}
+  .ring-1{background:#E1F5EE;border:2.5px solid #1ECB8E}
+  .ring-2{background:#1C4751;border:2.5px solid #1C4751}
+  .ring-3{background:#EC5A2C;border:2.5px solid #EC5A2C}
+  .step-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:999px;margin-bottom:10px}
+  .tag-1{background:#E1F5EE;color:#0F6E56}
+  .tag-2{background:#E8EEF5;color:#1C4751}
+  .tag-3{background:#FEF3EC;color:#B85200}
+  .step-title{font-size:17px;font-weight:700;color:#0d3038;margin-bottom:6px;line-height:1.3}
+  .step-desc{font-size:13.5px;color:#4a6070;line-height:1.6;max-width:180px;margin:0 auto}
+  /* form */
+  .bp-card{background:#fff;border:1px solid #e0e8ed;border-radius:20px;padding:clamp(26px,4vw,42px);box-shadow:0 18px 50px rgba(26,58,74,0.08);max-width:760px;margin:0 auto}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .form-group{margin-bottom:16px}
+  .form-group label{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px;color:#4a6070;margin-bottom:6px}
+  .req{color:#c0392b}
+  .form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 14px;font-family:inherit;font-size:15px;border:1.5px solid #e0e8ed;border-radius:10px;background:#fff;color:#0d3038;outline:none;transition:border-color .15s ease,box-shadow .15s ease}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#0089C6;box-shadow:0 0 0 3px rgba(0,137,198,0.10)}
+  .form-group textarea{resize:vertical;min-height:104px;line-height:1.5}
+  .submit-btn{width:100%;padding:16px;background:#EC5A2C;color:#fff;border:none;border-radius:12px;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;transition:background .2s ease}
+  .submit-btn:hover{background:#cf4a1f}
+  .err-msg{color:#c0392b;font-weight:600;font-size:13px;text-align:center;margin-top:12px;display:none}
+  .form-note{font-size:12px;color:#8a9daa;text-align:center;margin-top:12px;line-height:1.55}
+  .success-msg{display:none;text-align:center;padding:24px 8px}
+  .success-check{width:66px;height:66px;border-radius:50%;background:#E1F5EE;display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
+  .success-title{font-weight:800;font-size:clamp(23px,3vw,30px);letter-spacing:-0.4px;color:#0d3038;margin-bottom:12px}
+  .success-sub{font-weight:400;font-size:15.5px;color:#4a6070;line-height:1.7;max-width:440px;margin:0 auto}
+  /* tooltip */
+  .partner-type-group{position:relative}
+  .info-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#0089C6;color:#fff;font-size:11px;font-weight:800;cursor:pointer;border:none;outline:none;flex-shrink:0;line-height:1;font-style:italic;font-family:Georgia,serif}
+  .tooltip-box{display:none;position:absolute;left:0;top:calc(100% + 8px);z-index:100;background:#1C4751;color:#fff;font-size:12.5px;line-height:1.6;border-radius:10px;padding:12px 14px;max-width:340px;box-shadow:0 10px 30px rgba(10,24,31,0.28);width:max-content}
+  .tooltip-box::before{content:'';position:absolute;top:-6px;left:16px;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:6px solid #1C4751}
+  .tooltip-box .tt-row{margin-bottom:6px}
+  .tooltip-box .tt-row:last-child{margin-bottom:0}
+  .tt-label{font-weight:700;color:#37CCEF}
+  @media(max-width:760px){
+    .navlinks{display:none}
+    .hamburger-btn{display:flex}
+    .mobile-nav-panel{display:flex}
+    .bp-steps{grid-template-columns:1fr;gap:28px;max-width:340px}
+    .bp-connector{display:none}
+    .form-row{grid-template-columns:1fr}
+    .step-desc{max-width:none}
+  }
+  a,button{transition:background .25s ease,color .25s ease,border-color .25s ease,box-shadow .25s ease,transform .2s ease}
+  @keyframes revealIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+  @supports (animation-timeline:view()){
+    @media (prefers-reduced-motion:no-preference){
+      .reveal{animation:revealIn linear both;animation-timeline:view();animation-range:entry 2% cover 24%}
+    }
+  }
+</style>
+</head>
+<body>
+
+<div style="font-family:'Plus Jakarta Sans',sans-serif;position:relative">
+
+<!-- ================= NAV ================= -->
+<nav data-screen-label="Nav" style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border-bottom:1px solid #e0e8ed;overflow:visible">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,5vw,40px)">
+    <a href="index.html#top" style="text-decoration:none;display:block">
+      <img src="LS_Logo_only.png" alt="" style="width:220px;height:auto;">
+    </a>
+    <div class="navlinks">
+      <a href="index.html#what" style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" data-base-style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#0089C6'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">What We Do</a>
+      <a href="index.html#pricing" style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" data-base-style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#0089C6'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Pricing</a>
+      <a href="#partner" style="text-decoration:none;font-weight:700;font-size:15px;color:#0089C6">Partner</a>
+      <a href="case-studies.html" style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" data-base-style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#0089C6'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Case Studies</a>
+      <a href="about-us.html" style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" data-base-style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#0089C6'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">About Us</a>
+    </div>
+    <div class="navctas" style="display:flex;align-items:center;gap:10px">
+      <a href="index.html#get-started" class="booksession" style="background:#EC5A2C;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 20px;border-radius:10px;white-space:nowrap;cursor:pointer">Book a strategy session</a>
+      <button type="button" class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-panel" onclick="toggleMobileNav()">
+        <span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav-panel" id="mobile-nav-panel">
+    <a href="index.html#what" onclick="closeMobileNav()">What We Do</a>
+    <a href="index.html#pricing" onclick="closeMobileNav()">Pricing</a>
+    <a href="#partner" onclick="closeMobileNav()">Partner</a>
+    <a href="case-studies.html" onclick="closeMobileNav()">Case Studies</a>
+    <a href="about-us.html" onclick="closeMobileNav()">About Us</a>
+    <a href="index.html#get-started" onclick="closeMobileNav()" class="mnp-cta">Book a strategy session</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section id="partner" data-screen-label="Become a Partner" style="position:relative;overflow:hidden;background:radial-gradient(120% 110% at 78% -10%, #235264 0%, #1C4751 58%), #1C4751;color:#fff">
+  <div style="position:absolute;bottom:-40px;left:8%;width:520px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(236,90,44,0.16),rgba(236,90,44,0) 68%);pointer-events:none;z-index:0"></div>
+  <div style="position:absolute;top:-100px;right:-80px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(55,204,239,0.16),rgba(55,204,239,0) 68%);pointer-events:none;z-index:0"></div>
+  <div class="wrap" style="position:relative;z-index:1;padding:clamp(54px,7vw,88px) clamp(20px,5vw,40px);text-align:center">
+    <div style="display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:#37CCEF;margin-bottom:16px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#37CCEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>Partner Program</div>
+    <h1 style="font-weight:800;font-size:clamp(30px,4.6vw,50px);line-height:1.1;letter-spacing:-0.6px;margin:0;color:#fff">Grow your business<br>with <span style="color:#FFA233">LeadStrong.ai</span></h1>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS + FORM ================= -->
+<section data-screen-label="Partner Form" style="background:#f5f8fa">
+  <div class="wrap" style="padding:clamp(48px,7vw,88px) clamp(20px,5vw,40px)">
+
+    <div class="reveal" style="margin-bottom:clamp(40px,5vw,64px)">
+      <div style="font-weight:700;font-size:13px;letter-spacing:1.6px;text-transform:uppercase;color:#0089C6;text-align:center;margin-bottom:clamp(28px,3vw,40px)">How it works</div>
+      <div class="bp-steps">
+        <div class="bp-step">
+          <div class="icon-ring ring-1"><svg viewBox="0 0 24 24" fill="none" stroke="#1ECB8E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="9" y1="13" x2="15" y2="13"></line><line x1="9" y1="17" x2="12" y2="17"></line></svg></div>
+          <span class="step-tag tag-1">Step 1</span>
+          <div class="step-title">Complete the form</div>
+          <div class="step-desc">Tell us about yourself. Two minutes is all it takes to open the door.</div>
+        </div>
+        <div class="bp-connector"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+        <div class="bp-step">
+          <div class="icon-ring ring-2"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+          <span class="step-tag tag-2">Step 2</span>
+          <div class="step-title">Meet our team</div>
+          <div class="step-desc">A Partner Success resource calls you to understand your goals and find the right fit.</div>
+        </div>
+        <div class="bp-connector"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+        <div class="bp-step">
+          <div class="icon-ring ring-3"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></div>
+          <span class="step-tag tag-3">Step 3</span>
+          <div class="step-title">Start growing</div>
+          <div class="step-desc">We onboard you on the right program and you start generating results with LeadStrong.ai.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bp-card reveal">
+      <div id="partner-form">
+        <h2 style="font-weight:700;font-size:clamp(22px,2.6vw,28px);letter-spacing:-0.4px;color:#0d3038;margin:0 0 8px">Become a Partner</h2>
+        <p style="font-weight:400;font-size:15px;line-height:1.55;color:#4a6070;margin:0 0 26px">Fill in your details below. Our Partner Success team will be in touch to schedule a call and walk you through the program that best fits your goals.</p>
+
+        <div class="form-row">
+          <div class="form-group"><label>First name <span class="req">*</span></label><input type="text" id="fname" placeholder="First name"></div>
+          <div class="form-group"><label>Last name <span class="req">*</span></label><input type="text" id="lname" placeholder="Last name"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Company name <span class="req">*</span></label><input type="text" id="company" placeholder="Your company"></div>
+          <div class="form-group"><label>Business email <span class="req">*</span></label><input type="email" id="email" placeholder="you@company.com"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Phone number</label><input type="tel" id="phone" placeholder="+1 (416) 555-0100"></div>
+          <div class="form-group"><label>Website</label><input type="url" id="website" placeholder="https://yoursite.com"></div>
+        </div>
+        <div class="form-group">
+          <label>Industry</label>
+          <select id="industry">
+            <option value="">Select your industry</option>
+            <option>Marketing &amp; Advertising</option>
+            <option>Technology &amp; SaaS</option>
+            <option>Consulting &amp; Professional Services</option>
+            <option>Staffing &amp; Recruitment</option>
+            <option>Financial Services</option>
+            <option>Real Estate</option>
+            <option>E-commerce &amp; Retail</option>
+            <option>Manufacturing &amp; Distribution</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group partner-type-group">
+          <label>Please indicate your preferred partnership type <span class="req">*</span>
+            <button type="button" class="info-btn" onclick="toggleTooltip(event)" aria-label="Learn more about partner types">i</button>
+          </label>
+          <div class="tooltip-box" id="partner-tooltip">
+            <div class="tt-row"><span class="tt-label">Referral Partner —</span> You refer prospect clients to LeadStrong.ai and we handle the rest.</div>
+            <div class="tt-row"><span class="tt-label">Active Partner —</span> You refer, manage, and support prospect clients directly yourself.</div>
+          </div>
+          <select id="partner-type">
+            <option value="">Choose your partner type</option>
+            <option value="referral">Referral Partner</option>
+            <option value="active">Active Partner</option>
+            <option value="other">Other</option>
+            <option value="notsure">I am not sure</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Tell us about yourself and why you’re interested in partnering with LeadStrong.ai</label>
+          <textarea id="notes" placeholder="e.g. I work with a network of B2B companies in the professional services space and I’m looking for ways to add value for my clients through smarter outreach solutions…"></textarea>
+        </div>
+        <button class="submit-btn" onclick="submitPartnerForm()">Request a partner consultation</button>
+        <div class="err-msg" id="err-msg">Please fill in all required fields to continue.</div>
+        <p class="form-note">By submitting this form you agree to be contacted by a member of the LeadStrong.ai team. Your information will not be shared with third parties.</p>
+      </div>
+
+      <div class="success-msg" id="success-msg">
+        <div class="success-check"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1ECB8E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></div>
+        <div class="success-title">Thank you for your interest!</div>
+        <div class="success-sub">A member of our Partner Success team will be in touch shortly to schedule your consultation call.<br><br>We look forward to exploring how we can grow together.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer data-screen-label="Footer" style="background:#1C4751;color:#fff">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding:32px clamp(20px,5vw,40px)">
+    <div style="font-weight:800;font-size:19px"><img src="LS_Logo_vertical_white.png" alt="" style="width:180px;height:auto;"></div>
+    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
+      <a href="index.html" style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" data-base-style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#fff'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Home</a>
+      <a href="#" style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" data-base-style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#fff'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Privacy</a>
+      <a href="mailto:partners@leadstrong.ai" style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" data-base-style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#fff'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">partners@leadstrong.ai</a>
+    </div>
+    <div style="font-weight:300;font-size:13px;color:#8aa3af">Copyright 2026 LeadStrong</div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+  function toggleMobileNav(){
+    var btn=document.getElementById('hamburger-btn'), panel=document.getElementById('mobile-nav-panel');
+    if(panel.classList.contains('is-open')){ closeMobileNav(); }
+    else{ panel.classList.add('is-open'); btn.classList.add('is-open'); btn.setAttribute('aria-expanded','true'); btn.setAttribute('aria-label','Close menu'); }
+  }
+  function closeMobileNav(){
+    var btn=document.getElementById('hamburger-btn'), panel=document.getElementById('mobile-nav-panel');
+    panel.classList.remove('is-open'); btn.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); btn.setAttribute('aria-label','Open menu');
+  }
+  window.addEventListener('resize',function(){ if(window.innerWidth>760) closeMobileNav(); });
+
+  function toggleTooltip(e){
+    e.stopPropagation();
+    var tt=document.getElementById('partner-tooltip');
+    tt.style.display = tt.style.display==='block' ? 'none' : 'block';
+  }
+  document.addEventListener('click',function(){
+    var tt=document.getElementById('partner-tooltip');
+    if(tt) tt.style.display='none';
+  });
+
+  function submitPartnerForm(){
+    var fn=document.getElementById('fname').value.trim();
+    var ln=document.getElementById('lname').value.trim();
+    var co=document.getElementById('company').value.trim();
+    var em=document.getElementById('email').value.trim();
+    var pt=document.getElementById('partner-type').value;
+    var err=document.getElementById('err-msg');
+    if(!fn||!ln||!co||!em||!pt){ err.style.display='block'; return; }
+    err.style.display='none';
+    document.getElementById('partner-form').style.display='none';
+    document.getElementById('success-msg').style.display='block';
+  }
+</script>
+
+</body></html>
