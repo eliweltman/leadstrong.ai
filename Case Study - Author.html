@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Study: Independent Author &amp; Speaker — LeadStrong.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<script src="image-slot.js"></script>
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:90px}
+  body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;color:#0d3038;-webkit-font-smoothing:antialiased;background:#fff;overflow-x:hidden}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;width:100%}
+  .navlinks{display:flex;gap:32px;align-items:center}
+  .navlinks a{white-space:nowrap}
+  .scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#37CCEF,#0089C6,#EC5A2C);z-index:60;transition:width .1s linear}
+  .hamburger-btn{display:none;flex-direction:column;width:40px;height:40px;flex:0 0 40px;background:none;border:none;padding:0;margin:0;cursor:pointer;align-items:center;justify-content:center;border-radius:8px}
+  .hamburger-btn:hover{background:rgba(13,48,56,0.06)}
+  .hamburger-btn .ham-line{display:block;width:22px;height:2.4px;background:#0d3038;border-radius:2px;transition:transform .28s cubic-bezier(.16,.84,.44,1),opacity .2s ease}
+  .hamburger-btn .ham-line+.ham-line{margin-top:5px}
+  .hamburger-btn.is-open .ham-line:nth-child(1){transform:translateY(7.4px) rotate(45deg)}
+  .hamburger-btn.is-open .ham-line:nth-child(2){opacity:0}
+  .hamburger-btn.is-open .ham-line:nth-child(3){transform:translateY(-7.4px) rotate(-45deg)}
+  .mobile-nav-panel{display:none;flex-direction:column;overflow:hidden;position:absolute;top:100%;left:0;right:0;max-height:0;background:#fff;border-bottom:1px solid #e0e8ed;box-shadow:0 16px 32px rgba(13,48,56,0.12);transition:max-height .3s ease;z-index:49}
+  .mobile-nav-panel.is-open{max-height:min(82vh,760px);overflow-y:auto}
+  .mobile-nav-panel a{text-decoration:none;font-weight:600;font-size:16px;color:#0d3038;padding:14px clamp(20px,5vw,40px);border-top:1px solid #eef2f4}
+  .mobile-nav-panel a:first-child{border-top:none}
+  .mobile-nav-panel .mnp-cta{margin:6px clamp(20px,5vw,40px) 16px;padding:13px 20px;background:#EC5A2C;color:#fff;border-radius:10px;text-align:center;border-top:none}
+  .nav-dd{position:relative}
+  .nav-dd-chev{transition:transform .25s ease}
+  .nav-dd-panel{position:absolute;top:100%;left:0;transform:translateY(6px);background:#fff;border:1px solid #e4ecf0;border-radius:14px;box-shadow:0 20px 44px rgba(13,48,56,0.16);padding:10px;min-width:250px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease;z-index:60}
+  .nav-dd-panel a{display:block;padding:9px 12px;border-radius:9px;font-weight:400;font-size:14px;color:#0d3038;text-decoration:none;white-space:nowrap}
+  .nav-dd-panel a:hover{background:#f5f8fa;color:#0089C6}
+  .nav-dd:hover .nav-dd-panel,.nav-dd:focus-within .nav-dd-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+  .nav-dd:hover .nav-dd-chev,.nav-dd:focus-within .nav-dd-chev{transform:rotate(180deg)}
+  .nav-dd-panel-wide{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;min-width:420px}
+  .nav-dd-col{display:flex;flex-direction:column}
+  .mnp-group-label{font-weight:700;font-size:11.5px;letter-spacing:0.6px;text-transform:uppercase;color:#8a9daa;padding:14px clamp(20px,5vw,40px) 6px;border-top:1px solid #eef2f4}
+  .mobile-nav-panel a.mnp-sub{border-top:none;padding-left:calc(clamp(20px,5vw,40px) + 14px);font-weight:500;font-size:14.5px}
+  @media(max-width:1100px){.navlinks{display:none}.hamburger-btn{display:flex}.mobile-nav-panel{display:flex}}
+
+  .reveal{opacity:0;transform:translateY(38px);transition:opacity .8s cubic-bezier(.16,.84,.44,1),transform .8s cubic-bezier(.16,.84,.44,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.r-left{transform:translateX(-46px)}
+  .reveal.r-right{transform:translateX(46px)}
+  .reveal.r-left.in,.reveal.r-right.in{transform:none}
+  .reveal.r-scale{transform:scale(.9)}
+  .reveal.r-scale.in{transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none}}
+
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;letter-spacing:1.6px;text-transform:uppercase}
+  .sec-pad{padding:clamp(64px,9vw,120px) clamp(20px,5vw,40px)}
+
+  .cs-hero{position:relative;overflow:hidden;background:radial-gradient(120% 120% at 82% -10%, #276274 0%, #1C4751 54%, #163a44 100%);color:#fff}
+  .cs-hero .halo{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
+  .meta-chips{display:flex;flex-wrap:wrap;gap:10px}
+  .meta-chip{display:flex;flex-direction:column;gap:3px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px 16px;min-width:0}
+  .meta-chip .k{font-weight:700;font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:#7fc8e6}
+  .meta-chip .v{font-weight:600;font-size:13.5px;color:#e9f2f6}
+
+  .approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .approach-card{background:#fff;border:1px solid #e4ecf0;border-radius:18px;padding:clamp(26px,3vw,32px)}
+  .approach-ic{width:44px;height:44px;border-radius:12px;background:#E6F3F9;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+
+  .metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .metric{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:26px 22px}
+  .metric .num{font-weight:800;font-size:clamp(26px,3vw,36px);line-height:1;letter-spacing:-1px;color:#fff}
+  .metric .lbl{font-weight:600;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#8fb0bd;margin-top:10px}
+  .metric.hot .num{color:#FFA233}
+  .metric.cool .num{color:#37CCEF}
+
+  .stand-num{font-weight:800;font-size:clamp(50px,9vw,120px);line-height:.9;letter-spacing:-3px;background:linear-gradient(120deg,#37CCEF,#0089C6);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+
+  .next-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .next-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:26px 24px}
+
+  @media(max-width:900px){
+    .approach-grid{grid-template-columns:1fr}
+    .metric-grid{grid-template-columns:repeat(2,1fr)}
+    .challenge-grid{grid-template-columns:1fr!important;gap:28px!important}
+    .next-grid{grid-template-columns:1fr!important}
+    .next-grid>div:first-child{max-width:100%!important}
+    .cta-grid{grid-template-columns:1fr!important}
+    .cta-grid .reveal.r-left{order:2}
+    .contact-grid{max-width:100%!important}
+    .next-list{grid-template-columns:1fr}
+  }
+  @media(max-width:480px){
+    .contact-grid{grid-template-columns:1fr!important}
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<div style="font-family:'Plus Jakarta Sans',sans-serif;position:relative">
+
+<!-- ================= NAV ================= -->
+<nav data-screen-label="Nav" style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border-bottom:1px solid #e0e8ed;overflow:visible">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,5vw,40px)">
+    <a href="LeadStrong-Landing.html#top" style="text-decoration:none;display:block"><img src="LS_Logo_only.png" alt="" style="width:220px;height:auto"></a>
+    <div class="navlinks">
+      <div class="nav-dd"><button type="button" class="nav-dd-trigger" data-base-style="display:inline-flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer;font-family:inherit;font-weight:600;font-size:15px;color:#4a6070;padding:0" style="display:inline-flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer;font-family:inherit;font-weight:600;font-size:15px;color:#4a6070;padding:0" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#0089C6'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Resources<svg class="nav-dd-chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button><div class="nav-dd-panel nav-dd-panel-wide"><div class="nav-dd-col"><a href="Lead%20Generation%20Services.html">Lead Generation Services</a><a href="B2B%20Lead%20Generation.html">B2B Lead Generation</a><a href="Answer%20Engine%20Optimization.html">Answer Engine Optimization</a></div><div class="nav-dd-col"><a href="Website%20Conversion%20Optimization.html">Website Conversion Optimization</a><a href="Performance%20Marketing%20Services.html">Performance Marketing Services</a><a href="Growth%20Marketing%20Agency.html">Growth Marketing Agency</a></div></div></div>
+      <a href="About%20Us.html" style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" data-base-style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#0089C6'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">About Us</a>
+      <a href="Become%20a%20Partner.html" style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" data-base-style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#0089C6'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Partner</a>
+      <a href="Case%20Studies.html" style="text-decoration:none;font-weight:700;font-size:15px;color:#0089C6">Case Studies</a>
+      <a href="LeadStrong-Landing.html#pricing" style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" data-base-style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#0089C6'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Pricing</a>
+    </div>
+    <div class="navctas" style="display:flex;align-items:center;gap:10px">
+      <a href="LeadStrong-Landing.html#get-started" style="background:#EC5A2C;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 20px;border-radius:10px;white-space:nowrap;cursor:pointer">Book a strategy session</a>
+      <button type="button" class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-panel" onclick="toggleMobileNav()">
+        <span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav-panel" id="mobile-nav-panel">
+    <div class="mnp-group-label">Resources</div>
+    <a href="Lead%20Generation%20Services.html" onclick="closeMobileNav()" class="mnp-sub">Lead Generation Services</a>
+    <a href="B2B%20Lead%20Generation.html" onclick="closeMobileNav()" class="mnp-sub">B2B Lead Generation</a>
+    <a href="Answer%20Engine%20Optimization.html" onclick="closeMobileNav()" class="mnp-sub">Answer Engine Optimization</a>
+    <a href="Website%20Conversion%20Optimization.html" onclick="closeMobileNav()" class="mnp-sub">Website Conversion Optimization</a>
+    <a href="Performance%20Marketing%20Services.html" onclick="closeMobileNav()" class="mnp-sub">Performance Marketing Services</a>
+    <a href="Growth%20Marketing%20Agency.html" onclick="closeMobileNav()" class="mnp-sub">Growth Marketing Agency</a>
+    <a href="About%20Us.html" onclick="closeMobileNav()">About Us</a>
+    <a href="Become%20a%20Partner.html" onclick="closeMobileNav()">Partner</a>
+    <a href="Case%20Studies.html" onclick="closeMobileNav()">Case Studies</a>
+    <a href="LeadStrong-Landing.html#pricing" onclick="closeMobileNav()">Pricing</a>
+    <a href="LeadStrong-Landing.html#get-started" onclick="closeMobileNav()" class="mnp-cta">Book a strategy session</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header id="top" data-screen-label="Hero" class="cs-hero">
+  <img src="cs-author-hero-bg.jpg" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0">
+  <div style="position:absolute;inset:0;z-index:0;background:linear-gradient(100deg, rgba(18,45,54,0.95) 0%, rgba(22,58,68,0.86) 46%, rgba(28,71,81,0.6) 100%)"></div>
+  <div class="halo" style="top:-120px;right:-100px;width:520px;height:520px;background:radial-gradient(circle,rgba(55,204,239,0.20),rgba(55,204,239,0) 66%)"></div>
+  <div class="wrap sec-pad" style="position:relative;z-index:1">
+    <div class="eyebrow reveal" style="color:#37CCEF;margin-bottom:22px">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#37CCEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+      Case Study
+    </div>
+    <div class="reveal" style="font-weight:700;font-size:13.5px;letter-spacing:0.4px;color:#a9c2cd;margin-bottom:14px">Independent Author &amp; Speaker</div>
+    <h1 class="reveal" style="font-weight:800;font-size:clamp(38px,6.4vw,78px);line-height:1;letter-spacing:-2px;margin:0 0 22px;color:#fff">Getting an author heard</h1>
+    <p class="reveal" style="font-weight:400;font-size:clamp(16px,2vw,19px);line-height:1.6;color:#a9c2cd;margin:0 0 40px;max-width:640px">A finished book and a dormant network 10,000 strong, with no effective engine to reach them.</p>
+    <div class="meta-chips reveal">
+      <div class="meta-chip"><span class="k">Reply Rates</span><span class="v">16% across campaigns</span></div>
+      <div class="meta-chip"><span class="k">Network Activated</span><span class="v">10,000+ connections</span></div>
+      <div class="meta-chip"><span class="k">Amazon Ranking</span><span class="v">#3,000,000 → #200,000</span></div>
+      <div class="meta-chip"><span class="k">Media</span><span class="v">Radio interviews booked</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= THE CLIENT ================= -->
+<section data-screen-label="The Client" class="sec-pad" style="background:#fff">
+  <div class="wrap">
+    <div style="max-width:760px">
+      <div class="eyebrow reveal" style="color:#0089C6;margin-bottom:16px"><span style="width:22px;height:2px;background:#0089C6;display:inline-block"></span>The Client</div>
+      <h2 class="reveal" style="font-weight:800;font-size:clamp(28px,4vw,46px);line-height:1.08;letter-spacing:-1px;margin:0 0 22px;color:#0d3038">An author with something to say</h2>
+      <p class="reveal" style="font-weight:400;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.7;color:#4a6070;margin:0 0 18px">Our client is a business owner, entrepreneur, and self-published author. Like most independent authors, he faced a problem that had nothing to do with the quality of his work: a finished book, a real message, and no reliable way to get it in front of people.</p>
+      <p class="reveal" style="font-weight:400;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.7;color:#4a6070;margin:0 0 18px">He had assets: nearly 10,000 professional connections built across decades in business. A track record of speaking engagements. And of course, something worth sharing.</p>
+      <p class="reveal" style="font-weight:600;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.7;color:#0d3038;margin:0">What he didn't have was a system to activate any of it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE CHALLENGE ================= -->
+<section data-screen-label="The Challenge" class="sec-pad" style="background:#f5f8fa">
+  <div class="wrap">
+    <div class="challenge-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center">
+      <div>
+        <div class="eyebrow reveal" style="color:#0089C6;margin-bottom:16px"><span style="width:22px;height:2px;background:#0089C6;display:inline-block"></span>The Challenge</div>
+        <h2 class="reveal" style="font-weight:800;font-size:clamp(28px,4vw,46px);line-height:1.08;letter-spacing:-1px;margin:0 0 20px;color:#0d3038">The self-published author's problem</h2>
+        <p class="reveal" style="font-weight:400;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.7;color:#4a6070;margin:0 0 18px">Independent authors sit on the same paradox. They have networks, credibility, and a message — but no publicist machine, no publishing house engine, no outbound system. Promotion happens in fits and starts, one manual email at a time, and then stops.</p>
+        <p class="reveal" style="font-weight:400;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.7;color:#4a6070;margin:0">The goal was straightforward: put the book in front of the people most likely to care, and get the author in front of audiences who wanted to hear him speak.</p>
+      </div>
+      <div class="reveal r-right" style="background:linear-gradient(135deg,#E6F3F9,#f0f7fb);border-left:4px solid #37CCEF;border-radius:18px;padding:clamp(28px,3.5vw,42px)">
+        <svg width="34" height="26" viewBox="0 0 34 26" fill="#0089C6" style="opacity:.9;margin-bottom:16px"><path d="M0 26V14.5C0 6.4 4.9 1 13 0l1.5 3.4C10 5 8 7.9 8 11.5h5V26H0zm19 0V14.5C19 6.4 23.9 1 32 0l1.5 3.4C29 5 27 7.9 27 11.5h5V26H19z"></path></svg>
+        <p style="font-weight:600;font-size:clamp(17px,2.1vw,22px);line-height:1.5;color:#0d3038;margin:0">The question was whether AI-powered outreach could do at scale what an author can only do one conversation at a time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE APPROACH ================= -->
+<section data-screen-label="The Approach" class="sec-pad" style="background:#fff">
+  <div class="wrap">
+    <div style="max-width:760px;margin-bottom:clamp(36px,4vw,54px)">
+      <div class="eyebrow reveal" style="color:#0089C6;margin-bottom:16px"><span style="width:22px;height:2px;background:#0089C6;display:inline-block"></span>The Approach</div>
+      <h2 class="reveal" style="font-weight:800;font-size:clamp(28px,4vw,46px);line-height:1.08;letter-spacing:-1px;margin:0 0 18px;color:#0d3038">Two channels, one engine</h2>
+      <p class="reveal" style="font-weight:400;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.65;color:#4a6070;margin:0">LeadStrong, powered by <strong style="color:#0d3038">Alta</strong>, ran a sequence of targeted outreach campaigns — testing distinct approaches to find what actually moved the needle.</p>
+    </div>
+    <div class="approach-grid" style="margin-bottom:clamp(36px,4vw,54px)">
+      <div class="approach-card reveal">
+        <div class="approach-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+        <h3 style="font-weight:700;font-size:18px;color:#0d3038;margin:0 0 10px">Activating the existing network</h3>
+        <p style="font-weight:400;font-size:14.5px;line-height:1.6;color:#4a6070;margin:0">Personalized outreach to the author's own professional connections, introducing the book directly to people who already knew him. Rolled out in batches, testing message and audience along the way.</p>
+      </div>
+      <div class="approach-card reveal" data-delay="120">
+        <div class="approach-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"></path><path d="M12 2v10l7 5"></path></svg></div>
+        <h3 style="font-weight:700;font-size:18px;color:#0d3038;margin:0 0 10px">Media and podcast pitching</h3>
+        <p style="font-weight:400;font-size:14.5px;line-height:1.6;color:#4a6070;margin:0">Cold email outreach to podcasts, radio programs, and media outlets — pitching the author as a guest, using AI to identify and reach the right producers and hosts at scale.</p>
+      </div>
+    </div>
+    <div class="reveal r-scale">
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px;border:1px solid #e4ecf0">
+        <table class="rtable" style="width:100%;border-collapse:collapse;font-size:14px">
+          <thead><tr style="background:#0d3038"><th style="color:#7fc8e6;font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;text-align:left;padding:14px 16px">Campaign Type</th><th style="color:#7fc8e6;font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;text-align:left;padding:14px 16px">Audience</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:13px 16px;border-top:1px solid #eef2f4;font-weight:600;color:#0d3038">LinkedIn network outreach</td><td style="padding:13px 16px;border-top:1px solid #eef2f4;color:#4a6070">Personal connections, batches of 50–1,000</td></tr>
+            <tr><td style="padding:13px 16px;border-top:1px solid #eef2f4;font-weight:600;color:#0d3038">Speaking-engagement outreach</td><td style="padding:13px 16px;border-top:1px solid #eef2f4;color:#4a6070">Canadian community &amp; HR/L&amp;D organizations</td></tr>
+            <tr><td style="padding:13px 16px;border-top:1px solid #eef2f4;font-weight:600;color:#0d3038">Podcast pitching (cold email)</td><td style="padding:13px 16px;border-top:1px solid #eef2f4;color:#4a6070">1,244 podcast hosts</td></tr>
+            <tr><td style="padding:13px 16px;border-top:1px solid #eef2f4;font-weight:600;color:#0d3038">Corporate speaking pitch (cold email)</td><td style="padding:13px 16px;border-top:1px solid #eef2f4;color:#4a6070">842 HR &amp; L&amp;D leaders</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="text-align:center;font-size:13.5px;line-height:1.5;color:#8a9daa;margin-top:14px;font-style:italic">Pulled directly from the Alta campaigns dashboard — outreach performs very differently by audience and channel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE RESULTS ================= -->
+<section data-screen-label="The Results" class="sec-pad" style="position:relative;overflow:hidden;background:radial-gradient(130% 120% at 50% -10%, #235264 0%, #1C4751 56%), #163a44;color:#fff;padding-top:clamp(48px,6vw,72px);padding-bottom:clamp(48px,6vw,72px)">
+  <div class="wrap">
+    <div style="text-align:center;max-width:680px;margin:0 auto 32px">
+      <div class="eyebrow reveal" style="color:#37CCEF;margin-bottom:12px;justify-content:center">The Results</div>
+      <h2 class="reveal" style="font-weight:800;font-size:clamp(28px,4vw,46px);line-height:1.08;letter-spacing:-1px;margin:0;color:#fff">What happened</h2>
+    </div>
+
+    <div class="reveal" style="margin-bottom:30px">
+      <div style="text-align:center;margin-bottom:16px">
+        <div style="font-weight: 800; font-size: clamp(26px,3.4vw,34px); letter-spacing: -0.8px; color: #FFA233">3,300+</div>
+        <div style="font-weight:700;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:#8fb0bd;margin-top:4px">Unique contacts reached, and counting</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:600px;margin:0 auto" class="contact-grid">
+        <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px 16px">
+          <div style="width:34px;height:34px;flex:0 0 auto;border-radius:9px;background:rgba(55,204,239,0.16);display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#37CCEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.2" fill="#37CCEF" stroke="none"></circle><path d="M8 12v5M12 12v5M12 14.5c0-1.5 1-2.5 2.5-2.5s2.5 1 2.5 2.5V17"></path></svg></div>
+          <div><div style="font-weight:800;font-size:18px;color:#fff;line-height:1">1,160</div><div style="font-weight:500;font-size:12px;color:#a9c2cd;margin-top:2px">LinkedIn connections</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px 16px">
+          <div style="width:34px;height:34px;flex:0 0 auto;border-radius:9px;background:rgba(55,204,239,0.16);display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#37CCEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"></path><path d="M19 11a7 7 0 0 1-14 0"></path><line x1="12" y1="18" x2="12" y2="22"></line><line x1="8" y1="22" x2="16" y2="22"></line></svg></div>
+          <div><div style="font-weight:800;font-size:18px;color:#fff;line-height:1">1,244</div><div style="font-weight:500;font-size:12px;color:#a9c2cd;margin-top:2px">Podcast hosts</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px 16px">
+          <div style="width:34px;height:34px;flex:0 0 auto;border-radius:9px;background:rgba(55,204,239,0.16);display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#37CCEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+          <div><div style="font-weight:800;font-size:18px;color:#fff;line-height:1">842</div><div style="font-weight:500;font-size:12px;color:#a9c2cd;margin-top:2px">Canadian HR &amp; L&amp;D leaders</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px 16px">
+          <div style="width:34px;height:34px;flex:0 0 auto;border-radius:9px;background:rgba(55,204,239,0.16);display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#37CCEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"></path></svg></div>
+          <div><div style="font-weight:800;font-size:18px;color:#fff;line-height:1">77</div><div style="font-weight:500;font-size:12px;color:#a9c2cd;margin-top:2px">Other aligned organizations</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal r-scale" style="text-align:center;margin-bottom:24px">
+      <div style="font-weight:800;font-size:clamp(64px,10vw,120px);line-height:.85;letter-spacing:-4px;color:#FFA233">16%</div>
+      <div style="font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#e9f2f6;margin-top:8px">Overall reply rate</div>
+    </div>
+
+    <div class="reveal" style="text-align:center;margin-bottom:28px">
+      <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap">
+        <span style="font-weight:800;font-size:clamp(22px,3.2vw,36px);letter-spacing:-1px;color:#37CCEF">3,000,000</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8fb0bd" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+        <span style="font-weight:800;font-size:clamp(28px,4.4vw,48px);letter-spacing:-1px;color:#fff">200,000</span>
+      </div>
+      <div style="font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#8fb0bd;margin-top:8px">AMAZON CATEGORY RANKING</div>
+    </div>
+
+    <ul class="reveal" style="max-width:420px;margin:0 auto;padding-left:20px;font-weight:500;font-size:14.5px;line-height:1.9;color:#e9f2f6">
+      <li>Signed copies ordered directly through campaigns</li>
+      <li>Radio interviews booked via media outreach</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= THE INSIGHT ================= -->
+<section data-screen-label="The Insight" class="sec-pad" style="background:#fff">
+  <div class="wrap">
+    <div style="max-width:760px">
+      <div class="eyebrow reveal" style="color:#0089C6;margin-bottom:16px"><span style="width:22px;height:2px;background:#0089C6;display:inline-block"></span>The Insight</div>
+      <h2 class="reveal" style="font-weight:800;font-size:clamp(28px,4vw,46px);line-height:1.08;letter-spacing:-1px;margin:0 0 22px;color:#0d3038">Where it really works</h2>
+      <p class="reveal" style="font-weight:400;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.7;color:#4a6070;margin:0 0 18px">The most valuable finding wasn't the book sales. It was the discovery that AI outreach is exceptionally good at one specific thing for authors: getting them heard.</p>
+      <p class="reveal" style="font-weight:400;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.7;color:#4a6070;margin:0 0 18px">Pitching a podcast, a radio show, or a media outlet is a numbers game that rewards persistence, personalization, and volume — exactly what a single publicist can't sustain alone, and exactly what an outreach engine does well.</p>
+      <p class="reveal" style="font-weight:600;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.7;color:#0d3038;margin:0">An author doesn't just need readers. They need a stage. This is how you find one.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT'S NEXT ================= -->
+<section data-screen-label="What's Next" class="sec-pad" style="position:relative;overflow:hidden;background:radial-gradient(120% 110% at 20% -10%, #235264 0%, #1C4751 58%), #1C4751;color:#fff;padding-top:clamp(32px,4vw,48px);padding-bottom:clamp(32px,4vw,48px)">
+  <div class="wrap next-grid" style="display:grid;grid-template-columns:1.2fr 0.8fr;gap:clamp(28px,4vw,52px);align-items:center">
+    <div style="max-width:520px">
+      <div class="eyebrow reveal" style="color:#37CCEF;margin-bottom:16px"><span style="width:22px;height:2px;background:#37CCEF;display:inline-block"></span>What's Next</div>
+      <h2 class="reveal" style="font-weight:800;font-size:clamp(28px,4vw,46px);line-height:1.08;letter-spacing:-1px;margin:0 0 18px;color:#fff">Still running</h2>
+      <p class="reveal" style="font-weight:400;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.65;color:#a9c2cd;margin:0 0 14px">The campaigns continue across the remaining connections. Media and podcast outreach is expanding. What started as an experiment is becoming the engine behind an author's entire promotional strategy.</p>
+      <p class="reveal" style="font-weight:400;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.65;color:#a9c2cd;margin:0">And what worked here isn't unique to one author. There are thousands of independent authors with a message, a network, and no machine to reach it.</p>
+    </div>
+    <div class="reveal r-right">
+      <image-slot id="cs-author-next-img" shape="rounded" radius="18" placeholder="Drop a photo (author speaking, podcast studio, or outreach visual)" style="aspect-ratio:4/3"></image-slot>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY THIS WORKS + CTA ================= -->
+<section data-screen-label="Why This Works / CTA" class="sec-pad" style="background:#fff;padding-top:clamp(32px,4vw,48px)">
+  <div class="wrap cta-grid" style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(28px,4vw,52px);align-items:center">
+    <div class="reveal r-left">
+      <image-slot id="cs-author-cta-img" shape="rounded" radius="18" placeholder="Drop a closing photo (author, book, or team)" style="aspect-ratio:4/5" src="cs-author-cta-img.jpg"></image-slot>
+    </div>
+    <div>
+      <div class="eyebrow reveal" style="color:#0089C6;margin-bottom:16px">Why This Works</div>
+      <h2 class="reveal" style="font-weight:800;font-size:clamp(26px,3.4vw,40px);line-height:1.14;letter-spacing:-1px;margin:0 0 20px;color:#0d3038">Most authors fail to reach their audience for the same reason most businesses fail to reach their buyers.</h2>
+      <p class="reveal" style="font-weight:400;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.65;color:#4a6070;margin:0 0 16px">Not because the product is wrong, but because there's no system doing the reaching.</p>
+      <p class="reveal" style="font-weight:600;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.65;color:#0d3038;margin:0 0 26px">LeadStrong's AI-powered outbound engine personalizes at scale, and can turn a dormant network into fruitful conversations, orders, and opportunities.</p>
+      <div class="reveal">
+        <a href="LeadStrong-Landing.html#get-started" style="display:inline-flex;align-items:center;gap:9px;background:#EC5A2C;color:#fff;text-decoration:none;font-weight:700;font-size:16px;padding:16px 32px;border-radius:12px">Start My Growth Engine <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer data-screen-label="Footer" style="background:#1C4751;color:#fff">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding:32px clamp(20px,5vw,40px)">
+    <img src="LS_Logo_vertical_white.png" alt="" style="width:180px;height:auto">
+    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
+      <a href="LeadStrong-Landing.html" style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" data-base-style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#fff'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Home</a>
+      <a href="Case%20Studies.html" style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" data-base-style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#fff'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Case Studies</a>
+      <a href="/cdn-cgi/l/email-protection#8fe6e1e9e0cfe3eaeeebfcfbfde0e1e8a1eee6" style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" data-base-style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#fff'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')"><span class="__cf_email__" data-cfemail="c2abaca4ad82aea7a3a6b1b6b0adaca5eca3ab">[email&#160;protected]</span></a>
+    </div>
+    <div style="font-weight:300;font-size:13px;color:#8aa3af">Copyright 2026 LeadStrong</div>
+  </div>
+</footer>
+
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function toggleMobileNav(){
+    var btn=document.getElementById('hamburger-btn'), panel=document.getElementById('mobile-nav-panel');
+    if(panel.classList.contains('is-open')){ closeMobileNav(); }
+    else{ panel.classList.add('is-open'); btn.classList.add('is-open'); btn.setAttribute('aria-expanded','true'); btn.setAttribute('aria-label','Close menu'); }
+  }
+  function closeMobileNav(){
+    var btn=document.getElementById('hamburger-btn'), panel=document.getElementById('mobile-nav-panel');
+    panel.classList.remove('is-open'); btn.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); btn.setAttribute('aria-label','Open menu');
+  }
+  window.addEventListener('resize',function(){ if (window.innerWidth > 1100) closeMobileNav(); });
+
+  var progressEl=document.getElementById('scroll-progress');
+  function updateProgress(){
+    var h=document.documentElement, max=(h.scrollHeight-h.clientHeight)||1;
+    progressEl.style.width=(h.scrollTop/max*100)+'%';
+  }
+  window.addEventListener('scroll',updateProgress,{passive:true});
+  updateProgress();
+
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el=e.target;
+      var delay=parseInt(el.getAttribute('data-delay')||'0',10);
+      setTimeout(function(){ el.classList.add('in'); },delay);
+      io.unobserve(el);
+    });
+  },{threshold:0.18,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+
+</body></html>
