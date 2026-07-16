@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resources &amp; Guides — LeadStrong.ai</title>
+<meta name="description" content="In-depth guides on lead generation, B2B outreach, AI search visibility, conversion, paid media, and growth strategy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;color:#0d3038;-webkit-font-smoothing:antialiased;background:#fff}
+  a{color:#0089C6;text-decoration:none}
+  a:hover{color:#006c9c}
+  .wrap{max-width:1180px;margin:0 auto;width:100%}
+  .navlinks{display:flex;gap:32px;align-items:center}
+  .navlinks a{white-space:nowrap;color:#4a6070;font-weight:600;font-size:15px}
+  .navlinks a:hover{color:#0089C6}
+  .hamburger-btn{display:none;flex-direction:column;width:40px;height:40px;flex:0 0 40px;background:none;border:none;padding:0;margin:0;cursor:pointer;align-items:center;justify-content:center;border-radius:8px}
+  .hamburger-btn .ham-line{display:block;width:22px;height:2.4px;background:#0d3038;border-radius:2px}
+  .hamburger-btn .ham-line+.ham-line{margin-top:5px}
+  .hamburger-btn.is-open .ham-line:nth-child(1){transform:translateY(7.4px) rotate(45deg)}
+  .hamburger-btn.is-open .ham-line:nth-child(2){opacity:0}
+  .hamburger-btn.is-open .ham-line:nth-child(3){transform:translateY(-7.4px) rotate(-45deg)}
+  @media(max-width:1100px){.navlinks{display:none}.booksession{display:none}.hamburger-btn{display:flex}}
+  .mobile-nav-panel{display:none;flex-direction:column;overflow:hidden;position:absolute;top:100%;left:0;right:0;max-height:0;background:#fff;border-bottom:1px solid #e0e8ed;box-shadow:0 16px 32px rgba(13,48,56,0.12);transition:max-height .3s ease;z-index:49}
+  .mobile-nav-panel.is-open{max-height:min(82vh,560px);overflow-y:auto}
+  .mobile-nav-panel a{text-decoration:none;font-weight:600;font-size:16px;color:#0d3038;padding:14px clamp(20px,5vw,40px);border-top:1px solid #eef2f4;display:block}
+  .mobile-nav-panel a:first-child{border-top:none}
+  .mobile-nav-panel .mnp-cta{margin:6px clamp(20px,5vw,40px) 16px;padding:13px 20px;background:#EC5A2C;color:#fff;border-radius:10px;text-align:center;border-top:none}
+  @media(max-width:1100px){.mobile-nav-panel{display:flex}}
+
+  .group-label{font-weight:700;font-size:12.5px;letter-spacing:1.2px;text-transform:uppercase;color:#0089C6;margin:0 0 16px}
+  .guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:900px){.guide-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.guide-grid{grid-template-columns:1fr}}
+  .guide-card{display:flex;flex-direction:column;gap:11px;background:#fff;border:1.5px solid #e4ecf0;border-radius:16px;padding:24px 22px;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.16,.84,.44,1),box-shadow .3s ease,border-color .3s ease}
+  .guide-card:hover{transform:translateY(-5px);box-shadow:0 16px 38px rgba(26,58,74,0.10);border-color:#c7e4f4}
+  .guide-icon{width:40px;height:40px;border-radius:11px;background:#E6F3F9;display:flex;align-items:center;justify-content:center}
+  .guide-card h3{font-weight:700;font-size:16.5px;letter-spacing:-0.2px;color:#0d3038;margin:0;line-height:1.3}
+  .guide-card p{font-weight:400;font-size:13.5px;line-height:1.55;color:#4a6070;margin:0;flex:1}
+  .guide-card .rt{font-weight:700;font-size:13px;color:#0089C6}
+
+  .cluster-section{margin-bottom:clamp(40px,5vw,60px)}
+</style>
+</head>
+<body>
+
+<div style="font-family:'Plus Jakarta Sans',sans-serif;position:relative">
+
+<!-- ================= NAV ================= -->
+<nav data-screen-label="Nav" style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.94);backdrop-filter:blur(10px);border-bottom:1px solid #e0e8ed">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,5vw,40px)">
+    <a href="LeadStrong-Landing.html#top" style="display:block"><img src="LS_Logo_only.png" alt="" style="width:220px;height:auto"></a>
+    <div class="navlinks">
+      <a href="Services.html">Services</a>
+      <a href="LeadStrong-Landing.html#pricing">Pricing</a>
+      <a href="Become%20a%20Partner.html">Partner</a>
+      <a href="Case%20Studies.html">Case Studies</a>
+      <a href="#top" style="color:#0089C6;font-weight:700">Resources</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a href="LeadStrong-Landing.html#get-started" class="booksession" style="background:#EC5A2C;color:#fff;font-weight:700;font-size:15px;padding:12px 20px;border-radius:10px;white-space:nowrap">Book a strategy session</a>
+      <button type="button" class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-panel" onclick="toggleMobileNav()"><span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span></button>
+    </div>
+  </div>
+  <div class="mobile-nav-panel" id="mobile-nav-panel">
+    <a href="Services.html" onclick="closeMobileNav()">Services</a>
+    <a href="LeadStrong-Landing.html#pricing" onclick="closeMobileNav()">Pricing</a>
+    <a href="Become%20a%20Partner.html" onclick="closeMobileNav()">Partner</a>
+    <a href="Case%20Studies.html" onclick="closeMobileNav()">Case Studies</a>
+    <a href="#top" onclick="closeMobileNav()">Resources</a>
+    <a href="LeadStrong-Landing.html#get-started" onclick="closeMobileNav()" class="mnp-cta">Book a strategy session</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header id="top" style="background:#f5f8fa;border-bottom:1px solid #e4ecf0">
+  <div class="wrap" style="padding:clamp(50px,7vw,76px) clamp(20px,5vw,40px) clamp(40px,5vw,56px);text-align:center">
+    <div style="font-weight:700;font-size:12.5px;letter-spacing:1.2px;text-transform:uppercase;color:#0089C6;margin-bottom:14px">Resources</div>
+    <h1 style="font-weight:800;font-size:clamp(30px,4.6vw,46px);line-height:1.1;letter-spacing:-1px;margin:0 auto 14px;max-width:720px;text-wrap:pretty">The playbook behind every LeadStrong campaign</h1>
+    <p style="font-weight:400;font-size:18px;line-height:1.6;color:#3d5461;margin:0 auto;max-width:600px">In-depth guides on lead generation, AI search, conversion, paid media, and growth strategy — the same thinking behind our own client work.</p>
+  </div>
+</header>
+
+<!-- ================= GUIDES ================= -->
+<div class="wrap" style="padding:clamp(44px,6vw,68px) clamp(20px,5vw,40px) clamp(56px,7vw,84px)">
+
+  <div class="cluster-section">
+    <div class="group-label">Growth Strategy</div>
+    <div class="guide-grid">
+      <a href="growth-marketing-agency.html" class="guide-card">
+        <div class="guide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M7 15l4-6 4 4 5-7"></path></svg></div>
+        <h3>Growth Marketing Agency for Scalable Revenue</h3>
+        <p>The acquisition → activation → retention → referral → revenue framework behind every LeadStrong engagement.</p>
+        <span class="rt">Read the guide →</span>
+      </a>
+      <a href="Lead%20Generation%20Services%20-%20Pillar.html" class="guide-card">
+        <div class="guide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg></div>
+        <h3>Lead Generation Services That Drive Revenue Growth</h3>
+        <p>Market research, ICP development, prospecting, outreach, qualification, and appointment setting — end to end.</p>
+        <span class="rt">Read the guide →</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="cluster-section">
+    <div class="group-label">Lead Generation &amp; Outreach</div>
+    <div class="guide-grid">
+      <a href="b2b-lead-generation.html" class="guide-card">
+        <div class="guide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 1 0-16 0"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+        <h3>B2B Lead Generation for Modern Revenue Teams</h3>
+        <p>ICP development, data enrichment, prospecting, and the KPIs that actually predict revenue.</p>
+        <span class="rt">Read the guide →</span>
+      </a>
+      <a href="answer-engine-optimization.html" class="guide-card">
+        <div class="guide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+        <h3>Answer Engine Optimization for AI Search Visibility</h3>
+        <p>How to show up in Google AI Overviews, ChatGPT Search, Perplexity, and Gemini.</p>
+        <span class="rt">Read the guide →</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="cluster-section">
+    <div class="group-label">Marketing Channels &amp; Conversion</div>
+    <div class="guide-grid">
+      <a href="performance-marketing-services-pillar.html" class="guide-card">
+        <div class="guide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4z"></path></svg></div>
+        <h3>Performance Marketing Services for Revenue Growth</h3>
+        <p>Google, LinkedIn, Meta, and retargeting — with the metrics and framework that connect spend to pipeline.</p>
+        <span class="rt">Read the guide →</span>
+      </a>
+      <a href="website-conversion-optimization-pillar.html" class="guide-card">
+        <div class="guide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+        <h3>Website Conversion Optimization for Higher Revenue</h3>
+        <p>Turn the traffic you already have into more leads — landing pages, UX, CTAs, and trust signals.</p>
+        <span class="rt">Read the guide →</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ================= CTA ================= -->
+<section style="position:relative;overflow:hidden;background:radial-gradient(120% 120% at 78% -10%, #276274 0%, #1C4751 54%, #163a44 100%);color:#fff">
+  <div class="wrap" style="padding:clamp(50px,6vw,74px) clamp(20px,5vw,40px);text-align:center;max-width:700px;margin:0 auto">
+    <h2 style="font-weight:800;font-size:clamp(24px,3.2vw,34px);line-height:1.2;letter-spacing:-0.6px;margin:0 0 14px;color:#fff">Ready to put the playbook to work?</h2>
+    <p style="font-weight:400;font-size:16px;line-height:1.6;color:#a9c2cd;margin:0 auto 28px;max-width:520px">Book a free strategy session and we'll map out exactly what this looks like for your business.</p>
+    <a href="LeadStrong-Landing.html#get-started" style="display:inline-flex;align-items:center;gap:9px;background:#EC5A2C;color:#fff;text-decoration:none;font-weight:700;font-size:15.5px;padding:14px 28px;border-radius:11px">Book my strategy session<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer style="background:#1C4751;color:#fff">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding:32px clamp(20px,5vw,40px)">
+    <img src="LS_Logo_vertical_white.png" alt="" style="width:180px;height:auto">
+    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
+      <a href="Services.html" style="color:#9fb3bd;font-weight:600;font-size:14px">Services</a>
+      <a href="Case%20Studies.html" style="color:#9fb3bd;font-weight:600;font-size:14px">Case Studies</a>
+      <a href="/cdn-cgi/l/email-protection#a7cec9c1c8e7cbc2c6c3d4d3d5c8c9c089c6ce" style="color:#9fb3bd;font-weight:600;font-size:14px"><span class="__cf_email__" data-cfemail="fe97909891be929b9f9a8d8a8c919099d09f97">[email&#160;protected]</span></a>
+    </div>
+    <div style="font-weight:300;font-size:13px;color:#8aa3af">Copyright 2026 LeadStrong</div>
+  </div>
+</footer>
+
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function toggleMobileNav(){
+    var btn=document.getElementById('hamburger-btn'), panel=document.getElementById('mobile-nav-panel');
+    if(panel.classList.contains('is-open')){ closeMobileNav(); }
+    else{ panel.classList.add('is-open'); btn.classList.add('is-open'); btn.setAttribute('aria-expanded','true'); }
+  }
+  function closeMobileNav(){
+    var btn=document.getElementById('hamburger-btn'), panel=document.getElementById('mobile-nav-panel');
+    panel.classList.remove('is-open'); btn.classList.remove('is-open'); btn.setAttribute('aria-expanded','false');
+  }
+  window.addEventListener('resize',function(){ if(window.innerWidth>1100) closeMobileNav(); });
+</script>
+</body></html>
