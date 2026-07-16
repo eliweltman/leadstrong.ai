@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Growth Marketing Agency for Sustainable Growth — LeadStrong.ai</title>
+<meta name="description" content="Work with a growth marketing agency focused on revenue, retention, and scalable business growth.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:88px}
+  body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;color:#0d3038;-webkit-font-smoothing:antialiased;background:#fff}
+  a{color:#0089C6;text-decoration:none}
+  a:hover{color:#006c9c}
+  .wrap{max-width:1180px;margin:0 auto;width:100%}
+  .navlinks{display:flex;gap:32px;align-items:center}
+  .navlinks a{white-space:nowrap;color:#4a6070;font-weight:600;font-size:15px}
+  .navlinks a:hover{color:#0089C6}
+  .hamburger-btn{display:none;flex-direction:column;width:40px;height:40px;flex:0 0 40px;background:none;border:none;padding:0;margin:0;cursor:pointer;align-items:center;justify-content:center;border-radius:8px}
+  .hamburger-btn .ham-line{display:block;width:22px;height:2.4px;background:#0d3038;border-radius:2px}
+  .hamburger-btn .ham-line+.ham-line{margin-top:5px}
+  @media(max-width:1100px){.navlinks{display:none}.booksession{display:none}.hamburger-btn{display:flex}}
+
+  .pillar-shell{display:grid;grid-template-columns:250px minmax(0,1fr);gap:56px;align-items:start;padding:44px clamp(20px,5vw,40px) 0}
+  @media(max-width:980px){.pillar-shell{grid-template-columns:1fr;gap:0;padding-top:28px}}
+
+  .toc{position:sticky;top:88px;font-size:14px}
+  .toc-label{font-weight:700;font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:#8a9daa;margin-bottom:14px}
+  .toc a{display:block;padding:7px 0;color:#4a6070;font-weight:500;border-left:2px solid transparent;padding-left:14px;margin-left:-1px}
+  .toc a.active{color:#0089C6;font-weight:700;border-left-color:#0089C6}
+  .toc a:hover{color:#0089C6}
+  @media(max-width:980px){.toc{display:none}}
+
+  .mobile-toc{display:none;position:sticky;top:64px;z-index:30;background:#fff;border-bottom:1px solid #e4ecf0;padding:12px clamp(20px,5vw,40px)}
+  .mobile-toc select{width:100%;padding:11px 14px;border:1.5px solid #e0e8ed;border-radius:9px;font-family:inherit;font-size:14.5px;font-weight:600;color:#0d3038;background:#fff}
+  @media(max-width:980px){.mobile-toc{display:block}}
+
+  .article{max-width:760px;padding-bottom:40px}
+  .article h2{font-weight:800;font-size:clamp(24px,3vw,30px);letter-spacing:-0.5px;color:#0d3038;margin:0 0 18px;scroll-margin-top:88px}
+  .article h3{font-weight:700;font-size:19px;letter-spacing:-0.2px;color:#0d3038;margin:30px 0 12px}
+  .article p{font-weight:400;font-size:16.5px;line-height:1.72;color:#3d5461;margin:0 0 18px;text-wrap:pretty}
+  .article ul,.article ol{font-weight:400;font-size:16.5px;line-height:1.72;color:#3d5461;margin:0 0 18px;padding-left:26px}
+  .article li{margin-bottom:8px}
+  .article strong{color:#0d3038;font-weight:700}
+  section.pillar-section{margin-bottom:52px}
+
+  .lede{font-weight:400;font-size:19px;line-height:1.65;color:#3d5461;margin:6px 0 0}
+
+  .quickbox{background:#f5f8fa;border-left:4px solid #0089C6;border-radius:14px;padding:24px 26px;margin:0 0 44px}
+  .quickbox-label{font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#0089C6;margin-bottom:9px}
+  .quickbox p{margin:0;font-weight:600;font-size:16.5px;line-height:1.6;color:#0d3038}
+
+  .comp-table-wrap{overflow-x:auto;margin:20px 0 26px;border:1px solid #e4ecf0;border-radius:14px}
+  table.comp-table{width:100%;border-collapse:collapse;font-size:14.5px}
+  table.comp-table th{background:#f5f8fa;text-align:left;padding:13px 16px;font-weight:700;font-size:12.5px;letter-spacing:0.4px;text-transform:uppercase;color:#4a6070;white-space:nowrap}
+  table.comp-table td{padding:14px 16px;font-weight:500;color:#0d3038;border-top:1px solid #eef2f4;vertical-align:top}
+  table.comp-table td:first-child{font-weight:700;color:#4a6070;white-space:nowrap}
+
+  .component-card{background:#f5f8fa;border-radius:14px;padding:22px 24px;margin-bottom:16px}
+  .component-card h4{font-weight:700;font-size:16.5px;color:#0d3038;margin:0 0 8px;display:flex;align-items:center;gap:10px}
+  .component-card .num{width:26px;height:26px;border-radius:50%;background:#0089C6;color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .component-card p{font-weight:400;font-size:15px;line-height:1.65;color:#4a6070;margin:0}
+
+  .channel-card{background:#fff;border:1.5px solid #e4ecf0;border-radius:14px;padding:22px 24px;margin-bottom:14px}
+  .channel-card h4{font-weight:700;font-size:16.5px;color:#0d3038;margin:0 0 8px}
+  .channel-card p{font-weight:400;font-size:15px;line-height:1.65;color:#4a6070;margin:0}
+
+  .bottleneck-list{list-style:none;padding-left:0;margin:20px 0 26px}
+  .bottleneck-list li{display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-bottom:1px solid #eef2f4;font-weight:500;font-size:15.5px;color:#3d5461}
+  .bottleneck-list li:last-child{border-bottom:none}
+  .bottleneck-list svg{flex:0 0 auto;margin-top:2px}
+
+  .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0 26px}
+  @media(max-width:900px){.service-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.service-grid{grid-template-columns:1fr}}
+  .service-card{background:#fff;border:1px solid #e4ecf0;border-radius:12px;padding:18px 20px}
+  .service-card h4{font-weight:700;font-size:15px;color:#0d3038;margin:0 0 6px}
+  .service-card p{font-weight:400;font-size:13.5px;line-height:1.55;color:#4a6070;margin:0}
+  .service-card a{font-weight:700;font-size:13px}
+
+  .faq-item{border-bottom:1px solid #e4ecf0}
+  .faq-q{width:100%;text-align:left;background:none;border:none;padding:19px 2px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:inherit;font-weight:700;font-size:16px;color:#0d3038}
+  .faq-plus{flex:0 0 auto;width:24px;height:24px;border-radius:50%;border:1.5px solid #d3dee3;color:#4a6070;display:flex;align-items:center;justify-content:center;transition:transform .3s ease}
+  .faq-item.open .faq-plus{transform:rotate(45deg);border-color:#0089C6;color:#0089C6}
+  .faq-a{max-height:0;opacity:0;overflow:hidden;transition:opacity .3s ease}
+  .faq-item.open .faq-a{max-height:260px;opacity:1}
+  .faq-a-inner{padding:0 2px 19px;font-weight:400;font-size:15px;line-height:1.6;color:#4a6070}
+
+  .final-cta{background:radial-gradient(120% 130% at 82% -10%, #276274 0%, #1C4751 60%);border-radius:20px;padding:clamp(30px,4vw,44px);color:#fff;margin-top:8px}
+  .final-cta h2{color:#fff}
+  .final-cta p{color:#c4d3db}
+
+  .related-links{display:flex;flex-wrap:wrap;gap:9px 26px;margin:0 0 44px}
+</style>
+</head>
+<body>
+
+<div style="font-family:'Plus Jakarta Sans',sans-serif;position:relative">
+
+<!-- ================= NAV ================= -->
+<nav data-screen-label="Nav" style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.94);backdrop-filter:blur(10px);border-bottom:1px solid #e0e8ed">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,5vw,40px)">
+    <a href="LeadStrong-Landing.html#top" style="display:block"><img src="LS_Logo_only.png" alt="" style="width:220px;height:auto"></a>
+    <div class="navlinks">
+      <a href="Services.html">Services</a>
+      <a href="LeadStrong-Landing.html#pricing">Pricing</a>
+      <a href="Become%20a%20Partner.html">Partner</a>
+      <a href="Case%20Studies.html">Case Studies</a>
+      <a href="About%20Us.html">About Us</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a href="LeadStrong-Landing.html#get-started" class="booksession" style="background:#EC5A2C;color:#fff;font-weight:700;font-size:15px;padding:12px 20px;border-radius:10px;white-space:nowrap">Book a strategy session</a>
+      <button type="button" class="hamburger-btn" aria-label="Menu"><span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header style="background:#f5f8fa;border-bottom:1px solid #e4ecf0">
+  <div class="wrap" style="padding:clamp(46px,6vw,68px) clamp(20px,5vw,40px) clamp(38px,5vw,54px)">
+    <div style="font-weight:700;font-size:12.5px;letter-spacing:1.2px;text-transform:uppercase;color:#0089C6;margin-bottom:14px">GUIDE · GROWTH MARKETING AGENCY</div>
+    <h1 style="font-weight:800;font-size:clamp(30px,4.6vw,46px);line-height:1.1;letter-spacing:-1px;margin:0 0 14px;max-width:820px;text-wrap:pretty">Growth Marketing Agency for Scalable Revenue</h1>
+    <p class="lede" style="max-width:720px">LeadStrong.ai is a growth marketing agency built to help businesses turn attention into pipeline, pipeline into revenue, and revenue into long-term growth.</p>
+  </div>
+</header>
+
+<!-- ================= MOBILE TOC ================= -->
+<div class="mobile-toc">
+  <select onchange="if(this.value){window.location.hash=this.value}">
+    <option value="">Jump to section…</option>
+    <option value="#what-is-gma">What Is a Growth Marketing Agency?</option>
+    <option value="#vs-traditional">Growth Marketing vs. Traditional Marketing</option>
+    <option value="#framework">The Framework</option>
+    <option value="#why-it-works">Why Growth Marketing Works</option>
+    <option value="#services">Services Offered</option>
+    <option value="#why-leadstrong">Why LeadStrong.ai</option>
+    <option value="#faq">FAQ</option>
+  </select>
+</div>
+
+<div class="pillar-shell">
+  <!-- ================= STICKY TOC ================= -->
+  <aside class="toc" id="toc">
+    <div class="toc-label">On this page</div>
+    <a href="#what-is-gma" data-toc>What Is a GMA?</a>
+    <a href="#vs-traditional" data-toc>Growth vs. Traditional</a>
+    <a href="#framework" data-toc>The Framework</a>
+    <a href="#why-it-works" data-toc>Why It Works</a>
+    <a href="#services" data-toc>Services Offered</a>
+    <a href="#why-leadstrong" data-toc>Why LeadStrong.ai</a>
+    <a href="#faq" data-toc>FAQ</a>
+  </aside>
+
+  <!-- ================= ARTICLE ================= -->
+  <article class="article">
+
+    <div class="quickbox">
+      <div class="quickbox-label">Quick answer</div>
+      <p>A growth marketing agency helps businesses attract, convert, retain, and grow customers through data-driven marketing systems — connecting marketing activity to measurable outcomes like leads, pipeline, revenue, retention, and customer lifetime value, not just visibility.</p>
+    </div>
+
+    <p>Growth doesn't come from one isolated campaign. It comes from a system. That system includes acquisition, conversion, retention, referral, and revenue. When these parts work together, marketing becomes easier to measure and easier to improve.</p>
+    <p>Our approach starts with the real business goal: more qualified opportunities and better revenue outcomes. From there, we identify the right growth channels, improve the customer journey, and build a plan that can scale with data.</p>
+
+    <section class="pillar-section" id="what-is-gma">
+      <h2>What Is a Growth Marketing Agency?</h2>
+      <p>A growth marketing agency helps businesses attract, convert, retain, and grow customers through data-driven marketing systems. Instead of focusing only on brand awareness or one-time campaigns, growth marketing connects marketing activity to measurable business outcomes such as leads, pipeline, revenue, retention, and customer lifetime value.</p>
+      <p>In simple terms, a growth marketing agency helps answer one important question: <strong>how do we build a repeatable system for growth?</strong></p>
+      <p>Traditional marketing often focuses on visibility. Growth marketing goes further — it studies the full customer journey, tests different channels, measures what works, and improves each stage over time. This can include lead generation, paid ads, SEO, answer engine optimization, landing pages, conversion rate optimization, email nurture, analytics, and sales alignment.</p>
+      <p>The goal is not just to get more traffic. The goal is to turn the right traffic into qualified leads, customers, and repeat revenue.</p>
+    </section>
+
+    <section class="pillar-section" id="vs-traditional">
+      <h2>Growth Marketing vs. Traditional Marketing</h2>
+      <p>Traditional marketing and growth marketing are connected, but they are not the same. Traditional marketing usually focuses on awareness, messaging, creative campaigns, and brand visibility — still important, but many businesses struggle when marketing activity doesn't clearly connect to sales outcomes.</p>
+      <p>Growth marketing takes a more measurable approach. It looks at the full path from first touch to closed revenue — what happens after someone sees an ad, visits a website, fills out a form, receives an email, or speaks with sales.</p>
+
+      <div class="comp-table-wrap">
+        <table class="comp-table">
+          <tr><th>Area</th><th>Traditional Marketing</th><th>Growth Marketing</th></tr>
+          <tr><td>Primary focus</td><td>Brand awareness &amp; visibility</td><td>Measurable growth across the full funnel</td></tr>
+          <tr><td>Measurement</td><td>Impressions, reach, engagement</td><td>Leads, conversion rate, pipeline, revenue, retention</td></tr>
+          <tr><td>Campaign style</td><td>Often campaign-based</td><td>Continuous testing &amp; optimization</td></tr>
+          <tr><td>Customer journey</td><td>Usually top-of-funnel focused</td><td>Acquisition, activation, retention, referral, revenue</td></tr>
+          <tr><td>Main question</td><td>How do we get attention?</td><td>How do we turn attention into growth?</td></tr>
+        </table>
+      </div>
+      <p>That's why growth marketing is useful for companies that need more than exposure — they need a system that can create demand, capture interest, nurture leads, and support revenue growth.</p>
+    </section>
+
+    <section class="pillar-section" id="framework">
+      <h2>The Growth Marketing Framework</h2>
+      <p>A strong growth marketing agency doesn't only ask how to get more leads — it looks at every stage that affects growth. At LeadStrong.ai, we use a practical framework built around acquisition, activation, retention, referral, and revenue, which helps businesses see where growth is strong, where it's leaking, and where the next improvement should happen.</p>
+
+      <div class="component-card">
+        <h4><span class="num">1</span>Acquisition</h4>
+        <p>How new prospects discover your business — Google search, LinkedIn, paid ads, outbound outreach, referrals, organic content, AI search, or social media. The goal is bringing the right people into your funnel, not just increasing traffic. For B2B companies, this may include lead generation campaigns, search visibility, LinkedIn outreach, founder-led content, and high-intent paid ads.</p>
+      </div>
+      <div class="component-card">
+        <h4><span class="num">2</span>Activation</h4>
+        <p>The point where a prospect takes meaningful action — booking a strategy call, submitting a form, downloading a guide, requesting a demo, replying to outreach, or engaging with a sales conversation. Many businesses get attention but fail at activation because the website is unclear, the CTA is weak, or follow-up is slow.</p>
+      </div>
+      <div class="component-card">
+        <h4><span class="num">3</span>Retention</h4>
+        <p>Keeping customers engaged after the first conversion — customer success, repeat purchases, renewals, upsells, or simply staying top of mind during a longer sales cycle. Retention matters because growth becomes expensive when every sale depends on finding a brand-new audience.</p>
+      </div>
+      <div class="component-card">
+        <h4><span class="num">4</span>Referral</h4>
+        <p>Happy customers, partners, or prospects introducing your business to others — one of the strongest growth channels because trust is already built into the introduction, though it shouldn't be left entirely to chance. Partner programs, testimonial collection, and case studies help build the system.</p>
+      </div>
+      <div class="component-card">
+        <h4><span class="num">5</span>Revenue</h4>
+        <p>The final measure of whether marketing is supporting the business properly. Traffic, clicks, and impressions are only early signals — growth marketing tracks qualified leads, booked calls, proposal opportunities, close rates, customer acquisition cost, and lifetime value.</p>
+      </div>
+    </section>
+
+    <section class="pillar-section" id="why-it-works">
+      <h2>Why Growth Marketing Works</h2>
+      <p>Growth marketing works because it treats marketing as a system, not a collection of random activities. Many companies run ads, post on social media, write blogs, or send outreach without connecting the pieces — this creates noise, but not always growth.</p>
+      <p>A growth marketing approach connects the dots. It looks at how someone discovers the business, what they see next, what action they take, how they're followed up with, and whether they eventually become a customer. This makes growth easier to improve — instead of guessing, the business can study the funnel and fix the biggest bottleneck first.</p>
+
+      <ul class="bottleneck-list">
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>If there is no traffic, acquisition needs work.</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>If there's traffic but no leads, conversion needs work.</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>If there are leads but no calls, nurture and follow-up need work.</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>If there are calls but no deals, sales alignment or offer clarity may need work.</li>
+      </ul>
+      <p>Growth marketing works best when the team is willing to test, measure, improve, and scale what proves itself.</p>
+    </section>
+
+    <section class="pillar-section" id="services">
+      <h2>Services Offered by Growth Marketing Agencies</h2>
+      <p>Growth marketing agencies usually offer a mix of strategy, acquisition, conversion, nurture, and analytics services. The exact services depend on the business model and growth stage. At LeadStrong.ai, we focus on the services that support qualified pipeline and measurable revenue growth.</p>
+
+      <div class="service-grid">
+        <div class="service-card">
+          <h4>Lead Generation</h4>
+          <p>New sales opportunities through targeted outreach, inbound traffic, paid media, and conversion systems — often the best starting point.</p>
+          <a href="Lead%20Generation%20Services.html">Learn more →</a>
+        </div>
+        <div class="service-card">
+          <h4>Performance Marketing</h4>
+          <p>Google Ads, LinkedIn Ads, Meta Ads, and retargeting focused on qualified leads and pipeline movement, not just clicks.</p>
+          <a href="Performance%20Marketing%20Services.html">Learn more →</a>
+        </div>
+        <div class="service-card">
+          <h4>SEO &amp; AEO</h4>
+          <p>Long-term visibility across search engines and AI-driven answers — AI Overviews, ChatGPT-style search, Gemini, and more.</p>
+          <a href="answer-engine-optimization.html">Learn more →</a>
+        </div>
+        <div class="service-card">
+          <h4>Website Conversion</h4>
+          <p>Better landing pages, stronger CTAs, trust signals, page structure, and UX improvements that turn visitors into leads.</p>
+          <a href="Website%20Conversion%20Optimization.html">Learn more →</a>
+        </div>
+        <div class="service-card">
+          <h4>Email Nurture &amp; Follow-Up</h4>
+          <p>Educating and following up with prospects until they're ready — improving response rates, booked calls, and close rates.</p>
+        </div>
+        <div class="service-card">
+          <h4>Analytics &amp; Reporting</h4>
+          <p>Clear reporting on what's working, where leads come from, and what should improve next — focused on outcomes, not activity.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pillar-section" id="why-leadstrong">
+      <h2>Why LeadStrong.ai</h2>
+      <p>LeadStrong.ai is built for businesses that want a practical growth system, not just disconnected marketing tasks. We do not believe in selling every channel at once — we start by understanding the business, identifying the most important growth bottleneck, and choosing the next best move.</p>
+      <p>For many clients, that starting point is lead generation. From there, we can diagnose whether the business also needs stronger website conversion, SEO, AEO, paid ads, nurture, or sales follow-up. This makes the work more focused and easier to measure.</p>
+
+      <h3>Lead Generation First</h3>
+      <p>Most businesses don't come to a growth marketing agency because they want more activity — they come because they want more opportunities. That's why LeadStrong.ai starts with pipeline, helping identify where qualified leads can come from and what system is needed to create more of them.</p>
+
+      <h3>Modular Services</h3>
+      <p>Clients are not forced into one rigid package. Each business can choose the service that fits its current need — outbound lead generation, conversion improvements, paid ads, SEO, AEO, or nurture. The structure is flexible, but the strategy remains focused.</p>
+
+      <h3>Revenue-Focused Reporting</h3>
+      <p>We measure the signals that matter most: leads, qualified conversations, cost per lead, booked calls, conversion rates, pipeline, and revenue movement — helping leadership understand whether marketing is creating real business progress.</p>
+    </section>
+
+    <section class="pillar-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>What does a growth marketing agency do?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">A growth marketing agency helps businesses build and improve systems for customer acquisition, conversion, retention, referral, and revenue growth. It uses data, testing, and optimization to connect marketing activity to business outcomes.</div></div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>How is growth marketing different?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Growth marketing is different because it focuses on the full customer journey, not just awareness. It measures how marketing affects leads, pipeline, retention, and revenue over time.</div></div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>What businesses benefit most?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">B2B companies, SaaS brands, service businesses, staffing firms, professional services, and companies with longer sales cycles often benefit from growth marketing — especially when the business needs a more predictable pipeline.</div></div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>How do growth marketers measure success?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Through KPIs such as qualified leads, conversion rate, cost per lead, booked calls, customer acquisition cost, retention, customer lifetime value, and revenue growth.</div></div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>What channels are included?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Outbound lead generation, SEO, AEO, Google Ads, LinkedIn Ads, Meta Ads, email nurture, website conversion optimization, content marketing, retargeting, analytics, and referral programs.</div></div>
+      </div>
+    </section>
+
+    <div class="related-links">
+      <a href="Lead%20Generation%20Services.html">Lead Generation Services →</a>
+      <a href="b2b-lead-generation.html">B2B Lead Generation →</a>
+      <a href="answer-engine-optimization.html">Answer Engine Optimization →</a>
+      <a href="Website%20Conversion%20Optimization.html">Website Conversion Optimization →</a>
+      <a href="Performance%20Marketing%20Services.html">Performance Marketing Services →</a>
+    </div>
+
+    <div class="final-cta">
+      <h2>Talk to a Growth Strategist</h2>
+      <p style="margin:0 0 22px">If your business needs a clearer path to growth, LeadStrong.ai can help you identify the right next step. We start by understanding your current pipeline, audience, website, offer, and sales process — then recommend the most practical growth strategy based on your stage and goals.</p>
+      <a href="LeadStrong-Landing.html#get-started" style="display:inline-flex;align-items:center;gap:9px;background:#EC5A2C;color:#fff;font-weight:700;font-size:15.5px;padding:14px 26px;border-radius:11px">Book a strategy session<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+
+  </article>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer style="background:#1C4751;color:#fff;margin-top:40px">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding:32px clamp(20px,5vw,40px)">
+    <img src="LS_Logo_vertical_white.png" alt="" style="width:180px;height:auto">
+    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
+      <a href="Services.html" style="color:#9fb3bd;font-weight:600;font-size:14px">Services</a>
+      <a href="Case%20Studies.html" style="color:#9fb3bd;font-weight:600;font-size:14px">Case Studies</a>
+      <a href="/cdn-cgi/l/email-protection#8be2e5ede4cbe7eeeaeff8fff9e4e5eca5eae2" style="color:#9fb3bd;font-weight:600;font-size:14px"><span class="__cf_email__" data-cfemail="f59c9b939ab5999094918681879a9b92db949c">[email&#160;protected]</span></a>
+    </div>
+    <div style="font-weight:300;font-size:13px;color:#8aa3af">Copyright 2026 LeadStrong</div>
+  </div>
+</footer>
+
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function faqToggle(el){ el.classList.toggle('open'); }
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.pillar-section'));
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('[data-toc]'));
+  function onScroll(){
+    var y = window.scrollY + 120;
+    var current = sections[0];
+    sections.forEach(function(s){ if (s.offsetTop <= y) current = s; });
+    tocLinks.forEach(function(l){
+      l.classList.toggle('active', l.getAttribute('href') === '#' + current.id);
+    });
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+</script>
+</body></html>
