@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Performance Marketing Services That Scale — LeadStrong.ai</title>
+<meta name="description" content="Performance marketing services focused on measurable ROI, qualified leads, and revenue growth.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:88px}
+  body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;color:#0d3038;-webkit-font-smoothing:antialiased;background:#fff}
+  a{color:#0089C6;text-decoration:none}
+  a:hover{color:#006c9c}
+  .wrap{max-width:1180px;margin:0 auto;width:100%}
+  .navlinks{display:flex;gap:32px;align-items:center}
+  .navlinks a{white-space:nowrap;color:#4a6070;font-weight:600;font-size:15px}
+  .navlinks a:hover{color:#0089C6}
+  .hamburger-btn{display:none;flex-direction:column;width:40px;height:40px;flex:0 0 40px;background:none;border:none;padding:0;margin:0;cursor:pointer;align-items:center;justify-content:center;border-radius:8px}
+  .hamburger-btn .ham-line{display:block;width:22px;height:2.4px;background:#0d3038;border-radius:2px}
+  .hamburger-btn .ham-line+.ham-line{margin-top:5px}
+  @media(max-width:1100px){.navlinks{display:none}.booksession{display:none}.hamburger-btn{display:flex}}
+
+  .pillar-shell{display:grid;grid-template-columns:250px minmax(0,1fr);gap:56px;align-items:start;padding:44px clamp(20px,5vw,40px) 0}
+  @media(max-width:980px){.pillar-shell{grid-template-columns:1fr;gap:0;padding-top:28px}}
+
+  .toc{position:sticky;top:88px;font-size:14px}
+  .toc-label{font-weight:700;font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:#8a9daa;margin-bottom:14px}
+  .toc a{display:block;padding:7px 0;color:#4a6070;font-weight:500;border-left:2px solid transparent;padding-left:14px;margin-left:-1px}
+  .toc a.active{color:#0089C6;font-weight:700;border-left-color:#0089C6}
+  .toc a:hover{color:#0089C6}
+  @media(max-width:980px){.toc{display:none}}
+
+  .mobile-toc{display:none;position:sticky;top:64px;z-index:30;background:#fff;border-bottom:1px solid #e4ecf0;padding:12px clamp(20px,5vw,40px)}
+  .mobile-toc select{width:100%;padding:11px 14px;border:1.5px solid #e0e8ed;border-radius:9px;font-family:inherit;font-size:14.5px;font-weight:600;color:#0d3038;background:#fff}
+  @media(max-width:980px){.mobile-toc{display:block}}
+
+  .article{max-width:780px;padding-bottom:40px}
+  .article h2{font-weight:800;font-size:clamp(24px,3vw,30px);letter-spacing:-0.5px;color:#0d3038;margin:0 0 18px;scroll-margin-top:88px}
+  .article h3{font-weight:700;font-size:19px;letter-spacing:-0.2px;color:#0d3038;margin:26px 0 10px}
+  .article p{font-weight:400;font-size:16.5px;line-height:1.72;color:#3d5461;margin:0 0 18px;text-wrap:pretty}
+  .article ul,.article ol{font-weight:400;font-size:16.5px;line-height:1.72;color:#3d5461;margin:0 0 18px;padding-left:26px}
+  .article li{margin-bottom:8px}
+  .article strong{color:#0d3038;font-weight:700}
+  section.pillar-section{margin-bottom:52px}
+
+  .lede{font-weight:400;font-size:19px;line-height:1.65;color:#3d5461;margin:6px 0 0}
+
+  .quickbox{background:#f5f8fa;border-left:4px solid #0089C6;border-radius:14px;padding:24px 26px;margin:0 0 44px}
+  .quickbox-label{font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#0089C6;margin-bottom:9px}
+  .quickbox p{margin:0;font-weight:600;font-size:16.5px;line-height:1.6;color:#0d3038}
+
+  .qlist{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0 26px}
+  .qtag{background:#f5f8fa;border-radius:999px;padding:8px 15px;font-weight:600;font-size:13.5px;color:#0d3038}
+
+  .benefit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:20px 0 8px}
+  @media(max-width:680px){.benefit-grid{grid-template-columns:1fr}}
+  .benefit-card{background:#f5f8fa;border-radius:14px;padding:20px 22px}
+  .benefit-card .b-icon{width:34px;height:34px;border-radius:10px;background:#fff;border:1px solid #e4ecf0;display:flex;align-items:center;justify-content:center;margin-bottom:11px}
+  .benefit-card h4{font-weight:700;font-size:15.5px;color:#0d3038;margin:0 0 7px}
+  .benefit-card p{font-weight:400;font-size:14px;line-height:1.6;color:#4a6070;margin:0}
+
+  /* channel accordion, light cards w/ risk callout */
+  .chan-step{border:1.5px solid #e4ecf0;border-radius:14px;margin-bottom:12px;overflow:hidden}
+  .chan-head{display:flex;align-items:center;gap:14px;padding:16px 18px;cursor:pointer}
+  .chan-icon{flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:#E6F3F9;display:flex;align-items:center;justify-content:center}
+  .chan-title{margin:0;flex:1;font-weight:700;font-size:16px;color:#0d3038}
+  .chan-chev{flex:0 0 auto;width:24px;height:24px;border-radius:50%;border:1.5px solid #d3dee3;color:#4a6070;display:flex;align-items:center;justify-content:center;transition:transform .3s ease}
+  .chan-step.active .chan-chev{transform:rotate(180deg);border-color:#0089C6;color:#0089C6}
+  .chan-body{max-height:0;opacity:0;overflow:hidden;transition:opacity .3s ease}
+  .chan-step.active .chan-body{max-height:700px;opacity:1}
+  .chan-body-inner{padding:0 18px 18px 66px}
+  .chan-body-inner p{font-weight:400;font-size:14.5px;line-height:1.65;color:#4a6070;margin:0 0 12px}
+  .chan-risk{display:flex;gap:9px;align-items:flex-start;background:#fef6ec;border-radius:10px;padding:11px 13px;font-weight:500;font-size:13.5px;line-height:1.55;color:#7a5a1f}
+  .chan-risk svg{flex:0 0 auto;margin-top:2px}
+
+  .metrics-table-wrap{overflow-x:auto;margin:20px 0 26px;border:1px solid #e4ecf0;border-radius:14px}
+  table.metrics-table{width:100%;border-collapse:collapse;font-size:14px}
+  table.metrics-table th{background:#f5f8fa;text-align:left;padding:12px 16px;font-weight:700;font-size:12px;letter-spacing:0.4px;text-transform:uppercase;color:#4a6070}
+  table.metrics-table td{padding:13px 16px;font-weight:500;color:#4a6070;border-top:1px solid #eef2f4;vertical-align:top}
+  table.metrics-table td:first-child{font-weight:700;color:#0d3038;white-space:nowrap}
+
+  /* framework accordion, teal */
+  .proc-step{width:100%;cursor:pointer;background:radial-gradient(140% 130% at 0% 0%, #1f4a58 0%, #1C4751 74%);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:14px 18px;margin-bottom:10px;transition:transform .3s cubic-bezier(.16,.84,.44,1),box-shadow .3s ease,border-color .3s ease}
+  .proc-step:hover{transform:translateY(-2px);border-color:rgba(55,204,239,0.5)}
+  .proc-step.active{border-color:rgba(55,204,239,0.45);box-shadow:0 22px 54px rgba(26,58,74,0.28)}
+  .proc-head{display:flex;align-items:center;gap:13px}
+  .proc-badge{flex:0 0 auto;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12.5px;background:rgba(55,204,239,0.16);color:#37CCEF;line-height:1}
+  .proc-step.active .proc-badge{background:#EC5A2C;color:#fff}
+  .proc-title{margin:0;flex:1;font-weight:700;font-size:16px;letter-spacing:-0.1px;color:#fff !important;line-height:1.3}
+  .proc-chev{flex:0 0 auto;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1.5px solid rgba(55,204,239,0.45);color:#37CCEF;transition:transform .3s ease}
+  .proc-step.active .proc-chev{transform:rotate(180deg);border-color:rgba(255,255,255,0.5);color:#fff}
+  .proc-body{max-height:0;opacity:0;overflow:hidden;transition:opacity .35s ease}
+  .proc-step.active .proc-body{max-height:400px;opacity:1}
+  .proc-body-inner{padding:14px 0 2px 45px}
+  .proc-body-inner p{font-weight:400;font-size:14.5px;line-height:1.65;color:#c4d3db;margin:0}
+
+  .faq-item{border-bottom:1px solid #e4ecf0}
+  .faq-q{width:100%;text-align:left;background:none;border:none;padding:19px 2px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:inherit;font-weight:700;font-size:16px;color:#0d3038}
+  .faq-plus{flex:0 0 auto;width:24px;height:24px;border-radius:50%;border:1.5px solid #d3dee3;color:#4a6070;display:flex;align-items:center;justify-content:center;transition:transform .3s ease}
+  .faq-item.open .faq-plus{transform:rotate(45deg);border-color:#0089C6;color:#0089C6}
+  .faq-a{max-height:0;opacity:0;overflow:hidden;transition:opacity .3s ease}
+  .faq-item.open .faq-a{max-height:280px;opacity:1}
+  .faq-a-inner{padding:0 2px 19px;font-weight:400;font-size:15px;line-height:1.6;color:#4a6070}
+
+  .final-cta{background:radial-gradient(120% 130% at 82% -10%, #276274 0%, #1C4751 60%);border-radius:20px;padding:clamp(30px,4vw,44px);color:#fff;margin-top:8px}
+  .final-cta h2{color:#fff}
+  .final-cta p{color:#c4d3db}
+
+  .related-links{display:flex;flex-wrap:wrap;gap:9px 26px;margin:0 0 44px}
+</style>
+</head>
+<body>
+
+<div style="font-family:'Plus Jakarta Sans',sans-serif;position:relative">
+
+<!-- ================= NAV ================= -->
+<nav data-screen-label="Nav" style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.94);backdrop-filter:blur(10px);border-bottom:1px solid #e0e8ed">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,5vw,40px)">
+    <a href="LeadStrong-Landing.html#top" style="display:block"><img src="LS_Logo_only.png" alt="" style="width:220px;height:auto"></a>
+    <div class="navlinks">
+      <a href="Services.html">Services</a>
+      <a href="LeadStrong-Landing.html#pricing">Pricing</a>
+      <a href="Become%20a%20Partner.html">Partner</a>
+      <a href="Case%20Studies.html">Case Studies</a>
+      <a href="About%20Us.html">About Us</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a href="LeadStrong-Landing.html#get-started" class="booksession" style="background:#EC5A2C;color:#fff;font-weight:700;font-size:15px;padding:12px 20px;border-radius:10px;white-space:nowrap">Book a strategy session</a>
+      <button type="button" class="hamburger-btn" aria-label="Menu"><span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header style="background:#f5f8fa;border-bottom:1px solid #e4ecf0">
+  <div class="wrap" style="padding:clamp(46px,6vw,68px) clamp(20px,5vw,40px) clamp(38px,5vw,54px)">
+    <div style="font-weight:700;font-size:12.5px;letter-spacing:1.2px;text-transform:uppercase;color:#0089C6;margin-bottom:14px">GUIDE · PERFORMANCE MARKETING SERVICES</div>
+    <h1 style="font-weight:800;font-size:clamp(30px,4.6vw,46px);line-height:1.1;letter-spacing:-1px;margin:0 0 14px;max-width:820px;text-wrap:pretty">Performance Marketing Services for Revenue Growth</h1>
+    <p class="lede" style="max-width:720px">Performance marketing services help businesses connect ad spend to measurable outcomes such as qualified leads, booked calls, pipeline growth, and revenue.</p>
+  </div>
+</header>
+
+<!-- ================= MOBILE TOC ================= -->
+<div class="mobile-toc">
+  <select onchange="if(this.value){window.location.hash=this.value}">
+    <option value="">Jump to section…</option>
+    <option value="#what-are">What Are Performance Marketing Services?</option>
+    <option value="#benefits">Benefits</option>
+    <option value="#channels">Channels</option>
+    <option value="#metrics">Metrics</option>
+    <option value="#framework">Our Framework</option>
+    <option value="#faq">FAQ</option>
+  </select>
+</div>
+
+<div class="pillar-shell">
+  <!-- ================= STICKY TOC ================= -->
+  <aside class="toc" id="toc">
+    <div class="toc-label">On this page</div>
+    <a href="#what-are" data-toc>What Are They?</a>
+    <a href="#benefits" data-toc>Benefits</a>
+    <a href="#channels" data-toc>Channels</a>
+    <a href="#metrics" data-toc>Metrics</a>
+    <a href="#framework" data-toc>Our Framework</a>
+    <a href="#faq" data-toc>FAQ</a>
+  </aside>
+
+  <!-- ================= ARTICLE ================= -->
+  <article class="article">
+
+    <div class="quickbox">
+      <div class="quickbox-label">Quick answer</div>
+      <p>Performance marketing services are paid marketing campaigns built around measurable results. These services use channels like Google Ads, LinkedIn Ads, Meta Ads, retargeting, and landing pages to generate leads, track performance, and improve return on ad spend over time.</p>
+    </div>
+
+    <p>At LeadStrong, we build performance marketing systems around clear goals, tracking, conversion strategy, and follow-up. That means every campaign is designed to answer a practical question: is this channel helping us generate better opportunities at a cost that makes sense?</p>
+    <p>Our approach combines paid media, landing pages, tracking, retargeting, and lead nurturing so your business can test, learn, and scale with more confidence.</p>
+
+    <section class="pillar-section" id="what-are">
+      <h2>What Are Performance Marketing Services?</h2>
+      <p>Performance marketing services help businesses plan, launch, measure, and improve paid campaigns based on clear business outcomes. The goal is not just visibility — it's measurable action, whether that's form submissions, demo requests, phone calls, booked appointments, or qualified sales conversations.</p>
+      <p>In traditional marketing, success is often measured by reach or awareness. Those metrics still matter, but they don't tell the whole story. A campaign can receive many views and clicks, yet still fail to produce qualified leads. Performance marketing looks deeper — it asks:</p>
+
+      <div class="qlist">
+        <div class="qtag">Who clicked?</div>
+        <div class="qtag">What did they do after?</div>
+        <div class="qtag">Did they convert?</div>
+        <div class="qtag">How much did the lead cost?</div>
+        <div class="qtag">Was it qualified?</div>
+        <div class="qtag">Did it move into sales?</div>
+        <div class="qtag">Which channel won?</div>
+      </div>
+
+      <p>This is why performance marketing works best when ads are connected to a full funnel. Strong campaigns need the right audience, message, creative, landing page, tracking, and follow-up system. Without those pieces, ads can create traffic but fail to create revenue opportunities.</p>
+    </section>
+
+    <section class="pillar-section" id="benefits">
+      <h2>Benefits of Performance Marketing</h2>
+      <p>Businesses invest in performance marketing because it gives them a clearer way to test growth and measure results. For B2B companies especially, the buyer journey is longer and decision-makers need trust — a performance marketing system helps capture interest, nurture prospects, and create better sales conversations over time.</p>
+
+      <div class="benefit-grid">
+        <div class="benefit-card">
+          <div class="b-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M7 15l4-6 4 4 5-7"></path></svg></div>
+          <h4>More Measurable Growth</h4>
+          <p>Track cost per click, cost per lead, conversion rate, lead quality, and booked meetings — decisions based on data, not assumptions.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="b-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+          <h4>Better Budget Control</h4>
+          <p>Campaigns can be scaled, paused, or narrowed based on performance — budget moves to what's working.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="b-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg></div>
+          <h4>Faster Market Learning</h4>
+          <p>Learn which pain points get attention, which offers drive action, and which platforms create the strongest opportunities.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="b-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></div>
+          <h4>Stronger Sales Pipeline</h4>
+          <p>Connected to landing pages and follow-up, campaigns support consistent pipeline with prospects that match your ICP.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pillar-section" id="channels">
+      <h2>Performance Marketing Channels</h2>
+      <p>Different channels serve different roles. Some capture existing demand, others create awareness and trust, some are better for retargeting. A strong strategy doesn't run every platform blindly — it chooses the right channel based on what the business needs to learn or achieve first.</p>
+
+      <div class="chan-step" onclick="chanToggle(this)" role="button" tabindex="0">
+        <div class="chan-head"><div class="chan-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg></div><h3 class="chan-title">Google Ads</h3><div class="chan-chev"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></div></div>
+        <div class="chan-body"><div class="chan-body-inner">
+          <p>Captures high-intent demand — people already searching for a solution related to your business. Works best with targeted keywords, strong landing pages, and conversion tracking.</p>
+          <div class="chan-risk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#b5850f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"></path><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"></path></svg>Competitive keywords can get expensive — weak tracking or landing pages mean clicks may not turn into leads.</div>
+        </div></div>
+      </div>
+
+      <div class="chan-step" onclick="chanToggle(this)" role="button" tabindex="0">
+        <div class="chan-head"><div class="chan-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"></rect><path d="M8 12v5M12 12v5M12 14.5c0-1.5 1-2.5 2.5-2.5s2.5 1 2.5 2.5V17"></path></svg></div><h3 class="chan-title">LinkedIn Ads</h3><div class="chan-chev"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></div></div>
+        <div class="chan-body"><div class="chan-body-inner">
+          <p>Reaches specific B2B audiences by job title, seniority, company size, industry, and role — valuable when the offer targets founders, HR leaders, or executives.</p>
+          <div class="chan-risk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#b5850f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"></path><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"></path></svg>Usually more expensive. Without enough budget or creative testing, volume can be limited if the audience is too narrow.</div>
+        </div></div>
+      </div>
+
+      <div class="chan-step" onclick="chanToggle(this)" role="button" tabindex="0">
+        <div class="chan-head"><div class="chan-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"></rect><circle cx="12" cy="12" r="3.5"></circle><circle cx="17.2" cy="6.8" r="0.6" fill="#0089C6" stroke="none"></circle></svg></div><h3 class="chan-title">Meta Ads</h3><div class="chan-chev"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></div></div>
+        <div class="chan-body"><div class="chan-body-inner">
+          <p>Facebook and Instagram — useful for founder-led video, brand awareness, education, and retargeting. Works best when the creative feels human, not corporate.</p>
+          <div class="chan-risk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#b5850f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"></path><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"></path></svg>Cheaper attention than LinkedIn, but lead quality can vary — separate raw leads from qualified leads.</div>
+        </div></div>
+      </div>
+
+      <div class="chan-step" onclick="chanToggle(this)" role="button" tabindex="0">
+        <div class="chan-head"><div class="chan-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"></path><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><path d="M7 23l-4-4 4-4"></path><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg></div><h3 class="chan-title">Retargeting</h3><div class="chan-chev"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></div></div>
+        <div class="chan-body"><div class="chan-body-inner">
+          <p>Re-engages people who already interacted with your site, ad, or content. Works best when the message changes based on what the person already did — e.g. a landing-page visitor seeing a founder video next.</p>
+        </div></div>
+      </div>
+
+      <div class="chan-step" onclick="chanToggle(this)" role="button" tabindex="0">
+        <div class="chan-head"><div class="chan-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div><h3 class="chan-title">Programmatic</h3><div class="chan-chev"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></div></div>
+        <div class="chan-body"><div class="chan-body-inner">
+          <p>Automated media buying across websites, apps, and digital networks — useful for awareness and retargeting at scale, once the core funnel is already proven.</p>
+          <div class="chan-risk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#b5850f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"></path><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"></path></svg>Risk of spending budget on broad impressions without clear lead quality — consider later, not before the foundation is ready.</div>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="pillar-section" id="metrics">
+      <h2>Performance Marketing Metrics</h2>
+      <p>Performance marketing should be measured beyond surface-level activity. Clicks and impressions matter, but they are not the final goal — the most important metrics show whether campaigns are helping the business generate qualified opportunities.</p>
+
+      <div class="metrics-table-wrap">
+        <table class="metrics-table">
+          <tr><th>Metric</th><th>Why It Matters</th></tr>
+          <tr><td>CTR</td><td>Shows whether the message and creative are getting attention.</td></tr>
+          <tr><td>CPC</td><td>Shows how much it costs to bring someone to the landing page.</td></tr>
+          <tr><td>Landing Page Conv. Rate</td><td>Shows how many visitors become leads.</td></tr>
+          <tr><td>Cost Per Lead</td><td>Shows how much each lead costs.</td></tr>
+          <tr><td>Cost Per Qualified Lead</td><td>Shows how much it costs to generate leads that match the ICP.</td></tr>
+          <tr><td>Booked Call Rate</td><td>Shows how many leads move into a real sales conversation.</td></tr>
+          <tr><td>Show-Up Rate</td><td>Shows whether booked calls actually happen.</td></tr>
+          <tr><td>Pipeline Value</td><td>Shows the potential revenue created from qualified opportunities.</td></tr>
+          <tr><td>ROAS</td><td>Shows revenue return compared with ad spend, when sales data is available.</td></tr>
+        </table>
+      </div>
+      <p>The key is to report both lead quantity and lead quality. A low CPL can look good, but it may not matter if the leads aren't qualified. A higher CPL may be acceptable if the leads are closer to becoming real opportunities.</p>
+    </section>
+
+    <section class="pillar-section" id="framework">
+      <h2>LeadStrong.ai Performance Marketing Framework</h2>
+      <p>At LeadStrong.ai, performance marketing is not treated as a standalone ad campaign — it's part of a larger lead generation system. The framework starts with a clear business goal, then connects paid traffic to landing pages, nurture, and sales follow-up.</p>
+
+      <div class="proc-step" onclick="procToggle(this)" role="button" tabindex="0">
+        <div class="proc-head"><div class="proc-badge">01</div><h3 class="proc-title">Define the Goal</h3><div class="proc-chev"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></div></div>
+        <div class="proc-body"><div class="proc-body-inner"><p>We first identify what the campaign is meant to achieve — booked calls, demo requests, qualified leads, or retargeting engagement. A clear goal prevents the campaign from becoming too broad.</p></div></div>
+      </div>
+      <div class="proc-step" onclick="procToggle(this)" role="button" tabindex="0">
+        <div class="proc-head"><div class="proc-badge">02</div><h3 class="proc-title">Choose the Right Channel</h3><div class="proc-chev"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></div></div>
+        <div class="proc-body"><div class="proc-body-inner"><p>Google, LinkedIn, and Meta each have different roles. The right channel depends on whether the priority is high intent, decision-maker targeting, awareness, or cost-efficient testing.</p></div></div>
+      </div>
+      <div class="proc-step" onclick="procToggle(this)" role="button" tabindex="0">
+        <div class="proc-head"><div class="proc-badge">03</div><h3 class="proc-title">Build the Landing Page</h3><div class="proc-chev"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></div></div>
+        <div class="proc-body"><div class="proc-body-inner"><p>The landing page must explain the offer clearly and make the next step easy — ads should never send traffic to a weak or confusing page.</p></div></div>
+      </div>
+      <div class="proc-step" onclick="procToggle(this)" role="button" tabindex="0">
+        <div class="proc-head"><div class="proc-badge">04</div><h3 class="proc-title">Launch Controlled Tests</h3><div class="proc-chev"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></div></div>
+        <div class="proc-body"><div class="proc-body-inner"><p>We start with controlled testing instead of aggressive scaling — learning which message, audience, channel, and creative direction produces the best signal.</p></div></div>
+      </div>
+      <div class="proc-step" onclick="procToggle(this)" role="button" tabindex="0">
+        <div class="proc-head"><div class="proc-badge">05</div><h3 class="proc-title">Nurture and Follow Up</h3><div class="proc-chev"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></div></div>
+        <div class="proc-body"><div class="proc-body-inner"><p>Not every lead is ready to book immediately. Connecting to an email nurture and sales follow-up process helps convert more leads from the same ad spend.</p></div></div>
+      </div>
+      <div class="proc-step" onclick="procToggle(this)" role="button" tabindex="0">
+        <div class="proc-head"><div class="proc-badge">06</div><h3 class="proc-title">Measure and Improve</h3><div class="proc-chev"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></div></div>
+        <div class="proc-body"><div class="proc-body-inner"><p>Once data is available, we identify what to pause, improve, or scale — increasing lead quality, reducing wasted spend, and moving budget toward the strongest campaigns.</p></div></div>
+      </div>
+    </section>
+
+    <section class="pillar-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>What are performance marketing services?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Paid marketing campaigns focused on measurable results such as leads, booked calls, sign-ups, conversions, and revenue growth.</div></div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>How does performance marketing work?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">By choosing the right paid channels, targeting the right audience, sending traffic to conversion-focused landing pages, tracking results, and improving campaigns based on data.</div></div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>Which channels perform best for B2B?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Google Ads and LinkedIn Ads are often strong — Google captures existing search intent, LinkedIn reaches specific decision-makers. Meta can support awareness, video, and retargeting.</div></div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>What KPIs matter most?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Cost per qualified lead, conversion rate, booked call rate, show-up rate, pipeline value, and return on ad spend. Clicks and impressions matter, but shouldn't be the only measure of success.</div></div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>How is ROI measured?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">By comparing campaign cost against the value of qualified opportunities and closed revenue. For longer B2B sales cycles, early ROI may be measured through pipeline quality, booked calls, and sales progression.</div></div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>How long does performance marketing take to work?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Most campaigns need 30 to 90 days to gather enough data. Early signals may appear sooner, but stronger decisions usually require testing different audiences, messages, and follow-up systems.</div></div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>Do performance marketing services guarantee leads?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">No campaign should promise guaranteed results without testing. Results depend on offer, audience, creative, landing page, market demand, and sales follow-up.</div></div>
+      </div>
+    </section>
+
+    <div class="related-links">
+      <a href="Lead%20Generation%20Services.html">Lead Generation Services →</a>
+      <a href="b2b-lead-generation.html">B2B Lead Generation →</a>
+      <a href="Website%20Conversion%20Optimization.html">Website Conversion Optimization →</a>
+      <a href="growth-marketing-agency.html">Growth Marketing Agency →</a>
+      <a href="answer-engine-optimization.html">Answer Engine Optimization →</a>
+    </div>
+
+    <div class="final-cta">
+      <h2>Schedule a Growth Consultation</h2>
+      <p style="margin:0 0 22px">If your business is ready to test paid growth, LeadStrong.ai can help you choose the right performance marketing path. We start by reviewing your offer, market, audience, landing page, tracking, and sales process — then recommend the platform and budget level that makes the most sense for your current stage.</p>
+      <a href="LeadStrong-Landing.html#get-started" style="display:inline-flex;align-items:center;gap:9px;background:#EC5A2C;color:#fff;font-weight:700;font-size:15.5px;padding:14px 26px;border-radius:11px">Schedule a growth consultation<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+
+  </article>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer style="background:#1C4751;color:#fff;margin-top:40px">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding:32px clamp(20px,5vw,40px)">
+    <img src="LS_Logo_vertical_white.png" alt="" style="width:180px;height:auto">
+    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
+      <a href="Services.html" style="color:#9fb3bd;font-weight:600;font-size:14px">Services</a>
+      <a href="Case%20Studies.html" style="color:#9fb3bd;font-weight:600;font-size:14px">Case Studies</a>
+      <a href="/cdn-cgi/l/email-protection#2b42454d446b474e4a4f585f5944454c054a42" style="color:#9fb3bd;font-weight:600;font-size:14px"><span class="__cf_email__" data-cfemail="a2cbccc4cde2cec7c3c6d1d6d0cdccc58cc3cb">[email&#160;protected]</span></a>
+    </div>
+    <div style="font-weight:300;font-size:13px;color:#8aa3af">Copyright 2026 LeadStrong</div>
+  </div>
+</footer>
+
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function faqToggle(el){ el.classList.toggle('open'); }
+  function procToggle(el){ el.classList.toggle('active'); }
+  function chanToggle(el){ el.classList.toggle('active'); }
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.pillar-section'));
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('[data-toc]'));
+  function onScroll(){
+    var y = window.scrollY + 120;
+    var current = sections[0];
+    sections.forEach(function(s){ if (s.offsetTop <= y) current = s; });
+    tocLinks.forEach(function(l){
+      l.classList.toggle('active', l.getAttribute('href') === '#' + current.id);
+    });
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+</script>
+</body></html>
