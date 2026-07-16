@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B2B Lead Generation Strategies That Scale — LeadStrong.ai</title>
+<meta name="description" content="B2B lead generation services designed to help your sales team book more qualified meetings and close more deals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:88px}
+  body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;color:#0d3038;-webkit-font-smoothing:antialiased;background:#fff}
+  a{color:#0089C6;text-decoration:none}
+  a:hover{color:#006c9c}
+  .wrap{max-width:1180px;margin:0 auto;width:100%}
+  .navlinks{display:flex;gap:32px;align-items:center}
+  .navlinks a{white-space:nowrap;color:#4a6070;font-weight:600;font-size:15px}
+  .navlinks a:hover{color:#0089C6}
+  .hamburger-btn{display:none;flex-direction:column;width:40px;height:40px;flex:0 0 40px;background:none;border:none;padding:0;margin:0;cursor:pointer;align-items:center;justify-content:center;border-radius:8px}
+  .hamburger-btn .ham-line{display:block;width:22px;height:2.4px;background:#0d3038;border-radius:2px}
+  .hamburger-btn .ham-line+.ham-line{margin-top:5px}
+  @media(max-width:1100px){.navlinks{display:none}.booksession{display:none}.hamburger-btn{display:flex}}
+
+  .pillar-shell{display:grid;grid-template-columns:250px minmax(0,1fr);gap:56px;align-items:start;padding:44px clamp(20px,5vw,40px) 0}
+  @media(max-width:980px){.pillar-shell{grid-template-columns:1fr;gap:0;padding-top:28px}}
+
+  .toc{position:sticky;top:88px;font-size:14px}
+  .toc-label{font-weight:700;font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:#8a9daa;margin-bottom:14px}
+  .toc a{display:block;padding:7px 0;color:#4a6070;font-weight:500;border-left:2px solid transparent;padding-left:14px;margin-left:-1px}
+  .toc a.active{color:#0089C6;font-weight:700;border-left-color:#0089C6}
+  .toc a:hover{color:#0089C6}
+  @media(max-width:980px){.toc{display:none}}
+
+  .mobile-toc{display:none;position:sticky;top:64px;z-index:30;background:#fff;border-bottom:1px solid #e4ecf0;padding:12px clamp(20px,5vw,40px)}
+  .mobile-toc select{width:100%;padding:11px 14px;border:1.5px solid #e0e8ed;border-radius:9px;font-family:inherit;font-size:14.5px;font-weight:600;color:#0d3038;background:#fff}
+  @media(max-width:980px){.mobile-toc{display:block}}
+
+  .article{max-width:760px;padding-bottom:40px}
+  .article h2{font-weight:800;font-size:clamp(24px,3vw,30px);letter-spacing:-0.5px;color:#0d3038;margin:0 0 18px;scroll-margin-top:88px}
+  .article h3{font-weight:700;font-size:19px;letter-spacing:-0.2px;color:#0d3038;margin:30px 0 12px}
+  .article p{font-weight:400;font-size:16.5px;line-height:1.72;color:#3d5461;margin:0 0 18px;text-wrap:pretty}
+  .article ul,.article ol{font-weight:400;font-size:16.5px;line-height:1.72;color:#3d5461;margin:0 0 18px;padding-left:26px}
+  .article li{margin-bottom:8px}
+  .article strong{color:#0d3038;font-weight:700}
+  section.pillar-section{margin-bottom:52px}
+
+  .lede{font-weight:400;font-size:19px;line-height:1.65;color:#3d5461;margin:6px 0 0}
+
+  .quickbox{background:#f5f8fa;border-left:4px solid #0089C6;border-radius:14px;padding:24px 26px;margin:0 0 44px}
+  .quickbox-label{font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#0089C6;margin-bottom:9px}
+  .quickbox p{margin:0;font-weight:600;font-size:16.5px;line-height:1.6;color:#0d3038}
+
+  .qgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0 26px}
+  @media(max-width:640px){.qgrid{grid-template-columns:1fr}}
+  .qcard{background:#f5f8fa;border-radius:12px;padding:16px 18px;font-weight:600;font-size:15px;color:#0d3038}
+
+  .component-card{background:#f5f8fa;border-radius:14px;padding:22px 24px;margin-bottom:16px}
+  .component-card h4{font-weight:700;font-size:16.5px;color:#0d3038;margin:0 0 8px;display:flex;align-items:center;gap:10px}
+  .component-card .num{width:26px;height:26px;border-radius:50%;background:#0089C6;color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .component-card p{font-weight:400;font-size:15px;line-height:1.65;color:#4a6070;margin:0}
+
+  .channel-card{background:#fff;border:1.5px solid #e4ecf0;border-radius:14px;padding:22px 24px;margin-bottom:14px}
+  .channel-card h4{font-weight:700;font-size:16.5px;color:#0d3038;margin:0 0 8px}
+  .channel-card p{font-weight:400;font-size:15px;line-height:1.65;color:#4a6070;margin:0}
+
+  .kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 20px;margin:20px 0 26px}
+  @media(max-width:640px){.kpi-grid{grid-template-columns:1fr}}
+  .kpi-item{display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:15px;color:#3d5461;padding:9px 0;border-bottom:1px solid #eef2f4}
+  .kpi-item svg{flex:0 0 auto;margin-top:2px}
+
+  .approach-list{list-style:none;padding-left:0;margin:20px 0 26px}
+  .approach-list li{display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-bottom:1px solid #eef2f4;font-weight:500;font-size:15.5px;color:#3d5461}
+  .approach-list li:last-child{border-bottom:none}
+  .approach-list svg{flex:0 0 auto;margin-top:2px}
+
+  .faq-item{border-bottom:1px solid #e4ecf0}
+  .faq-q{width:100%;text-align:left;background:none;border:none;padding:19px 2px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:inherit;font-weight:700;font-size:16px;color:#0d3038}
+  .faq-plus{flex:0 0 auto;width:24px;height:24px;border-radius:50%;border:1.5px solid #d3dee3;color:#4a6070;display:flex;align-items:center;justify-content:center;transition:transform .3s ease}
+  .faq-item.open .faq-plus{transform:rotate(45deg);border-color:#0089C6;color:#0089C6}
+  .faq-a{max-height:0;opacity:0;overflow:hidden;transition:opacity .3s ease}
+  .faq-item.open .faq-a{max-height:260px;opacity:1}
+  .faq-a-inner{padding:0 2px 19px;font-weight:400;font-size:15px;line-height:1.6;color:#4a6070}
+
+  .final-cta{background:radial-gradient(120% 130% at 82% -10%, #276274 0%, #1C4751 60%);border-radius:20px;padding:clamp(30px,4vw,44px);color:#fff;margin-top:8px}
+  .final-cta h2{color:#fff}
+  .final-cta p{color:#c4d3db}
+
+  .related-links{display:flex;flex-wrap:wrap;gap:9px 26px;margin:0 0 44px}
+</style>
+</head>
+<body>
+
+<div style="font-family:'Plus Jakarta Sans',sans-serif;position:relative">
+
+<!-- ================= NAV ================= -->
+<nav data-screen-label="Nav" style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.94);backdrop-filter:blur(10px);border-bottom:1px solid #e0e8ed">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,5vw,40px)">
+    <a href="LeadStrong-Landing.html#top" style="display:block"><img src="LS_Logo_only.png" alt="" style="width:220px;height:auto"></a>
+    <div class="navlinks">
+      <a href="Services.html">Services</a>
+      <a href="LeadStrong-Landing.html#pricing">Pricing</a>
+      <a href="Become%20a%20Partner.html">Partner</a>
+      <a href="Case%20Studies.html">Case Studies</a>
+      <a href="About%20Us.html">About Us</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a href="LeadStrong-Landing.html#get-started" class="booksession" style="background:#EC5A2C;color:#fff;font-weight:700;font-size:15px;padding:12px 20px;border-radius:10px;white-space:nowrap">Book a strategy session</a>
+      <button type="button" class="hamburger-btn" aria-label="Menu"><span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header style="background:#f5f8fa;border-bottom:1px solid #e4ecf0">
+  <div class="wrap" style="padding:clamp(46px,6vw,68px) clamp(20px,5vw,40px) clamp(38px,5vw,54px)">
+    <div style="font-weight:700;font-size:12.5px;letter-spacing:1.2px;text-transform:uppercase;color:#0089C6;margin-bottom:14px">GUIDE · B2B LEAD GENERATION</div>
+    <h1 style="font-weight:800;font-size:clamp(30px,4.6vw,46px);line-height:1.1;letter-spacing:-1px;margin:0 0 14px;max-width:820px;text-wrap:pretty">B2B Lead Generation for Modern Revenue Teams</h1>
+    <p class="lede" style="max-width:720px">B2B lead generation helps your company find the right businesses, reach the right decision-makers, and turn interest into qualified sales conversations.</p>
+  </div>
+</header>
+
+<!-- ================= MOBILE TOC ================= -->
+<div class="mobile-toc">
+  <select onchange="if(this.value){window.location.hash=this.value}">
+    <option value="">Jump to section…</option>
+    <option value="#what-is-b2b">What Is B2B Lead Generation?</option>
+    <option value="#why-it-matters">Why It Matters</option>
+    <option value="#framework">The Framework</option>
+    <option value="#channels">Top Channels</option>
+    <option value="#kpis">KPIs</option>
+    <option value="#why-leadstrong">Why LeadStrong.ai</option>
+    <option value="#faq">FAQ</option>
+  </select>
+</div>
+
+<div class="pillar-shell">
+  <!-- ================= STICKY TOC ================= -->
+  <aside class="toc" id="toc">
+    <div class="toc-label">On this page</div>
+    <a href="#what-is-b2b" data-toc>What Is B2B Lead Gen?</a>
+    <a href="#why-it-matters" data-toc>Why It Matters</a>
+    <a href="#framework" data-toc>The Framework</a>
+    <a href="#channels" data-toc>Top Channels</a>
+    <a href="#kpis" data-toc>KPIs</a>
+    <a href="#why-leadstrong" data-toc>Why LeadStrong.ai</a>
+    <a href="#faq" data-toc>FAQ</a>
+  </aside>
+
+  <!-- ================= ARTICLE ================= -->
+  <article class="article">
+
+    <div class="quickbox">
+      <div class="quickbox-label">Quick answer</div>
+      <p>B2B lead generation is the process of identifying, attracting, and qualifying potential business customers. It usually includes ideal customer profile development, data enrichment, prospecting, outreach, qualification, and follow-up — creating a steady flow of qualified meetings and sales opportunities for a B2B sales team.</p>
+    </div>
+
+    <p>At LeadStrong, we help revenue teams build a more predictable pipeline through targeted prospecting, AI-powered outreach, qualification, and reporting. Instead of relying only on referrals or manual prospecting, we create a structured system that helps your sales team spend more time speaking with real opportunities.</p>
+    <p>The goal is not to collect random contacts. The goal is to create a repeatable B2B lead generation process that supports revenue growth.</p>
+
+    <section class="pillar-section" id="what-is-b2b">
+      <h2>What Is B2B Lead Generation?</h2>
+      <p>B2B lead generation is the process of finding and engaging potential business customers who may be a fit for your product or service. It focuses on generating qualified opportunities with companies, not individual consumers.</p>
+      <p>A strong B2B lead generation strategy helps answer three important questions:</p>
+      <div class="qgrid">
+        <div class="qcard">Who should we target?</div>
+        <div class="qcard">How do we reach them?</div>
+        <div class="qcard">How do we know if they're qualified?</div>
+      </div>
+      <p>For B2B companies, this process is often more complex than consumer marketing. The buyer may not be one person — there may be a founder, department head, operations leader, finance decision-maker, or procurement team involved.</p>
+      <p>That's why B2B lead generation needs clear targeting, relevant messaging, consistent follow-up, and a strong qualification process. It can include outbound channels like cold email and LinkedIn outreach, inbound channels like SEO and content, and paid channels like Google Ads, LinkedIn Ads, or retargeting. The right mix depends on your market, offer, budget, and sales cycle.</p>
+      <p>The best B2B lead generation programs do not chase volume alone. They focus on <strong>fit, intent, and sales readiness</strong>.</p>
+    </section>
+
+    <section class="pillar-section" id="why-it-matters">
+      <h2>Why B2B Lead Generation Matters</h2>
+      <p>Most B2B companies do not grow from traffic alone. They grow from consistent pipeline. If your sales team does not have enough qualified conversations, revenue becomes unpredictable — one strong month can be followed by a slow month because there is no repeatable system behind the pipeline.</p>
+      <p>B2B lead generation helps create that system, giving your team a structured way to identify the right accounts, engage decision-makers, and move qualified prospects into the sales process.</p>
+
+      <h3>Revenue Growth</h3>
+      <p>Revenue growth starts with opportunity creation. B2B lead generation helps create more opportunities by reaching the right companies with the right message — giving your sales team more chances to book calls, send proposals, and close new business. Good lead generation doesn't replace sales; it supports sales by keeping the top of the pipeline active.</p>
+
+      <h3>Sales Efficiency</h3>
+      <p>Sales teams lose time when they chase the wrong contacts. A clear B2B lead generation system improves sales efficiency by narrowing the focus — instead of contacting anyone who might respond, the team focuses on prospects who match the ideal customer profile.</p>
+
+      <h3>Pipeline Predictability</h3>
+      <p>Predictable pipeline gives leadership more confidence. When lead generation is structured, you can track how many prospects are contacted, how many respond, how many qualify, and how many book calls — helping your team understand what's working and what needs to improve.</p>
+    </section>
+
+    <section class="pillar-section" id="framework">
+      <h2>The B2B Lead Generation Framework</h2>
+      <p>A strong B2B lead generation program follows a clear process. Each step improves the quality of the next.</p>
+
+      <div class="component-card">
+        <h4><span class="num">1</span>ICP Development</h4>
+        <p>The ideal customer profile defines the type of company most likely to benefit from your offer — industry, size, revenue range, location, technology, pain points, and buyer role. Without a clear ICP, targeting becomes too broad.</p>
+      </div>
+      <div class="component-card">
+        <h4><span class="num">2</span>Data Enrichment</h4>
+        <p>Verifying emails, identifying job titles, adding company details, and confirming fit — reducing wasted outreach and giving sales teams more context before conversations start.</p>
+      </div>
+      <div class="component-card">
+        <h4><span class="num">3</span>Prospecting</h4>
+        <p>Finding the people and companies that match your ICP — founders, executives, department heads, and other decision-makers. Not about a large list, but accounts that are relevant, reachable, and worth pursuing.</p>
+      </div>
+      <div class="component-card">
+        <h4><span class="num">4</span>Outreach</h4>
+        <p>Where the campaign starts real conversations — email, LinkedIn, paid ads, retargeting, or a mix. Simple, relevant messaging focused on the prospect's business problem, aimed at earning a response, not over-explaining.</p>
+      </div>
+      <div class="component-card">
+        <h4><span class="num">5</span>Qualification</h4>
+        <p>Separates interest from opportunity. A qualified lead matches the target profile, shows relevant need, and has a reasonable next step — protecting the sales team from wasting time on poor-fit prospects.</p>
+      </div>
+    </section>
+
+    <section class="pillar-section" id="channels">
+      <h2>Top B2B Lead Generation Channels</h2>
+      <p>There are several ways to generate B2B leads. The strongest approach depends on your market, budget, and sales process.</p>
+
+      <div class="channel-card">
+        <h4>Email</h4>
+        <p>One of the most common channels because it allows direct communication with decision-makers. Works best when the list is targeted, the message is relevant, and follow-up is consistent — never random or generic.</p>
+      </div>
+      <div class="channel-card">
+        <h4>LinkedIn</h4>
+        <p>Gives access to professional targeting and buyer context. Supports direct outreach, founder-led content, thought leadership, paid ads, and account-based targeting — works best when the content feels human.</p>
+      </div>
+      <div class="channel-card">
+        <h4>Search</h4>
+        <p>Captures people already looking for solutions. Google Search can target high-intent keywords, while SEO and AEO help your business appear when prospects search for answers.</p>
+      </div>
+      <div class="channel-card">
+        <h4>Content Marketing</h4>
+        <p>Builds trust before the sales conversation — answering common questions, explaining problems, and showing expertise. Supports SEO, AEO, LinkedIn, email nurture, and sales enablement.</p>
+      </div>
+      <div class="channel-card">
+        <h4>Paid Media</h4>
+        <p>Can accelerate lead generation when the offer, targeting, and landing page are ready. LinkedIn Ads reach specific decision-makers, Google Ads capture intent, Meta supports awareness and retargeting.</p>
+      </div>
+    </section>
+
+    <section class="pillar-section" id="kpis">
+      <h2>B2B Lead Generation KPIs</h2>
+      <p>B2B lead generation should be measured by more than clicks or impressions — the goal is to understand whether the campaign is creating real business opportunities.</p>
+
+      <div class="kpi-grid">
+        <div class="kpi-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Number of prospects contacted</div>
+        <div class="kpi-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Reply rate</div>
+        <div class="kpi-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Positive response rate</div>
+        <div class="kpi-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Lead volume</div>
+        <div class="kpi-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Qualified lead rate</div>
+        <div class="kpi-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Meetings booked</div>
+        <div class="kpi-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Cost per lead</div>
+        <div class="kpi-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Cost per qualified lead</div>
+        <div class="kpi-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Show-up rate</div>
+        <div class="kpi-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Opportunity conversion rate</div>
+        <div class="kpi-item" style="grid-column:1/-1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Closed revenue influenced by the campaign</div>
+      </div>
+
+      <p>The most important number is not always the lowest cost per lead. A cheap lead that doesn't fit your target customer can waste sales time. A higher-cost qualified lead may be more valuable if it turns into a real opportunity — that's why we recommend tracking both raw leads and qualified leads separately.</p>
+    </section>
+
+    <section class="pillar-section" id="why-leadstrong">
+      <h2>Why LeadStrong.ai</h2>
+      <p>LeadStrong.ai helps B2B companies build a more structured system for pipeline growth. We do not treat lead generation as a random list-building exercise — we start with the market, the ICP, the offer, and the sales process. From there, we identify the best channels and build a system around measurable results.</p>
+      <p>Our approach is practical:</p>
+      <ul class="approach-list">
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Start with lead generation as the entry point.</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Diagnose the client's real bottleneck.</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Use outbound, inbound, paid media, SEO, AEO, and nurture only where they make sense.</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Track lead quality, not just lead volume.</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Improve the system based on data.</li>
+      </ul>
+      <p>This helps clients avoid spending money on disconnected tactics. Instead, they get a clear system designed to create qualified conversations and support revenue growth. For some clients, the right starting point is internal outbound. For others, it may be premium outbound, LinkedIn, Google Search, SEO, AEO, or website conversion optimization — the right recommendation depends on the client's current problem and growth goal.</p>
+    </section>
+
+    <section class="pillar-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>What is B2B lead generation?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">B2B lead generation is the process of identifying, attracting, and qualifying potential business customers. The goal is to turn the right companies and decision-makers into qualified sales opportunities.</div></div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>How do B2B companies generate leads?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Through outbound outreach, LinkedIn, email, SEO, AEO, paid ads, content marketing, referrals, events, webinars, and account-based marketing. The best channel depends on the audience and offer.</div></div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>What are the best B2B lead generation channels?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Often email, LinkedIn, Google Search, SEO, content marketing, paid media, and retargeting. For many companies, a blended approach works best after testing.</div></div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>How much does B2B lead generation cost?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Costs vary based on channel, market, targeting, creative, offer, and sales process. The better question is cost per qualified lead, not just cost per raw lead.</div></div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>What is a qualified B2B lead?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">A prospect that matches your ideal customer profile, shows relevant interest, and has a reasonable next step, such as a call, demo, or consultation.</div></div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>How long does B2B lead generation take?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Most campaigns need 30 to 90 days to collect enough data, test messaging, and understand lead quality. SEO and AEO usually take longer to compound.</div></div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <button type="button" class="faq-q"><span>Do B2B lead generation services guarantee sales?</span><span class="faq-plus"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">They create qualified opportunities, but closed sales depend on the offer, pricing, follow-up speed, sales process, market demand, and close rate.</div></div>
+      </div>
+    </section>
+
+    <div class="related-links">
+      <a href="Lead%20Generation%20Services.html">Lead Generation Services →</a>
+      <a href="answer-engine-optimization.html">Answer Engine Optimization →</a>
+      <a href="Website%20Conversion%20Optimization.html">Website Conversion Optimization →</a>
+      <a href="Performance%20Marketing%20Services.html">Performance Marketing Services →</a>
+      <a href="Growth%20Marketing%20Agency.html">Growth Marketing Agency →</a>
+    </div>
+
+    <div class="final-cta">
+      <h2>Book a Strategy Call</h2>
+      <p style="margin:0 0 22px">If your sales team needs more qualified conversations, LeadStrong.ai can help you build a clearer B2B lead generation system. We start by understanding your audience, offer, current pipeline, and sales process — then recommend the right path based on what will create the strongest signal first.</p>
+      <a href="LeadStrong-Landing.html#get-started" style="display:inline-flex;align-items:center;gap:9px;background:#EC5A2C;color:#fff;font-weight:700;font-size:15.5px;padding:14px 26px;border-radius:11px">Book a strategy session<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+
+  </article>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer style="background:#1C4751;color:#fff;margin-top:40px">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding:32px clamp(20px,5vw,40px)">
+    <img src="LS_Logo_vertical_white.png" alt="" style="width:180px;height:auto">
+    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
+      <a href="Services.html" style="color:#9fb3bd;font-weight:600;font-size:14px">Services</a>
+      <a href="Case%20Studies.html" style="color:#9fb3bd;font-weight:600;font-size:14px">Case Studies</a>
+      <a href="/cdn-cgi/l/email-protection#a9c0c7cfc6e9c5ccc8cddadddbc6c7ce87c8c0" style="color:#9fb3bd;font-weight:600;font-size:14px"><span class="__cf_email__" data-cfemail="d4bdbab2bb94b8b1b5b0a7a0a6bbbab3fab5bd">[email&#160;protected]</span></a>
+    </div>
+    <div style="font-weight:300;font-size:13px;color:#8aa3af">Copyright 2026 LeadStrong</div>
+  </div>
+</footer>
+
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function faqToggle(el){ el.classList.toggle('open'); }
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.pillar-section'));
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('[data-toc]'));
+  function onScroll(){
+    var y = window.scrollY + 120;
+    var current = sections[0];
+    sections.forEach(function(s){ if (s.offsetTop <= y) current = s; });
+    tocLinks.forEach(function(l){
+      l.classList.toggle('active', l.getAttribute('href') === '#' + current.id);
+    });
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+</script>
+</body></html>
