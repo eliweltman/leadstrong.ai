@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How It Works: Powered by Alta | LeadStrong.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<script src="image-slot.js"></script>
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;color:#0d3038;-webkit-font-smoothing:antialiased;background:#fff}
+  a{color:inherit}
+  a.link{color:#0089C6;text-decoration:none;font-weight:700}
+  a.link:hover{color:#006c9c}
+  .wrap{max-width:1180px;margin:0 auto;width:100%}
+  .navlinks{display:flex;gap:32px;align-items:center}
+  .navlinks a{white-space:nowrap}
+  .hamburger-btn{display:none;flex-direction:column;width:40px;height:40px;flex:0 0 40px;background:none;border:none;padding:0;margin:0;cursor:pointer;align-items:center;justify-content:center;border-radius:8px}
+  .hamburger-btn:hover{background:rgba(13,48,56,0.06)}
+  .hamburger-btn .ham-line{display:block;width:22px;height:2.4px;background:#0d3038;border-radius:2px;transition:transform .28s cubic-bezier(.16,.84,.44,1),opacity .2s ease}
+  .hamburger-btn .ham-line+.ham-line{margin-top:5px}
+  .hamburger-btn.is-open .ham-line:nth-child(1){transform:translateY(7.4px) rotate(45deg)}
+  .hamburger-btn.is-open .ham-line:nth-child(2){opacity:0}
+  .hamburger-btn.is-open .ham-line:nth-child(3){transform:translateY(-7.4px) rotate(-45deg)}
+  .mobile-nav-panel{display:none;flex-direction:column;overflow:hidden;position:absolute;top:100%;left:0;right:0;max-height:0;background:#fff;border-bottom:1px solid #e0e8ed;box-shadow:0 16px 32px rgba(13,48,56,0.12);transition:max-height .3s ease;z-index:49}
+  .mobile-nav-panel.is-open{max-height:min(82vh,760px);overflow-y:auto}
+  .mobile-nav-panel a{text-decoration:none;font-weight:600;font-size:16px;color:#0d3038;padding:14px clamp(20px,5vw,40px);border-top:1px solid #eef2f4}
+  .mobile-nav-panel a:first-child{border-top:none}
+  .mobile-nav-panel .mnp-cta{margin:6px clamp(20px,5vw,40px) 16px;padding:13px 20px;background:#EC5A2C;color:#fff;border-radius:10px;text-align:center;border-top:none}
+  .nav-dd{position:relative}
+  .nav-dd-chev{transition:transform .25s ease}
+  .nav-dd-panel{position:absolute;top:100%;left:0;transform:translateY(6px);background:#fff;border:1px solid #e4ecf0;border-radius:14px;box-shadow:0 20px 44px rgba(13,48,56,0.16);padding:10px;min-width:220px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease,visibility .22s ease}
+  .nav-dd-panel a{display:block;padding:9px 12px;border-radius:9px;font-weight:400;font-size:14px;color:#0d3038;text-decoration:none;white-space:nowrap}
+  .nav-dd-panel a:hover{background:#f5f8fa;color:#0089C6}
+  .nav-dd:hover .nav-dd-panel,.nav-dd:focus-within .nav-dd-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+  .nav-dd:hover .nav-dd-chev,.nav-dd:focus-within .nav-dd-chev{transform:rotate(180deg)}
+  .nav-dd-panel-wide{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;min-width:420px}
+  .nav-dd-col{display:flex;flex-direction:column}
+  .mnp-group-label{font-weight:700;font-size:11.5px;letter-spacing:0.6px;text-transform:uppercase;color:#8a9daa;padding:14px clamp(20px,5vw,40px) 6px;border-top:1px solid #eef2f4}
+  .mobile-nav-panel a.mnp-sub{border-top:none;padding-left:calc(clamp(20px,5vw,40px) + 14px);font-weight:500;font-size:14.5px}
+  @media(max-width:1100px){.navlinks{display:none}.navctas .booksession{display:none}.hamburger-btn{display:flex}.mobile-nav-panel{display:flex}}
+  a,button{transition:background .25s ease,color .25s ease,border-color .25s ease,box-shadow .25s ease,transform .2s ease}
+  @keyframes modalFade{from{opacity:0}to{opacity:1}}
+  @keyframes modalPop{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:none}}
+  .modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+  @media(max-width:620px){.modal-grid{grid-template-columns:1fr}}
+  .sec-pad{padding:clamp(56px,7vw,90px) clamp(20px,5vw,40px)}
+
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.16,.84,.44,1),transform .7s cubic-bezier(.16,.84,.44,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* feature rows */
+  .feat-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4.5vw,60px);align-items:center;padding:clamp(44px,5.5vw,68px) 0}
+  .feat-row+.feat-row{border-top:1px solid #e4ecf0}
+  @media(max-width:880px){.feat-row{grid-template-columns:1fr;gap:26px}}
+  .feat-row.reverse .feat-visual{order:2}
+  @media(max-width:880px){.feat-row.reverse .feat-visual{order:0}}
+  .feat-visual{border-radius:18px;overflow:hidden;border:1px solid #e4ecf0;aspect-ratio:4/3}
+  .feat-tag{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:12px;letter-spacing:1.3px;text-transform:uppercase;color:#0089C6;margin-bottom:14px}
+  .feat-h{font-weight:700;font-size:clamp(21px,2.5vw,28px);line-height:1.2;letter-spacing:-0.4px;margin:0 0 12px;color:#0d3038}
+  .feat-copy{font-weight:400;font-size:15.5px;line-height:1.65;color:#4a6070;margin:0 0 16px}
+  .feat-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+  .feat-list li{display:flex;align-items:flex-start;gap:10px;font-weight:500;font-size:14.5px;line-height:1.5;color:#0d3038}
+  .feat-list svg{flex:0 0 auto;margin-top:2px}
+
+  /* comparison table */
+  .cmp-wrap{overflow-x:auto;border-radius:16px;border:1px solid #e4ecf0}
+  .cmp-table{width:100%;border-collapse:collapse;background:#fff;min-width:680px}
+  .cmp-table th{background:#f5f8fa;text-align:left;padding:14px 18px;font-weight:700;font-size:12.5px;letter-spacing:0.4px;text-transform:uppercase;color:#4a6070}
+  .cmp-table th.hl{background:#0d3038;color:#fff}
+  .cmp-table td{padding:15px 18px;font-weight:500;font-size:14px;color:#0d3038;border-top:1px solid #eef2f4;vertical-align:middle}
+  .cmp-table td.hl{background:#f0f9fd;font-weight:700}
+  .cmp-table td:first-child{font-weight:700;color:#4a6070;white-space:nowrap}
+  .cmp-table td:not(:first-child){text-align:center;font-weight:800;font-size:16px}
+  .cmp-table td:not(:first-child):not(.hl){color:#c0392b}
+  .cmp-table td.hl{color:#0F6E56}
+
+  /* touchpoint sequence */
+  .seq-track{display:flex;flex-direction:column;gap:0}
+  .seq-item{display:flex;gap:18px;align-items:flex-start;padding:18px 0}
+  .seq-item+.seq-item{border-top:1px dashed #dbe6ea}
+  .seq-num{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:#E6F3F9;color:#0089C6;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+  .seq-h{font-weight:700;font-size:15.5px;color:#0d3038;margin:0 0 4px}
+  .seq-copy{font-weight:400;font-size:14px;line-height:1.55;color:#4a6070;margin:0}
+
+  .principle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:860px){.principle-grid{grid-template-columns:1fr}}
+  .principle{background:#fff;border:1px solid #e4ecf0;border-radius:14px;padding:20px 20px}
+  .principle h4{margin:0 0 6px;font-weight:700;font-size:14.5px;color:#0d3038}
+  .principle p{margin:0;font-weight:400;font-size:13.5px;line-height:1.55;color:#4a6070}
+
+  .diff-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+  @media(max-width:860px){.diff-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div style="font-family:'Plus Jakarta Sans',sans-serif;position:relative">
+
+<!-- ================= NAV ================= -->
+<nav data-screen-label="Nav" style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border-bottom:1px solid #e0e8ed;overflow:visible">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,5vw,40px)">
+    <a href="LeadStrong-Landing.html#top" style="text-decoration:none;display:block"><img src="LS_Logo_only.png" alt="" style="width:220px;height:auto"></a>
+    <div class="navlinks">
+      <div class="nav-dd"><button type="button" class="nav-dd-trigger" data-base-style="display:inline-flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer;font-family:inherit;font-weight:600;font-size:15px;color:#4a6070;padding:0" style="display:inline-flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer;font-family:inherit;font-weight:600;font-size:15px;color:#4a6070;padding:0" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#0089C6'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Resources<svg class="nav-dd-chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button><div class="nav-dd-panel nav-dd-panel-wide"><div class="nav-dd-col"><a href="Lead%20Generation%20Services.html">Lead Generation Services</a><a href="B2B%20Lead%20Generation.html">B2B Lead Generation</a><a href="Answer%20Engine%20Optimization.html">Answer Engine Optimization</a></div><div class="nav-dd-col"><a href="Website%20Conversion%20Optimization.html">Website Conversion Optimization</a><a href="Performance%20Marketing%20Services.html">Performance Marketing Services</a><a href="Growth%20Marketing%20Agency.html">Growth Marketing Agency</a></div></div></div>
+      <a href="About%20Us.html" style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" data-base-style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#0089C6'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">About Us</a>
+      <a href="Become%20a%20Partner.html" style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" data-base-style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#0089C6'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Partner</a>
+      <a href="Case%20Studies.html" style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" data-base-style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#0089C6'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Case Studies</a>
+      <a href="LeadStrong-Landing.html#pricing" style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" data-base-style="text-decoration:none;font-weight:600;font-size:15px;color:#4a6070" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#0089C6'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Pricing</a>
+    </div>
+    <div class="navctas" style="display:flex;align-items:center;gap:10px">
+      <a href="#get-started" onclick="openModal(event)" class="booksession" style="background:#EC5A2C;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 20px;border-radius:10px;white-space:nowrap;cursor:pointer">Book a strategy session</a>
+      <button type="button" class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-panel" onclick="toggleMobileNav()">
+        <span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav-panel" id="mobile-nav-panel">
+    <div class="mnp-group-label">Resources</div>
+    <a href="Lead%20Generation%20Services.html" onclick="closeMobileNav()" class="mnp-sub">Lead Generation Services</a>
+    <a href="B2B%20Lead%20Generation.html" onclick="closeMobileNav()" class="mnp-sub">B2B Lead Generation</a>
+    <a href="Answer%20Engine%20Optimization.html" onclick="closeMobileNav()" class="mnp-sub">Answer Engine Optimization</a>
+    <a href="Website%20Conversion%20Optimization.html" onclick="closeMobileNav()" class="mnp-sub">Website Conversion Optimization</a>
+    <a href="Performance%20Marketing%20Services.html" onclick="closeMobileNav()" class="mnp-sub">Performance Marketing Services</a>
+    <a href="Growth%20Marketing%20Agency.html" onclick="closeMobileNav()" class="mnp-sub">Growth Marketing Agency</a>
+    <a href="About%20Us.html" onclick="closeMobileNav()">About Us</a>
+    <a href="Become%20a%20Partner.html" onclick="closeMobileNav()">Partner</a>
+    <a href="Case%20Studies.html" onclick="closeMobileNav()">Case Studies</a>
+    <a href="LeadStrong-Landing.html#pricing" onclick="closeMobileNav()">Pricing</a>
+    <a href="#get-started" onclick="closeMobileNav();openModal(event)" class="mnp-cta">Book a strategy session</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header data-screen-label="Hero" style="position:relative;overflow:hidden;background:radial-gradient(130% 95% at 78% -12%, #2a6580 0%, #1C4751 46%, #1C4751 78%), #1C4751;color:#fff">
+  <div class="wrap sec-pad" style="text-align:center">
+    <div class="reveal in" style="display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:30px;flex-wrap:wrap">
+      <img src="LS_Logo_only.png" alt="LeadStrong" style="height:60px;width:auto;filter:brightness(0) invert(1)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8fb0bd" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+      <img src="alta-logo-white-2-cropped.png" alt="Alta" style="height:45px;width:auto">
+    </div>
+    <div class="reveal in" style="display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;letter-spacing:1.6px;text-transform:uppercase;color:#37CCEF;margin-bottom:18px">We partnered with AltaHQ</div>
+    <h1 class="reveal in" style="font-weight:800;font-size:clamp(32px,5vw,54px);line-height:1.08;letter-spacing:-1px;margin:0 auto 20px;max-width:820px;text-wrap:pretty">We went looking for the best AI outbound technology on the market, <span style="color:#37CCEF">and built our engine around it</span></h1>
+    <p class="reveal in" style="font-weight:400;font-size:clamp(16px,1.9vw,19px);line-height:1.6;color:#c4d3db;margin:0 auto 34px;max-width:680px;text-wrap:pretty">Before we ever pitched a client, we ran a real competitive analysis against Apollo, Instantly, Salesloft, and a half-dozen others, against one question: <b>What actually replaces a full prospecting team?</b><br><br>Alta won. Here's what's running behind every LeadStrong campaign.</p>
+    <div class="reveal in" style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap">
+      <a href="#get-started" onclick="openModal(event)" style="display:inline-flex;align-items:center;gap:9px;background:#EC5A2C;color:#fff;text-decoration:none;font-weight:700;font-size:16px;padding:15px 28px;border-radius:11px;cursor:pointer">Book a strategy session<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      <a href="Meet%20Katie.html" style="display:inline-flex;align-items:center;gap:9px;color:#fff;text-decoration:none;font-weight:700;font-size:16px;padding:15px 28px;border-radius:11px;border:1.5px solid rgba(255,255,255,0.35)">Meet Katie</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= WHAT'S BEHIND IT ================= -->
+<section data-screen-label="What's behind it" class="sec-pad" style="background:#fff">
+  <div class="wrap" style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(32px,4.5vw,60px);align-items:center">
+    <div>
+      <div class="feat-tag">What's behind it</div>
+      <h2 style="font-weight:700;font-size:clamp(26px,3.2vw,36px);letter-spacing:-0.5px;margin:0 0 14px;color:#0d3038">A system that runs itself</h2>
+      <p style="font-weight:400;font-size:16px;line-height:1.65;color:#4a6070;margin:0">Alta connects to your CRM, your sales calls, and your existing content to build a real context layer about your business, your buyers, and your competitors. On top of that, it deploys AI agents that carry out the actual work of outbound: research, outreach, replies, and handoff, across real LinkedIn and email identities. LeadStrong configures, trains, and operates it on your behalf, so nothing about running it falls on you.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <div style="display:flex;gap:16px;align-items:flex-start">
+        <div style="flex:0 0 auto;width:46px;height:46px;border-radius:13px;background:#E6F3F9;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"></path><path d="M12 6v6l4 2"></path></svg></div>
+        <div><h3 style="font-weight:700;font-size:16.5px;color:#0d3038;margin:0 0 6px">Always on</h3><p style="font-weight:400;font-size:14px;line-height:1.55;color:#4a6070;margin:0">Prospecting, outreach, and follow-up run continuously, not in bursts around someone's calendar.</p></div>
+      </div>
+      <div style="display:flex;gap:16px;align-items:flex-start">
+        <div style="flex:0 0 auto;width:46px;height:46px;border-radius:13px;background:#E6F3F9;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></div>
+        <div><h3 style="font-weight:700;font-size:16.5px;color:#0d3038;margin:0 0 6px">Real identities, not blasts</h3><p style="font-weight:400;font-size:14px;line-height:1.55;color:#4a6070;margin:0">Every message goes out through a real Rep: a real LinkedIn account and mailbox, never a spray-and-pray sender.</p></div>
+      </div>
+      <div style="display:flex;gap:16px;align-items:flex-start">
+        <div style="flex:0 0 auto;width:46px;height:46px;border-radius:13px;background:#E6F3F9;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+        <div><h3 style="font-weight:700;font-size:16.5px;color:#0d3038;margin:0 0 6px">Fully managed</h3><p style="font-weight:400;font-size:14px;line-height:1.55;color:#4a6070;margin:0">A dedicated LeadStrong team configures, trains, and optimizes the platform, so you're never handed a login and left to figure it out.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURE WALKTHROUGH ================= -->
+<section data-screen-label="Feature walkthrough" style="background:#f5f8fa">
+  <div class="wrap sec-pad">
+    <div style="max-width:640px;margin:0 auto clamp(20px,3vw,32px);text-align:center">
+      <div class="feat-tag" style="justify-content:center">Inside the platform</div>
+      <h2 style="font-weight:700;font-size:clamp(24px,3vw,32px);letter-spacing:-0.4px;margin:0 0 12px;color:#0d3038">Every capability, built to work together</h2>
+    </div>
+
+    <div class="feat-row reverse">
+      <div>
+        <div class="feat-tag">Katie's Brain</div>
+        <h3 class="feat-h">A knowledge base that keeps every message on-brand</h3>
+        <p class="feat-copy">Your pitch, your case studies, your sales playbooks, and your positioning all live in one place. Katie references it for every message, so outreach sounds like your business, not a generic template.</p>
+        <ul class="feat-list">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Pitch decks, case studies, and product pages feed the AI directly</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Global rules keep tone, terminology, and compliance consistent</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Refined continuously as campaigns reveal what resonates</li>
+        </ul>
+      </div>
+      <div class="feat-visual"><image-slot id="feat-knowledge" shape="rect" placeholder="Knowledge base / Katie's Brain screenshot"></image-slot></div>
+    </div>
+
+    <div class="feat-row">
+      <div>
+        <div class="feat-tag">Multi-channel touchpoints</div>
+        <h3 class="feat-h">LinkedIn and email, working as one sequence</h3>
+        <p class="feat-copy">Katie coordinates connection requests, LinkedIn messages, and email into a single sequence per prospect, so nobody gets a duplicate pitch on two channels, and every follow-up has context from what came before.</p>
+        <ul class="feat-list">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Real LinkedIn Rep accounts, not automation-flagged bots</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Dedicated warmed mailboxes for deliverable, spam-safe email</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Each rep's booking link auto-inserted so replies can self-schedule</li>
+        </ul>
+      </div>
+      <div class="feat-visual"><image-slot id="feat-multichannel" shape="rect" placeholder="Multi-channel sequence screenshot"></image-slot></div>
+    </div>
+
+    <div class="feat-row">
+      <div>
+        <div class="feat-tag">AI-qualified targeting</div>
+        <h3 class="feat-h">Every prospect verified before the first message</h3>
+        <p class="feat-copy">Before outreach goes out, AI Conditions check each prospect against your real ICP: company profile, industry fit, disqualifying signals, so budget and volume go toward the accounts that are actually worth pursuing.</p>
+        <ul class="feat-list">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Filters run before send, not after the fact</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Broad lists narrowed to genuinely qualified accounts</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Tuned per campaign as results come in</li>
+        </ul>
+      </div>
+      <div class="feat-visual"><image-slot id="feat-targeting" shape="rect" placeholder="AI targeting / conditions screenshot"></image-slot></div>
+    </div>
+
+    <div class="feat-row reverse">
+      <div>
+        <div class="feat-tag">CRM integration</div>
+        <h3 class="feat-h">Clean handoff, no manual entry</h3>
+        <p class="feat-copy">Alta connects directly to HubSpot, Salesforce, and other major CRMs, automatically excluding existing customers and competitors, then pushing qualified conversations straight to your sales team the moment they're ready.</p>
+        <ul class="feat-list">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Existing customers and competitors excluded automatically</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Qualified replies pushed straight into your pipeline</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>No CRM yet? We'll help you stand up a lightweight one</li>
+        </ul>
+      </div>
+      <div class="feat-visual"><image-slot id="feat-crm" shape="rect" placeholder="CRM integration screenshot"></image-slot></div>
+    </div>
+
+    <div class="feat-row reverse" style="border-bottom:1px solid #e4ecf0">
+      <div>
+        <div class="feat-tag">Co-pilot &amp; Autopilot</div>
+        <h3 class="feat-h">You control how hands-on it stays</h3>
+        <p class="feat-copy">Every new campaign starts in Co-pilot, with our team reviewing messages before they send. Once quality is proven, campaigns graduate to Autopilot, running independently while we keep monitoring performance behind the scenes.</p>
+        <ul class="feat-list">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Co-pilot: every message reviewed before it sends</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Autopilot: fully automated once messaging is validated</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Performance monitored by our team either way</li>
+        </ul>
+      </div>
+      <div class="feat-visual"><image-slot id="feat-copilot" shape="rect" placeholder="Co-pilot / Autopilot mode screenshot"></image-slot></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CUSTOMIZE YOUR TOUCHPOINTS ================= -->
+<section data-screen-label="Customize your touchpoints" class="sec-pad" style="background:#fff">
+  <div class="wrap" style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(32px,4.5vw,60px)">
+    <div>
+      <div class="feat-tag">Customize your touchpoints</div>
+      <h2 style="font-weight:700;font-size:clamp(24px,3vw,32px);letter-spacing:-0.4px;margin:0 0 14px;color:#0d3038">The sequence, tuned to how your buyers actually respond</h2>
+      <p style="font-weight:400;font-size:15.5px;line-height:1.65;color:#4a6070;margin:0 0 24px">Nothing about the outreach cadence is one-size-fits-all. We build the sequence, channel order, timing, and message style, around your audience, then keep refining it as replies come in.</p>
+      <div class="principle-grid" style="grid-template-columns:1fr">
+        <div class="principle"><h4>Conversational, not salesy</h4><p>Written like a person reaching out, not a brochure landing in an inbox.</p></div>
+        <div class="principle"><h4>Value-first, always short</h4><p>Leads with relevance or insight; connection notes and openers stay brief.</p></div>
+        <div class="principle"><h4>Personalized every time</h4><p>References real company context, not a mail-merge fill-in-the-blank.</p></div>
+      </div>
+    </div>
+    <div>
+      <div class="seq-track">
+        <div class="seq-item">
+          <div class="seq-num">1</div>
+          <div><h4 class="seq-h">LinkedIn connection request</h4><p class="seq-copy">A short, personalized note, no pitch, just a real reason to connect.</p></div>
+        </div>
+        <div class="seq-item">
+          <div class="seq-num">2</div>
+          <div><h4 class="seq-h">LinkedIn message</h4><p class="seq-copy">Sent once the connection is accepted, leads with relevance, not a product pitch.</p></div>
+        </div>
+        <div class="seq-item">
+          <div class="seq-num">3</div>
+          <div><h4 class="seq-h">LinkedIn follow-up</h4><p class="seq-copy">A brief nudge a few days later if there's no reply, never pushy.</p></div>
+        </div>
+        <div class="seq-item">
+          <div class="seq-num">4</div>
+          <div><h4 class="seq-h">Email</h4><p class="seq-copy">Layered in once mailboxes are warmed, for a true omni-channel sequence.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPETITIVE ANALYSIS ================= -->
+<section data-screen-label="Competitive analysis" class="sec-pad" style="background:#f5f8fa">
+  <div class="wrap">
+    <div style="max-width:680px;margin:0 auto clamp(30px,4vw,44px);text-align:center">
+      <div class="feat-tag" style="justify-content:center">Why Alta</div>
+      <h2 style="font-weight:700;font-size:clamp(24px,3vw,32px);letter-spacing:-0.4px;margin:0 0 12px;color:#0d3038">We looked at the market. This is what actually replaces a prospecting team.</h2>
+      <p style="font-weight:400;font-size:15.5px;line-height:1.6;color:#4a6070;margin:0">Most tools solve one piece: data, sequencing, or reporting. Alta is the only one built to run the whole motion end to end.</p>
+    </div>
+    <div class="cmp-wrap">
+      <table class="cmp-table">
+        <tr>
+          <th>Capability</th>
+          <th class="hl">Alta (via LeadStrong)</th>
+          <th>Data tools<br><span style="font-weight:400;text-transform:none;color:#8a9daa">Apollo, ZoomInfo</span></th>
+          <th>Sequencers<br><span style="font-weight:400;text-transform:none;color:#8a9daa">Outreach, Salesloft</span></th>
+          <th>Manual stack<br><span style="font-weight:400;text-transform:none;color:#8a9daa">Spreadsheets + reps</span></th>
+        </tr>
+        <tr><td>AI-generated, personalized messaging</td><td class="hl">✓</td><td>✕</td><td>✕</td><td>✕</td></tr>
+        <tr><td>Unified LinkedIn + email sequence</td><td class="hl">✓</td><td>✕</td><td>✕</td><td>✕</td></tr>
+        <tr><td>AI-qualified targeting before send</td><td class="hl">✓</td><td>✕</td><td>✕</td><td>✕</td></tr>
+        <tr><td>CRM-aware exclusions (DNC)</td><td class="hl">✓</td><td>✕</td><td>✕</td><td>✕</td></tr>
+        <tr><td>Dedicated GTM experts &amp; AI engineers</td><td class="hl">✓</td><td>✕</td><td>✕</td><td>✕</td></tr>
+        <tr><td>Runs without adding headcount</td><td class="hl">✓</td><td>✕</td><td>✕</td><td>✕</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY LEADSTRONG + ALTA ================= -->
+<section data-screen-label="Why LeadStrong + Alta" class="sec-pad" style="position:relative;overflow:hidden;background:radial-gradient(120% 120% at 78% -10%, #276274 0%, #1C4751 54%, #163a44 100%);color:#fff">
+  <div class="wrap">
+    <div style="max-width:680px;margin:0 auto clamp(30px,4vw,44px);text-align:center">
+      <div class="feat-tag" style="justify-content:center;color:#37CCEF">Why LeadStrong + Alta</div>
+      <h2 style="font-weight:700;font-size:clamp(24px,3vw,32px);letter-spacing:-0.4px;margin:0 0 14px;color:#fff">The best tech, run by a team that knows how to use it</h2>
+      <p style="font-weight:400;font-size:15.5px;line-height:1.65;color:#a9c2cd;margin:0">At LeadStrong.ai, we're constantly evaluating and integrating new tech stacks so our clients get the best outbound experience available, not whatever tool we built five years ago. We partnered with Alta because it's the strongest AI outreach platform we found, and we operate it with a dedicated team in place to configure, train, and scale it, so you get enterprise-grade outbound without hiring an enterprise-grade team.</p>
+    </div>
+    <div class="diff-grid">
+      <div>
+        <div style="width:42px;height:42px;border-radius:12px;background:rgba(55,204,239,0.16);display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#37CCEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 1 0-16 0"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+        <h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 8px">A dedicated team</h3>
+        <p style="font-weight:400;font-size:14.5px;line-height:1.6;color:#a9c2cd;margin:0">GTM experts and AI engineers configure and operate the platform for you, so you're never left to figure out the software alone.</p>
+      </div>
+      <div>
+        <div style="width:42px;height:42px;border-radius:12px;background:rgba(55,204,239,0.16);display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#37CCEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></div>
+        <h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 8px">Built to scale with you</h3>
+        <p style="font-weight:400;font-size:14.5px;line-height:1.6;color:#a9c2cd;margin:0">Whether it's one rep or ten, the platform and our team scale outreach volume without a corresponding jump in headcount.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section data-screen-label="CTA" class="sec-pad" style="background:#fff;text-align:center">
+  <div class="wrap" style="max-width:680px;margin:0 auto">
+    <h2 style="font-weight:800;font-size:clamp(24px,3.4vw,36px);line-height:1.18;letter-spacing:-0.8px;margin:0 0 16px;color:#0d3038">See Alta running inside your own pipeline</h2>
+    <p style="font-weight:400;font-size:16px;line-height:1.6;color:#4a6070;margin:0 auto 30px;max-width:520px">Book a strategy session and we'll walk through exactly how the platform would be configured for your ICP.</p>
+    <a href="#get-started" onclick="openModal(event)" style="display:inline-flex;align-items:center;gap:9px;background:#EC5A2C;color:#fff;text-decoration:none;font-weight:700;font-size:16px;padding:16px 32px;border-radius:12px;cursor:pointer">Book my strategy session<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer data-screen-label="Footer" style="background:#1C4751;color:#fff">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding:32px clamp(20px,5vw,40px)">
+    <img src="LS_Logo_vertical_white.png" alt="" style="width:180px;height:auto">
+    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
+      <a href="LeadStrong-Landing.html" style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" data-base-style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#fff'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Home</a>
+      <a href="Meet%20Katie.html" style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" data-base-style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#fff'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">Meet Katie</a>
+      <a href="mailto:info@leadstrong.ai" style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" data-base-style="text-decoration:none;font-weight:600;font-size:14px;color:#9fb3bd" onmouseover="this.style.cssText=this.getAttribute('data-base-style')+';color:#fff'" onmouseout="this.style.cssText=this.getAttribute('data-base-style')">info@leadstrong.ai</a>
+    </div>
+    <div style="font-weight:300;font-size:13px;color:#8aa3af">Copyright 2026 LeadStrong</div>
+  </div>
+</footer>
+
+<!-- ================= DISCOVERY-CALL MODAL ================= -->
+<div id="discovery-modal" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(10,24,31,0.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);align-items:flex-start;justify-content:center;overflow-y:auto;padding:clamp(20px,5vh,64px) 20px;animation:modalFade .25s ease both">
+  <div onclick="event.stopPropagation()" style="position:relative;width:100%;max-width:600px;background:#f5f8fa;border-radius:20px;box-shadow:0 30px 80px rgba(10,24,31,0.45);padding:clamp(28px,4vw,46px);animation:modalPop .35s cubic-bezier(.16,.84,.44,1) both">
+    <button type="button" onclick="closeModal()" aria-label="Close" style="position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:50%;border:none;background:#fff;color:#4a6070;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 8px rgba(26,58,74,0.12)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    <div id="modal-success" style="display:none;text-align:center;padding:30px 8px 14px">
+      <div style="width:66px;height:66px;border-radius:50%;background:#E1F5EE;display:flex;align-items:center;justify-content:center;margin:0 auto 22px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0089C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></div>
+      <h2 style="font-weight:800;font-size:clamp(24px,3.6vw,30px);letter-spacing:-0.5px;color:#0d3038;margin:0 0 12px">Thanks, <span id="modal-success-name">there</span> — you're booked</h2>
+      <p style="font-weight:400;font-size:15.5px;line-height:1.55;color:#4a6070;margin:0 auto 24px;max-width:420px">We'll reach out to <span id="modal-success-email" style="font-weight:700;color:#0d3038"></span> shortly to lock in a time for your strategy session.</p>
+      <button type="button" onclick="closeModal()" style="background:#EC5A2C;color:#fff;border:none;font-family:inherit;font-weight:700;font-size:15.5px;padding:14px 30px;border-radius:11px;cursor:pointer">Done</button>
+    </div>
+    <div id="modal-form-wrap">
+      <h2 style="font-weight:800;font-size:clamp(24px,3.6vw,32px);line-height:1.12;letter-spacing:-0.5px;color:#0d3038;text-align:center;margin:4px 0 12px">Let's map your growth engine</h2>
+      <p style="font-weight:400;font-size:15px;line-height:1.55;color:#4a6070;text-align:center;margin:0 auto 26px;max-width:460px">Book a free strategy session — we'll dig into your market, your pipeline, and the fastest path to more qualified leads.</p>
+      <form id="discoveryform" novalidate>
+        <div class="modal-grid" style="margin-bottom:18px">
+          <div>
+            <label style="display:block;font-weight:700;font-size:13.5px;color:#0d3038;margin-bottom:7px">First Name <span style="color:#c0392b">*</span></label>
+            <input type="text" id="df-first" name="first" placeholder="Jane" style="width:100%;padding:13px 14px;border:1.5px solid #e0e8ed;border-radius:9px;font-family:inherit;font-size:15px;color:#0d3038;background:#fff;outline:none">
+            <div id="df-first-err" style="display:none;color:#c0392b;font-weight:600;font-size:12.5px;margin-top:5px"></div>
+          </div>
+          <div>
+            <label style="display:block;font-weight:700;font-size:13.5px;color:#0d3038;margin-bottom:7px">Last Name <span style="color:#c0392b">*</span></label>
+            <input type="text" id="df-last" name="last" placeholder="Doe" style="width:100%;padding:13px 14px;border:1.5px solid #e0e8ed;border-radius:9px;font-family:inherit;font-size:15px;color:#0d3038;background:#fff;outline:none">
+            <div id="df-last-err" style="display:none;color:#c0392b;font-weight:600;font-size:12.5px;margin-top:5px"></div>
+          </div>
+          <div>
+            <label style="display:block;font-weight:700;font-size:13.5px;color:#0d3038;margin-bottom:7px">Work Email <span style="color:#c0392b">*</span></label>
+            <input type="email" id="df-email" name="email" placeholder="jane@yourcompany.com" style="width:100%;padding:13px 14px;border:1.5px solid #e0e8ed;border-radius:9px;font-family:inherit;font-size:15px;color:#0d3038;background:#fff;outline:none">
+            <div id="df-email-err" style="display:none;color:#c0392b;font-weight:600;font-size:12.5px;margin-top:5px"></div>
+          </div>
+          <div>
+            <label style="display:block;font-weight:700;font-size:13.5px;color:#0d3038;margin-bottom:7px">Company Size <span style="color:#c0392b">*</span></label>
+            <select id="df-companysize" name="companysize" style="width:100%;padding:13px 14px;border:1.5px solid #e0e8ed;border-radius:9px;font-family:inherit;font-size:15px;color:#8a9daa;background:#fff;outline:none;appearance:none;-webkit-appearance:none;background-image:url('data:image/svg+xml;utf8,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%238a9daa%22 stroke-width=%223%22&gt;&lt;path d=%22M6 9l6 6 6-6%22/&gt;&lt;/svg&gt;');background-repeat:no-repeat;background-position:right 14px center">
+              <option value="" disabled selected>Please Select</option>
+              <option value="1–10">1–10</option>
+              <option value="11–50">11–50</option>
+              <option value="51–200">51–200</option>
+              <option value="201–500">201–500</option>
+              <option value="500+">500+</option>
+            </select>
+            <div id="df-companysize-err" style="display:none;color:#c0392b;font-weight:600;font-size:12.5px;margin-top:5px"></div>
+          </div>
+        </div>
+        <button type="submit" style="width:100%;background:#EC5A2C;color:#fff;border:none;font-family:inherit;font-weight:700;font-size:16px;padding:16px;border-radius:11px;cursor:pointer">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+  function toggleMobileNav(){
+    var btn=document.getElementById('hamburger-btn'), panel=document.getElementById('mobile-nav-panel');
+    if(panel.classList.contains('is-open')){ closeMobileNav(); }
+    else{ panel.classList.add('is-open'); btn.classList.add('is-open'); btn.setAttribute('aria-expanded','true'); btn.setAttribute('aria-label','Close menu'); }
+  }
+  function closeMobileNav(){
+    var btn=document.getElementById('hamburger-btn'), panel=document.getElementById('mobile-nav-panel');
+    panel.classList.remove('is-open'); btn.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); btn.setAttribute('aria-label','Open menu');
+  }
+  window.addEventListener('resize',function(){ if(window.innerWidth>1100) closeMobileNav(); });
+
+  var revealEls = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  revealEls.forEach(function(el){ io.observe(el); });
+
+  function openModal(ev){
+    if (ev && ev.preventDefault) ev.preventDefault();
+    var modal = document.getElementById('discovery-modal');
+    document.getElementById('modal-success').style.display = 'none';
+    document.getElementById('modal-form-wrap').style.display = 'block';
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    var modal = document.getElementById('discovery-modal');
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+    var form = document.getElementById('discoveryform');
+    if (form) form.reset();
+    clearDiscoveryErrors();
+    document.getElementById('modal-success').style.display = 'none';
+    document.getElementById('modal-form-wrap').style.display = 'block';
+  }
+  document.getElementById('discovery-modal').addEventListener('click', function(){ closeModal(); });
+  function clearDiscoveryErrors(){
+    ['first','last','email','companysize'].forEach(function(k){
+      var el = document.getElementById('df-'+k+'-err');
+      if (el) { el.style.display='none'; el.textContent=''; }
+    });
+  }
+  function isValidEmail(v){ return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }
+  document.getElementById('discoveryform').addEventListener('submit', function(ev){
+    ev.preventDefault();
+    clearDiscoveryErrors();
+    var first = document.getElementById('df-first').value.trim();
+    var last = document.getElementById('df-last').value.trim();
+    var email = document.getElementById('df-email').value.trim();
+    var companysize = document.getElementById('df-companysize').value;
+    var hasError = false;
+    function showErr(field, msg){ var el=document.getElementById('df-'+field+'-err'); el.textContent=msg; el.style.display='block'; hasError=true; }
+    if (!first) showErr('first','Required');
+    if (!last) showErr('last','Required');
+    if (!email) showErr('email','Required'); else if (!isValidEmail(email)) showErr('email','Enter a valid work email');
+    if (!companysize) showErr('companysize','Required');
+    if (hasError) return;
+    document.getElementById('modal-success-name').textContent = first || 'there';
+    document.getElementById('modal-success-email').textContent = email;
+    document.getElementById('modal-form-wrap').style.display = 'none';
+    document.getElementById('modal-success').style.display = 'block';
+  });
+</script>
+</body></html>
