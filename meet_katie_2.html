@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet Katie — LeadStrong.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#051d24;
+    --bg-dark:#072730;
+    --bg-dark2:#0b323c;
+    --card:#0e343f;
+    --card-line:rgba(255,255,255,0.08);
+    --teal-line:#1c4751;
+    --orange1:#ffa233;
+    --orange2:#ec5a2c;
+    --blue1:#37ccef;
+    --blue2:#0089c6;
+    --green:#2bb5a0;
+    --ink:#eef4f6;
+    --muted:#93aab3;
+    --muted-dim:#6f8891;
+    --light-bg:#f7fafb;
+    --light-bg2:#eef4f6;
+    --heading-dark:#12262d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    background:var(--light-bg);
+    color:var(--heading-dark);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{text-decoration:none;color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(5,29,36,0.72);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.07);
+  }
+  .navrow{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;max-width:1240px;margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:19px;color:#fff;letter-spacing:-.2px;}
+  .logo .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--orange1),var(--orange2));display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;font-weight:800;}
+  .logo .ai{background:linear-gradient(90deg,var(--blue1),var(--blue2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .navlinks{display:flex;gap:34px;align-items:center;}
+  .navlinks a{font-size:14.5px;font-weight:600;color:var(--muted);transition:color .2s;}
+  .navlinks a:hover{color:#fff;}
+  .nav-cta{
+    background:linear-gradient(90deg,var(--orange1),var(--orange2));
+    color:#fff;font-weight:700;font-size:14px;padding:11px 22px;border-radius:999px;
+    box-shadow:0 6px 18px rgba(236,90,44,0.28);
+  }
+  #ham{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;}
+  #ham span{width:22px;height:2px;background:#fff;border-radius:2px;}
+  @media(max-width:900px){.navlinks{display:none;} #ham{display:flex;} .nav-cta{display:none;}}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:radial-gradient(120% 100% at 50% 0%, #0a323d 0%, var(--bg-dark) 45%, var(--bg-deep) 100%);
+    padding:96px 32px 0;
+    overflow:hidden;
+    isolation:isolate;
+  }
+  .dotgrid{
+    position:absolute;inset:0;z-index:0;opacity:.35;
+    background-image:radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px);
+    background-size:26px 26px;
+    mask-image:radial-gradient(70% 60% at 50% 20%, black 0%, transparent 75%);
+  }
+  .hero-inner{position:relative;z-index:2;max-width:820px;margin:0 auto;text-align:center;}
+  .badge{
+    display:inline-flex;align-items:center;gap:9px;
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
+    padding:7px 8px 7px 16px;border-radius:999px;font-size:13px;font-weight:600;color:var(--muted);
+    margin-bottom:30px;
+  }
+  .badge b{
+    background:linear-gradient(90deg,var(--orange1),var(--orange2));
+    color:#fff;padding:3px 11px;border-radius:999px;font-weight:800;font-size:11.5px;letter-spacing:.3px;
+  }
+  .badge svg{width:13px;height:13px;}
+  h1.hero-h{
+    font-size:clamp(40px,6vw,66px);font-weight:800;color:#fff;line-height:1.05;letter-spacing:-1.5px;margin-bottom:22px;
+  }
+  h1.hero-h .accent{
+    background:linear-gradient(90deg,var(--orange1) 10%,var(--orange2) 60%,var(--blue1) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{font-size:18px;color:var(--muted);line-height:1.6;max-width:600px;margin:0 auto 38px;font-weight:400;}
+  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:78px;}
+  .btn-primary{
+    background:linear-gradient(90deg,var(--orange1),var(--orange2));
+    color:#fff;font-weight:800;font-size:15.5px;padding:15px 28px;border-radius:999px;
+    display:inline-flex;align-items:center;gap:9px;
+    box-shadow:0 10px 28px rgba(236,90,44,0.32);
+    border:none;cursor:pointer;
+  }
+  .btn-secondary{
+    background:rgba(255,255,255,0.06);color:#fff;font-weight:700;font-size:15.5px;padding:15px 26px;border-radius:999px;
+    border:1px solid rgba(255,255,255,0.18);display:inline-flex;align-items:center;gap:8px;
+  }
+
+  /* aurora wave art */
+  .aurora{position:absolute;left:0;right:0;bottom:-40px;height:420px;z-index:1;pointer-events:none;}
+
+  /* floating product card */
+  .preview-wrap{position:relative;z-index:2;max-width:1000px;margin:0 auto;padding-bottom:60px;}
+  .preview-card{
+    background:linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:20px;padding:14px;
+    box-shadow:0 40px 90px -30px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03);
+    backdrop-filter:blur(6px);
+  }
+  .preview-topbar{display:flex;align-items:center;gap:7px;padding:2px 6px 14px;}
+  .preview-topbar span{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.18);}
+  .preview-body{
+    background:var(--bg-dark2);border-radius:12px;overflow:hidden;
+    display:grid;grid-template-columns:1fr 1.15fr;min-height:300px;
+  }
+  .chat-pane{padding:26px;border-right:1px solid rgba(255,255,255,0.06);}
+  .chat-avatar{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--orange1),var(--orange2));margin-bottom:14px;}
+  .chat-bubble{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.07);color:var(--ink);font-size:13px;padding:12px 14px;border-radius:10px;margin-bottom:10px;line-height:1.5;max-width:88%;}
+  .chip-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;}
+  .chip{background:rgba(55,204,239,0.1);border:1px solid rgba(55,204,239,0.28);color:var(--blue1);font-size:12px;font-weight:600;padding:8px 12px;border-radius:999px;}
+  .gen-pane{padding:26px;display:flex;flex-direction:column;gap:12px;}
+  .gen-label{font-size:12.5px;color:var(--muted);font-weight:600;margin-bottom:2px;}
+  .gen-field{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:9px;padding:11px 13px;font-size:13px;color:var(--ink);}
+  .gen-btn{align-self:flex-end;background:linear-gradient(90deg,var(--blue1),var(--blue2));color:#fff;font-size:12.5px;font-weight:800;padding:9px 16px;border-radius:999px;}
+  .gen-lang{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
+  .lang-opt{font-size:12.5px;color:var(--muted-dim);padding:7px 10px;border-radius:7px;}
+  .lang-opt.active{background:rgba(255,162,51,0.14);color:var(--orange1);font-weight:700;}
+
+  .powered{text-align:center;color:var(--muted-dim);font-size:13px;font-weight:600;letter-spacing:.3px;padding-bottom:56px;position:relative;z-index:2;}
+  .powered b{color:var(--muted);}
+
+  /* ---------- LOGO / REPLACING STRIP ---------- */
+  .strip{background:var(--bg-deep);border-top:1px solid rgba(255,255,255,0.06);padding:34px 32px;position:relative;z-index:2;}
+  .strip-label{text-align:center;color:var(--muted-dim);font-size:12.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:20px;}
+  .strip-row{display:flex;justify-content:center;gap:44px;flex-wrap:wrap;}
+  .strip-row span{color:var(--muted);font-weight:800;font-size:16px;opacity:.6;letter-spacing:.2px;}
+
+  /* ---------- STATS ---------- */
+  .stats-section{background:var(--light-bg2);padding:88px 32px;}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 48px;}
+  .section-eyebrow{color:var(--blue2);font-weight:800;font-size:12.5px;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:12px;}
+  .section-h2{font-size:clamp(28px,4vw,38px);font-weight:800;color:var(--heading-dark);letter-spacing:-.8px;line-height:1.15;}
+  .stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:1080px;margin:0 auto;}
+  .stat-card{background:#fff;border:1px solid #e2ecef;border-radius:16px;padding:28px 18px;text-align:center;}
+  .stat-num{font-size:34px;font-weight:800;background:linear-gradient(90deg,var(--blue2),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-1px;}
+  .stat-label{font-size:13px;color:#5c7480;font-weight:600;margin-top:6px;line-height:1.4;}
+  @media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- FEATURES ---------- */
+  .features-section{background:var(--bg-dark);padding:100px 32px;position:relative;overflow:hidden;}
+  .features-section .dotgrid{opacity:.2;mask-image:radial-gradient(60% 60% at 50% 50%, black 0%, transparent 80%);}
+  .features-head{position:relative;z-index:2;text-align:center;max-width:680px;margin:0 auto 20px;}
+  .features-head .section-h2{color:#fff;}
+  .features-head p{color:var(--muted);font-size:16px;margin-top:14px;}
+  .replacing-line{text-align:center;color:var(--muted-dim);font-size:13px;margin-bottom:56px;position:relative;z-index:2;}
+  .replacing-line b{color:var(--muted);}
+  .feature-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:1080px;margin:0 auto;}
+  .feature-card{
+    background:var(--card);border:1px solid var(--card-line);border-radius:18px;padding:32px;
+    display:flex;flex-direction:column;gap:16px;transition:transform .25s ease, border-color .25s ease;
+  }
+  .feature-card:hover{transform:translateY(-4px);border-color:rgba(255,162,51,0.35);}
+  .f-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(255,162,51,0.12);}
+  .f-icon svg{width:22px;height:22px;stroke:var(--orange1);}
+  .feature-card h3{color:#fff;font-size:19px;font-weight:800;letter-spacing:-.3px;}
+  .feature-card p{color:var(--muted);font-size:14.5px;line-height:1.65;}
+  .f-stat{
+    margin-top:auto;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;
+    padding:14px 16px;display:flex;justify-content:space-between;align-items:center;
+  }
+  .f-stat .fs-num{font-weight:800;font-size:15px;background:linear-gradient(90deg,var(--blue1),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .f-stat .fs-label{font-size:12.5px;color:var(--muted-dim);text-align:right;}
+  @media(max-width:820px){.feature-grid{grid-template-columns:1fr;}}
+
+  /* ---------- feature visuals: blob + floating card ---------- */
+  .visual{
+    margin-top:auto;position:relative;border-radius:18px;padding:22px;min-height:230px;
+    overflow:hidden;isolation:isolate;
+  }
+  .visual::before{
+    content:"";position:absolute;top:14px;right:20px;width:16px;height:16px;border-radius:5px;
+    background:rgba(255,255,255,0.28);z-index:0;
+  }
+  .visual::after{
+    content:"";position:absolute;bottom:16px;left:18px;width:11px;height:11px;border-radius:4px;
+    background:rgba(255,255,255,0.2);z-index:0;
+  }
+  .visual-orange{background:linear-gradient(150deg,var(--orange1) 0%,var(--orange2) 100%);}
+  .visual-blue{background:linear-gradient(150deg,var(--blue1) 0%,var(--blue2) 100%);}
+  .visual-teal{background:linear-gradient(150deg,var(--green) 0%,var(--blue2) 100%);}
+  .visual-navy{background:linear-gradient(150deg,#1c4751 0%,#072730 100%);}
+
+  .float-card{
+    position:relative;z-index:2;background:#0e343f;border:1px solid rgba(255,255,255,0.08);
+    border-radius:13px;box-shadow:0 20px 40px -12px rgba(0,0,0,0.45);
+  }
+
+  /* card 1: ideal prospects */
+  .stack-peek{position:absolute;left:16px;top:16px;width:64%;z-index:1;}
+  .stack-row{background:rgba(255,255,255,0.14);border-radius:9px;padding:8px 10px;display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+  .stack-row .dot-av{width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,0.5);flex-shrink:0;}
+  .stack-row .stack-line{flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,0.38);}
+  .profile-card{position:absolute;right:14px;bottom:14px;left:auto;width:76%;padding:16px;z-index:2;}
+  .profile-top{display:flex;align-items:center;gap:11px;margin-bottom:12px;}
+  .profile-avatar{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,var(--orange1),var(--orange2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;flex-shrink:0;}
+  .profile-name{font-size:14px;font-weight:700;color:#fff;}
+  .profile-role{font-size:11.5px;color:var(--muted-dim);}
+  .profile-icons{display:flex;gap:6px;margin-left:auto;}
+  .profile-icons span{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;}
+  .profile-icons svg{width:10px;height:10px;stroke:var(--muted);fill:none;stroke-width:2.2;}
+  .profile-block{margin-bottom:9px;}
+  .profile-label{font-size:10px;color:var(--muted-dim);font-weight:700;letter-spacing:.3px;text-transform:uppercase;margin-bottom:4px;}
+  .profile-check{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--ink);font-weight:600;margin-bottom:3px;}
+  .profile-check svg{width:12px;height:12px;stroke:var(--green);fill:none;stroke-width:3;flex-shrink:0;}
+  .profile-tag{display:inline-block;background:rgba(255,162,51,0.14);color:var(--orange1);font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;}
+
+  /* card 2: multichannel outreach */
+  .chan-col{position:absolute;left:16px;top:20px;bottom:20px;width:46px;z-index:1;display:flex;flex-direction:column;justify-content:space-between;align-items:center;}
+  .chan-node{width:30px;height:30px;border-radius:9px;background:rgba(255,255,255,0.92);display:flex;align-items:center;justify-content:center;position:relative;}
+  .chan-node svg{width:14px;height:14px;stroke:var(--blue2);fill:none;stroke-width:2.2;}
+  .chan-node.done::after{content:"";position:absolute;bottom:-3px;right:-3px;width:11px;height:11px;border-radius:50%;background:var(--green);border:2px solid #fff;}
+  .chan-line-v{width:2px;flex:1;background:rgba(255,255,255,0.4);}
+  .email-card{position:absolute;right:12px;top:16px;bottom:16px;left:74px;padding:0;overflow:hidden;z-index:2;}
+  .email-head{background:rgba(255,255,255,0.06);padding:9px 13px;font-size:11px;font-weight:700;color:#fff;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.07);}
+  .email-body{padding:13px;}
+  .email-meta{font-size:10.5px;color:var(--muted-dim);margin-bottom:6px;}
+  .email-meta b{color:var(--muted);}
+  .email-text{font-size:11.5px;color:var(--ink);line-height:1.6;}
+  .email-highlight{background:rgba(55,204,239,0.16);color:var(--blue1);border-radius:4px;padding:1px 5px;font-weight:600;}
+  .email-sign{margin-top:8px;font-size:11.5px;color:var(--ink);font-weight:600;}
+
+  /* card 3: trigger diagram */
+  .trig-chips{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:14px;}
+  .trig-chip{background:rgba(255,255,255,0.92);border-radius:8px;padding:7px 8px;font-size:10px;font-weight:700;color:var(--heading-dark);display:flex;align-items:center;gap:5px;}
+  .trig-chip svg{width:11px;height:11px;stroke:var(--blue2);fill:none;stroke-width:2.4;flex-shrink:0;}
+  .trig-arrow{position:relative;z-index:2;display:flex;justify-content:center;margin-bottom:10px;}
+  .trig-pill{background:rgba(255,255,255,0.95);color:var(--heading-dark);font-size:11px;font-weight:800;padding:6px 16px;border-radius:999px;}
+  .trig-result{position:relative;z-index:2;padding:14px 16px;display:flex;align-items:center;gap:12px;}
+  .trig-avatar{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--blue1),var(--blue2));flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;}
+  .trig-name{font-size:13px;font-weight:700;color:#fff;}
+  .trig-role{font-size:11px;color:var(--muted-dim);}
+
+  /* card 4: analytics dashboard */
+  .dash-card{position:absolute;inset:14px;padding:16px;z-index:2;display:flex;flex-direction:column;}
+  .dash-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+  .dash-title{font-size:12.5px;font-weight:700;color:#fff;}
+  .dash-tabs{display:flex;gap:5px;}
+  .dash-tab{font-size:9.5px;font-weight:700;color:var(--muted-dim);padding:4px 8px;border-radius:6px;}
+  .dash-tab.active{background:linear-gradient(90deg,var(--orange1),var(--orange2));color:#fff;}
+  .dash-panels{display:grid;grid-template-columns:1.3fr 1fr;gap:12px;flex:1;}
+  .dash-panel{background:rgba(255,255,255,0.04);border-radius:9px;padding:10px 12px;}
+  .dash-panel-title{font-size:9.5px;color:var(--muted-dim);font-weight:700;margin-bottom:8px;}
+  .funnel-row{display:flex;align-items:center;gap:6px;margin-bottom:5px;}
+  .funnel-bar{height:8px;border-radius:3px;background:linear-gradient(90deg,var(--orange1),var(--orange2));}
+  .donut-wrap{display:flex;align-items:center;justify-content:center;padding-top:6px;}
+
+  /* ---------- CLOSING CTA ---------- */
+  .cta-band{background:var(--light-bg);padding:96px 32px;text-align:center;}
+  .cta-band h2{font-size:clamp(26px,3.6vw,34px);font-weight:800;color:var(--heading-dark);letter-spacing:-.6px;margin-bottom:12px;}
+  .cta-band p{color:#5c7480;font-size:16px;margin-bottom:28px;}
+  .cta-links{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-bottom:34px;}
+  .cta-links a{font-weight:700;font-size:14.5px;color:var(--blue2);}
+  .cta-links a:hover{text-decoration:underline;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--bg-deep);padding:44px 32px;}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;max-width:1240px;margin:0 auto;}
+  .foot-links{display:flex;gap:26px;flex-wrap:wrap;}
+  .foot-links a{color:var(--muted);font-size:13.5px;font-weight:600;}
+  .foot-links a:hover{color:#fff;}
+  .foot-copy{color:var(--muted-dim);font-size:13px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="navrow">
+    <div class="logo"><span class="dot">L</span>LeadStrong<span class="ai">.ai</span></div>
+    <div class="navlinks">
+      <a href="#">Services</a>
+      <a href="#">About Us</a>
+      <a href="#">Partner</a>
+      <a href="#">Case Studies</a>
+      <a href="#">Pricing</a>
+    </div>
+    <a href="#" class="nav-cta">Book a strategy session</a>
+    <button id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="dotgrid"></div>
+
+  <svg class="aurora" viewBox="0 0 1440 420" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#ffa233"/>
+        <stop offset="100%" stop-color="#ec5a2c"/>
+      </linearGradient>
+      <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#37ccef"/>
+        <stop offset="100%" stop-color="#0089c6"/>
+      </linearGradient>
+      <linearGradient id="g3" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#2bb5a0"/>
+        <stop offset="100%" stop-color="#37ccef"/>
+      </linearGradient>
+      <filter id="blur1" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="26"/>
+      </filter>
+    </defs>
+    <g filter="url(#blur1)" opacity="0.55" style="mix-blend-mode:screen">
+      <path d="M0,260 C240,180 380,340 620,260 C860,180 1020,320 1260,240 C1360,210 1420,230 1440,240 L1440,420 L0,420 Z" fill="url(#g2)"/>
+      <path d="M0,300 C220,340 420,220 660,300 C900,380 1080,260 1300,300 C1380,315 1420,300 1440,300 L1440,420 L0,420 Z" fill="url(#g1)" opacity="0.85"/>
+      <path d="M0,230 C260,290 500,190 760,250 C1000,305 1160,210 1440,270 L1440,420 L0,420 Z" fill="url(#g3)" opacity="0.6"/>
+    </g>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="badge"><b>New</b> Introducing Katie <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 18l6-6-6-6"/></svg></div>
+    <h1 class="hero-h">Meet <span class="accent">Katie.</span></h1>
+    <p class="hero-sub">Your new AI Outbound Agent that never sleeps, always follows up, and uses data to find your best prospects and personalize every interaction.</p>
+    <div class="hero-ctas">
+      <a href="#" class="btn-primary">Book a strategy session <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="#" class="btn-secondary">See it in action</a>
+    </div>
+  </div>
+
+  <div class="preview-wrap">
+    <div class="preview-card">
+      <div class="preview-topbar"><span></span><span></span><span></span></div>
+      <div class="preview-body">
+        <div class="chat-pane">
+          <div class="chat-avatar"></div>
+          <div class="chat-bubble">Hi, I'm Katie, your campaign builder assistant. How can I help you today?</div>
+          <div class="chip-row">
+            <div class="chip">Create my pitch from our website</div>
+            <div class="chip">Build pitch from success stories</div>
+          </div>
+        </div>
+        <div class="gen-pane">
+          <div class="gen-label">Time to create your unique selling point</div>
+          <div class="chat-bubble" style="max-width:100%;">I'll pull your unique value proposition straight from your website. Think of it as training me on your company, so I can deliver the perfect message every time.</div>
+          <div class="gen-field">leadstrong.ai</div>
+          <div class="gen-btn">Generate</div>
+          <div class="gen-lang">
+            <div class="gen-label" style="margin-top:6px;">Choose language</div>
+            <div class="lang-opt active">American English</div>
+            <div class="lang-opt">British English</div>
+            <div class="lang-opt">French</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="powered">LeadStrong is powered by <b>Alta's</b> cutting-edge platform</div>
+</section>
+
+<div class="strip">
+  <div class="strip-label">Replacing your patchwork of point solutions</div>
+  <div class="strip-row">
+    <span>Apollo</span><span>Zoominfo</span><span>Salesloft</span><span>Warmly</span><span>Dripify</span><span>Braze</span><span>Jasper</span>
+  </div>
+</div>
+
+<section class="stats-section">
+  <div class="section-head">
+    <div class="section-eyebrow">Why It Works</div>
+    <h2 class="section-h2">Why Choose an AI Outbound Agent</h2>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-num">3x</div><div class="stat-label">Increase in qualified leads</div></div>
+    <div class="stat-card"><div class="stat-num">50%</div><div class="stat-label">Reduction in sales cycle length</div></div>
+    <div class="stat-card"><div class="stat-num">8H</div><div class="stat-label">Weekly time saved on outreach tasks</div></div>
+    <div class="stat-card"><div class="stat-num">55%</div><div class="stat-label">Improvement in response rates</div></div>
+    <div class="stat-card"><div class="stat-num">80%</div><div class="stat-label">Reduction in costs</div></div>
+  </div>
+</section>
+
+<section class="features-section">
+  <div class="dotgrid"></div>
+  <div class="features-head">
+    <div class="section-eyebrow" style="color:var(--blue1);">How Katie Works</div>
+    <h2 class="section-h2">Four Stages, One Autonomous Agent</h2>
+    <p>From discovery to analytics, Katie runs your outbound motion end to end.</p>
+  </div>
+  <div class="replacing-line">Built to replace <b>Apollo, Salesloft, Warmly, Dripify, Braze, Jasper, spreadsheets and BI tools</b></div>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+      <h3>Your Ideal Prospects, Identified by AI, Backed by Data</h3>
+      <p>Katie uses your CRM and 50+ data sources and signals to identify your ICP and high-value prospects, automating research and prospecting while adjusting targeting in real time.</p>
+      <div class="visual visual-orange">
+        <div class="stack-peek">
+          <div class="stack-row"><div class="dot-av"></div><div class="stack-line"></div></div>
+          <div class="stack-row"><div class="dot-av"></div><div class="stack-line"></div></div>
+          <div class="stack-row"><div class="dot-av"></div><div class="stack-line"></div></div>
+        </div>
+        <div class="float-card profile-card">
+          <div class="profile-top">
+            <div class="profile-avatar">JD</div>
+            <div><div class="profile-name">Jordan Diaz</div><div class="profile-role">VP Sales · Acme Co</div></div>
+            <div class="profile-icons">
+              <span><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .7 3a2 2 0 01-.4 2.1L8 10.3a16 16 0 006 6l1.5-1.4a2 2 0 012.1-.4c1 .4 2 .6 3 .7a2 2 0 011.7 2z"/></svg></span>
+              <span><svg viewBox="0 0 24 24"><path d="M3 6l9 7 9-7"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></span>
+            </div>
+          </div>
+          <div class="profile-block">
+            <div class="profile-label">ICP Segment</div>
+            <div class="profile-check" style="color:var(--muted);">VP Sales, East Coast · 200–1000 employees</div>
+          </div>
+          <div class="profile-block">
+            <div class="profile-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Work email verified</div>
+            <div class="profile-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>94% ICP match score</div>
+          </div>
+          <span class="profile-tag">Scaling outreach ops</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
+      <h3>Automated & Unified Multi-Channel Outreach</h3>
+      <p>Effortlessly send follow-up messages through email, LinkedIn, and text, ensuring consistent communication across all channels while training Katie on your sales playbooks.</p>
+      <div class="visual visual-teal">
+        <div class="chan-col">
+          <div class="chan-node done"><svg viewBox="0 0 24 24"><path d="M3 6l9 7 9-7"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></div>
+          <div class="chan-line-v"></div>
+          <div class="chan-node done"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M8 12h8M12 8v8"/></svg></div>
+          <div class="chan-line-v"></div>
+          <div class="chan-node"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-3.8 7.6L3 21l1.9-5.7a8.38 8.38 0 1116.1-3.8z"/></svg></div>
+        </div>
+        <div class="float-card email-card">
+          <div class="email-head">New message <span style="opacity:.5;">×</span></div>
+          <div class="email-body">
+            <div class="email-meta"><b>To:</b> Jordan Diaz</div>
+            <div class="email-meta"><b>Subject:</b> Your new AI SDR</div>
+            <div class="email-text">Hi Jordan, I noticed <span class="email-highlight">Acme's sales team grew 20%</span> this quarter, congrats. With rising demand in <span class="email-highlight">enterprise fintech</span>, have you considered AI to help book even more qualified meetings?</div>
+            <div class="email-sign">Best, Katie</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+      <h3>Personalized Communication at Scale, 24/7 Scheduling</h3>
+      <p>Katie uses research data to craft highly personalized messages tailored to your target persona, applying insights from previous successes to improve reply rates.</p>
+      <div class="visual visual-blue">
+        <div class="trig-chips">
+          <div class="trig-chip"><svg viewBox="0 0 24 24"><path d="M4 4h16v4H4zM4 10h10v10H4zM16 10h4v10h-4z"/></svg>CRM synced</div>
+          <div class="trig-chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>Website visit</div>
+          <div class="trig-chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M8 12h8M12 8v8"/></svg>LinkedIn post</div>
+          <div class="trig-chip"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/></svg>Funding round</div>
+          <div class="trig-chip"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>Page view</div>
+          <div class="trig-chip"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87"/></svg>Job change</div>
+        </div>
+        <div class="trig-arrow"><span class="trig-pill">⚡ Trigger fires</span></div>
+        <div class="float-card trig-result">
+          <div class="trig-avatar">JA</div>
+          <div><div class="trig-name">James Anderson</div><div class="trig-role">VP of Sales, message personalized & sent</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></div>
+      <h3>Advanced Analytics, Effortless Integration</h3>
+      <p>Gain valuable insights into your best campaigns and segments while our platform runs on autopilot, seamlessly integrating with your existing tech stack.</p>
+      <div class="visual visual-navy" style="padding:0;">
+        <div class="float-card dash-card" style="position:absolute;">
+          <div class="dash-head">
+            <div class="dash-title">Sales Outreach Analytics</div>
+            <div class="dash-tabs"><span class="dash-tab">MTD</span><span class="dash-tab active">QTD</span><span class="dash-tab">YTD</span></div>
+          </div>
+          <div class="dash-panels">
+            <div class="dash-panel">
+              <div class="dash-panel-title">Campaign funnel, current quarter</div>
+              <div class="funnel-row"><span style="font-size:9.5px;color:var(--muted-dim);width:44px;">Sent</span><div class="funnel-bar" style="width:88%;"></div></div>
+              <div class="funnel-row"><span style="font-size:9.5px;color:var(--muted-dim);width:44px;">Opened</span><div class="funnel-bar" style="width:66%;"></div></div>
+              <div class="funnel-row"><span style="font-size:9.5px;color:var(--muted-dim);width:44px;">Replied</span><div class="funnel-bar" style="width:40%;"></div></div>
+              <div class="funnel-row"><span style="font-size:9.5px;color:var(--muted-dim);width:44px;">Booked</span><div class="funnel-bar" style="width:22%;"></div></div>
+            </div>
+            <div class="dash-panel">
+              <div class="dash-panel-title">Meetings by segment</div>
+              <div class="donut-wrap">
+                <svg width="72" height="72" viewBox="0 0 36 36">
+                  <circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="5"/>
+                  <circle cx="18" cy="18" r="15.5" fill="none" stroke="url(#dg)" stroke-width="5" stroke-dasharray="73 100" stroke-linecap="round" transform="rotate(-90 18 18)"/>
+                  <defs><linearGradient id="dg"><stop offset="0%" stop-color="#37ccef"/><stop offset="100%" stop-color="#ffa233"/></linearGradient></defs>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>See it in the context of your growth engine</h2>
+  <p>Katie is one part of a fully-managed LeadStrong program.</p>
+  <div class="cta-links">
+    <a href="#">View pricing →</a>
+    <a href="#">See case studies →</a>
+    <a href="#">About LeadStrong →</a>
+  </div>
+  <a href="#" class="btn-primary">Book a strategy session</a>
+</section>
+
+<footer>
+  <div class="foot-row">
+    <div class="logo"><span class="dot">L</span>LeadStrong<span class="ai">.ai</span></div>
+    <div class="foot-links">
+      <a href="#">Privacy</a>
+      <a href="#">info@leadstrong.ai</a>
+      <a href="#">About Us</a>
+    </div>
+    <div class="foot-copy">Copyright 2026 LeadStrong</div>
+  </div>
+</footer>
+
+</body>
+</html>
